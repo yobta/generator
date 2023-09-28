@@ -12,7 +12,7 @@ export interface Templates {
             pathname: TemplateDelegate;
             index: TemplateDelegate;
         };
-        factories: {
+        'data-types': {
             types: TemplateDelegate;
             index: TemplateDelegate;
         };
@@ -48,7 +48,7 @@ export const registerHandlebarTemplates = (root: { useUnionTypes: boolean }): Te
                 pathname: handlebars.template(precompiledTemplates.templatePathname),
                 index: handlebars.template(precompiledTemplates.templatePathnameIndex),
             },
-            factories: {
+            'data-types': {
                 types: handlebars.template(precompiledTemplates.templateFactoryTypes),
                 index: handlebars.template(precompiledTemplates.templateFactoryIndex),
             },

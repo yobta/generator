@@ -2,7 +2,7 @@ import { EOL } from 'os';
 
 import { templates } from './__mocks__/templates';
 import { writeFile } from './fileSystem';
-import { writeClientFactories } from './writeClientFactories';
+import { writeClientDataTypes } from './writeClientDataTypes';
 import { Indent } from '../Indent';
 import { Service } from '../client/interfaces/Service';
 
@@ -17,7 +17,7 @@ describe('writeClientFactories', () => {
                 imports: [],
             },
         ];
-        await writeClientFactories(services, templates, '/', Indent.SPACE_4, false);
+        await writeClientDataTypes(services, templates, '/', Indent.SPACE_4, false);
 
         expect(writeFile).toBeCalledWith('/index.ts', `factoriesIndex${EOL}`);
     });

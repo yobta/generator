@@ -7,7 +7,7 @@ describe('registerHandlebarTemplates', () => {
         });
         expect(templates.index).toBeDefined();
         expect(templates.exports.pathnames).toBeDefined();
-        expect(templates.exports.factories).toBeDefined();
+        expect(templates.exports['data-types']).toBeDefined();
         expect(templates.exports.client).toBeDefined();
         expect(templates.exports.hooks).toBeDefined();
         expect(templates.exports.server).toBeDefined();

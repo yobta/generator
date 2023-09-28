@@ -7,7 +7,7 @@ exports[`v2 should generate: test/generated/v2/client/CollectionFormat.ts 1`] = 
 /* eslint-disable */
 "use client";
 
-import * as Types from '../factories/types.js';
+import * as Types from '../data-types/types.js';
 import { createClientResolver } from '../../../../factories-module.js';
 
 /**
@@ -27,7 +27,7 @@ exports[`v2 should generate: test/generated/v2/client/Complex.ts 1`] = `
 /* eslint-disable */
 "use client";
 
-import * as Types from '../factories/types.js';
+import * as Types from '../data-types/types.js';
 import { createClientResolver } from '../../../../factories-module.js';
 
 /**
@@ -48,7 +48,7 @@ exports[`v2 should generate: test/generated/v2/client/Default.ts 1`] = `
 /* eslint-disable */
 "use client";
 
-import * as Types from '../factories/types.js';
+import * as Types from '../data-types/types.js';
 import { createClientResolver } from '../../../../factories-module.js';
 
 /**
@@ -68,7 +68,7 @@ exports[`v2 should generate: test/generated/v2/client/Defaults.ts 1`] = `
 /* eslint-disable */
 "use client";
 
-import * as Types from '../factories/types.js';
+import * as Types from '../data-types/types.js';
 import { createClientResolver } from '../../../../factories-module.js';
 
 /**
@@ -100,7 +100,7 @@ exports[`v2 should generate: test/generated/v2/client/Descriptions.ts 1`] = `
 /* eslint-disable */
 "use client";
 
-import * as Types from '../factories/types.js';
+import * as Types from '../data-types/types.js';
 import { createClientResolver } from '../../../../factories-module.js';
 
 /**
@@ -120,7 +120,7 @@ exports[`v2 should generate: test/generated/v2/client/Duplicate.ts 1`] = `
 /* eslint-disable */
 "use client";
 
-import * as Types from '../factories/types.js';
+import * as Types from '../data-types/types.js';
 import { createClientResolver } from '../../../../factories-module.js';
 
 /**
@@ -158,7 +158,7 @@ exports[`v2 should generate: test/generated/v2/client/Error.ts 1`] = `
 /* eslint-disable */
 "use client";
 
-import * as Types from '../factories/types.js';
+import * as Types from '../data-types/types.js';
 import { createClientResolver } from '../../../../factories-module.js';
 
 /**
@@ -179,7 +179,7 @@ exports[`v2 should generate: test/generated/v2/client/Header.ts 1`] = `
 /* eslint-disable */
 "use client";
 
-import * as Types from '../factories/types.js';
+import * as Types from '../data-types/types.js';
 import { createClientResolver } from '../../../../factories-module.js';
 
 /**
@@ -200,7 +200,7 @@ exports[`v2 should generate: test/generated/v2/client/MultipleTags1.ts 1`] = `
 /* eslint-disable */
 "use client";
 
-import * as Types from '../factories/types.js';
+import * as Types from '../data-types/types.js';
 import { createClientResolver } from '../../../../factories-module.js';
 
 /**
@@ -228,7 +228,7 @@ exports[`v2 should generate: test/generated/v2/client/MultipleTags2.ts 1`] = `
 /* eslint-disable */
 "use client";
 
-import * as Types from '../factories/types.js';
+import * as Types from '../data-types/types.js';
 import { createClientResolver } from '../../../../factories-module.js';
 
 /**
@@ -256,7 +256,7 @@ exports[`v2 should generate: test/generated/v2/client/MultipleTags3.ts 1`] = `
 /* eslint-disable */
 "use client";
 
-import * as Types from '../factories/types.js';
+import * as Types from '../data-types/types.js';
 import { createClientResolver } from '../../../../factories-module.js';
 
 /**
@@ -277,7 +277,7 @@ exports[`v2 should generate: test/generated/v2/client/NoContent.ts 1`] = `
 /* eslint-disable */
 "use client";
 
-import * as Types from '../factories/types.js';
+import * as Types from '../data-types/types.js';
 import { createClientResolver } from '../../../../factories-module.js';
 
 /**
@@ -298,7 +298,7 @@ exports[`v2 should generate: test/generated/v2/client/Parameters.ts 1`] = `
 /* eslint-disable */
 "use client";
 
-import * as Types from '../factories/types.js';
+import * as Types from '../data-types/types.js';
 import { createClientResolver } from '../../../../factories-module.js';
 
 /**
@@ -324,7 +324,7 @@ exports[`v2 should generate: test/generated/v2/client/Response.ts 1`] = `
 /* eslint-disable */
 "use client";
 
-import * as Types from '../factories/types.js';
+import * as Types from '../data-types/types.js';
 import { createClientResolver } from '../../../../factories-module.js';
 
 /**
@@ -362,7 +362,7 @@ exports[`v2 should generate: test/generated/v2/client/Simple.ts 1`] = `
 /* eslint-disable */
 "use client";
 
-import * as Types from '../factories/types.js';
+import * as Types from '../data-types/types.js';
 import { createClientResolver } from '../../../../factories-module.js';
 
 /**
@@ -418,7 +418,7 @@ exports[`v2 should generate: test/generated/v2/client/Types.ts 1`] = `
 /* eslint-disable */
 "use client";
 
-import * as Types from '../factories/types.js';
+import * as Types from '../data-types/types.js';
 import { createClientResolver } from '../../../../factories-module.js';
 
 /**
@@ -462,7 +462,353 @@ export * as error from './Error.js';
 "
 `;
 
-exports[`v2 should generate: test/generated/v2/factories/index.ts 1`] = `
+exports[`v2 should generate: test/generated/v2/hooks/CollectionFormat.ts 1`] = `
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
+/* tslint:disable */
+/* eslint-disable */
+
+import * as Types from '../data-types/types.js';
+import { createSwrHook } from '../../../../factories-module.js';
+
+export const useCollectionFormat = createSwrHook<Types.CollectionFormatCollectionFormatInput, Types.CollectionFormatCollectionFormatOutput>({
+    path: '/api/v{api-version}/collectionFormat',
+    method: 'GET',
+});
+
+"
+`;
+
+exports[`v2 should generate: test/generated/v2/hooks/Complex.ts 1`] = `
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
+/* tslint:disable */
+/* eslint-disable */
+
+import * as Types from '../data-types/types.js';
+import { createSwrHook } from '../../../../factories-module.js';
+
+export const useComplexTypes = createSwrHook<Types.ComplexComplexTypesInput, Types.ComplexComplexTypesOutput>({
+    path: '/api/v{api-version}/complex',
+    method: 'GET',
+});
+
+"
+`;
+
+exports[`v2 should generate: test/generated/v2/hooks/Default.ts 1`] = `
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
+/* tslint:disable */
+/* eslint-disable */
+
+import * as Types from '../data-types/types.js';
+import { createSwrHook } from '../../../../factories-module.js';
+
+export const useServiceWithEmptyTag = createSwrHook<Types.DefaultServiceWithEmptyTagInput, Types.DefaultServiceWithEmptyTagOutput>({
+    path: '/api/v{api-version}/no-tag',
+    method: 'GET',
+});
+
+"
+`;
+
+exports[`v2 should generate: test/generated/v2/hooks/Defaults.ts 1`] = `
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
+/* tslint:disable */
+/* eslint-disable */
+
+import * as Types from '../data-types/types.js';
+import { createSwrHook } from '../../../../factories-module.js';
+
+export const useCallWithDefaultParameters = createSwrHook<Types.DefaultsCallWithDefaultParametersInput, Types.DefaultsCallWithDefaultParametersOutput>({
+    path: '/api/v{api-version}/defaults',
+    method: 'GET',
+});
+
+"
+`;
+
+exports[`v2 should generate: test/generated/v2/hooks/Duplicate.ts 1`] = `
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
+/* tslint:disable */
+/* eslint-disable */
+
+import * as Types from '../data-types/types.js';
+import { createSwrHook } from '../../../../factories-module.js';
+
+export const useDuplicateName = createSwrHook<Types.DuplicateDuplicateNameInput, Types.DuplicateDuplicateNameOutput>({
+    path: '/api/v{api-version}/duplicate',
+    method: 'GET',
+});
+
+"
+`;
+
+exports[`v2 should generate: test/generated/v2/hooks/MultipleTags1.ts 1`] = `
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
+/* tslint:disable */
+/* eslint-disable */
+
+import * as Types from '../data-types/types.js';
+import { createSwrHook } from '../../../../factories-module.js';
+
+export const useDummyA = createSwrHook<Types.MultipleTags1DummyAInput, Types.MultipleTags1DummyAOutput>({
+    path: '/api/v{api-version}/multiple-tags/a',
+    method: 'GET',
+});
+export const useDummyB = createSwrHook<Types.MultipleTags1DummyBInput, Types.MultipleTags1DummyBOutput>({
+    path: '/api/v{api-version}/multiple-tags/b',
+    method: 'GET',
+});
+
+"
+`;
+
+exports[`v2 should generate: test/generated/v2/hooks/MultipleTags2.ts 1`] = `
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
+/* tslint:disable */
+/* eslint-disable */
+
+import * as Types from '../data-types/types.js';
+import { createSwrHook } from '../../../../factories-module.js';
+
+export const useDummyA = createSwrHook<Types.MultipleTags2DummyAInput, Types.MultipleTags2DummyAOutput>({
+    path: '/api/v{api-version}/multiple-tags/a',
+    method: 'GET',
+});
+export const useDummyB = createSwrHook<Types.MultipleTags2DummyBInput, Types.MultipleTags2DummyBOutput>({
+    path: '/api/v{api-version}/multiple-tags/b',
+    method: 'GET',
+});
+
+"
+`;
+
+exports[`v2 should generate: test/generated/v2/hooks/MultipleTags3.ts 1`] = `
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
+/* tslint:disable */
+/* eslint-disable */
+
+import * as Types from '../data-types/types.js';
+import { createSwrHook } from '../../../../factories-module.js';
+
+export const useDummyB = createSwrHook<Types.MultipleTags3DummyBInput, Types.MultipleTags3DummyBOutput>({
+    path: '/api/v{api-version}/multiple-tags/b',
+    method: 'GET',
+});
+
+"
+`;
+
+exports[`v2 should generate: test/generated/v2/hooks/NoContent.ts 1`] = `
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
+/* tslint:disable */
+/* eslint-disable */
+
+import * as Types from '../data-types/types.js';
+import { createSwrHook } from '../../../../factories-module.js';
+
+export const useCallWithNoContentResponse = createSwrHook<Types.NoContentCallWithNoContentResponseInput, Types.NoContentCallWithNoContentResponseOutput>({
+    path: '/api/v{api-version}/no-content',
+    method: 'GET',
+});
+
+"
+`;
+
+exports[`v2 should generate: test/generated/v2/hooks/Response.ts 1`] = `
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
+/* tslint:disable */
+/* eslint-disable */
+
+import * as Types from '../data-types/types.js';
+import { createSwrHook } from '../../../../factories-module.js';
+
+export const useCallWithResponse = createSwrHook<Types.ResponseCallWithResponseInput, Types.ResponseCallWithResponseOutput>({
+    path: '/api/v{api-version}/response',
+    method: 'GET',
+});
+
+"
+`;
+
+exports[`v2 should generate: test/generated/v2/hooks/Simple.ts 1`] = `
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
+/* tslint:disable */
+/* eslint-disable */
+
+import * as Types from '../data-types/types.js';
+import { createSwrHook } from '../../../../factories-module.js';
+
+export const useGetCallWithoutParametersAndResponse = createSwrHook<Types.SimpleGetCallWithoutParametersAndResponseInput, Types.SimpleGetCallWithoutParametersAndResponseOutput>({
+    path: '/api/v{api-version}/simple',
+    method: 'GET',
+});
+
+"
+`;
+
+exports[`v2 should generate: test/generated/v2/hooks/Types.ts 1`] = `
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
+/* tslint:disable */
+/* eslint-disable */
+
+import * as Types from '../data-types/types.js';
+import { createSwrHook } from '../../../../factories-module.js';
+
+export const useTypes = createSwrHook<Types.TypesTypesInput, Types.TypesTypesOutput>({
+    path: '/api/v{api-version}/types',
+    method: 'GET',
+});
+
+"
+`;
+
+exports[`v2 should generate: test/generated/v2/hooks/index.ts 1`] = `
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
+/* tslint:disable */
+/* eslint-disable */
+
+export * as default from './Default.js';
+export * as simple from './Simple.js';
+export * as defaults from './Defaults.js';
+export * as duplicate from './Duplicate.js';
+export * as noContent from './NoContent.js';
+export * as multipleTags1 from './MultipleTags1.js';
+export * as multipleTags2 from './MultipleTags2.js';
+export * as multipleTags3 from './MultipleTags3.js';
+export * as response from './Response.js';
+export * as collectionFormat from './CollectionFormat.js';
+export * as types from './Types.js';
+export * as complex from './Complex.js';
+
+"
+`;
+
+exports[`v2 should generate: test/generated/v2/index.ts 1`] = `
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
+/* tslint:disable */
+/* eslint-disable */
+
+export type { _default } from './models/_default.js';
+export type { ArrayWithArray } from './models/ArrayWithArray.js';
+export type { ArrayWithBooleans } from './models/ArrayWithBooleans.js';
+export type { ArrayWithNumbers } from './models/ArrayWithNumbers.js';
+export type { ArrayWithProperties } from './models/ArrayWithProperties.js';
+export type { ArrayWithReferences } from './models/ArrayWithReferences.js';
+export type { ArrayWithStrings } from './models/ArrayWithStrings.js';
+export type { CommentWithBackticks } from './models/CommentWithBackticks.js';
+export type { CommentWithBreaks } from './models/CommentWithBreaks.js';
+export type { CommentWithExpressionPlaceholders } from './models/CommentWithExpressionPlaceholders.js';
+export type { CommentWithQuotes } from './models/CommentWithQuotes.js';
+export type { CommentWithReservedCharacters } from './models/CommentWithReservedCharacters.js';
+export type { CommentWithSlashes } from './models/CommentWithSlashes.js';
+export type { Date } from './models/Date.js';
+export type { DictionaryWithArray } from './models/DictionaryWithArray.js';
+export type { DictionaryWithDictionary } from './models/DictionaryWithDictionary.js';
+export type { DictionaryWithProperties } from './models/DictionaryWithProperties.js';
+export type { DictionaryWithReference } from './models/DictionaryWithReference.js';
+export type { DictionaryWithString } from './models/DictionaryWithString.js';
+export type { EnumFromDescription } from './models/EnumFromDescription.js';
+export { EnumWithExtensions } from './models/EnumWithExtensions.js';
+export { EnumWithNumbers } from './models/EnumWithNumbers.js';
+export { EnumWithStrings } from './models/EnumWithStrings.js';
+export type { ModelThatExtends } from './models/ModelThatExtends.js';
+export type { ModelThatExtendsExtends } from './models/ModelThatExtendsExtends.js';
+export type { ModelWithArray } from './models/ModelWithArray.js';
+export type { ModelWithBoolean } from './models/ModelWithBoolean.js';
+export type { ModelWithCircularReference } from './models/ModelWithCircularReference.js';
+export type { ModelWithDictionary } from './models/ModelWithDictionary.js';
+export type { ModelWithDuplicateImports } from './models/ModelWithDuplicateImports.js';
+export type { ModelWithDuplicateProperties } from './models/ModelWithDuplicateProperties.js';
+export { ModelWithEnum } from './models/ModelWithEnum.js';
+export type { ModelWithEnumFromDescription } from './models/ModelWithEnumFromDescription.js';
+export type { ModelWithInteger } from './models/ModelWithInteger.js';
+export type { ModelWithNestedEnums } from './models/ModelWithNestedEnums.js';
+export type { ModelWithNestedProperties } from './models/ModelWithNestedProperties.js';
+export type { ModelWithNullableString } from './models/ModelWithNullableString.js';
+export type { ModelWithOrderedProperties } from './models/ModelWithOrderedProperties.js';
+export type { ModelWithPattern } from './models/ModelWithPattern.js';
+export type { ModelWithProperties } from './models/ModelWithProperties.js';
+export type { ModelWithReference } from './models/ModelWithReference.js';
+export type { ModelWithString } from './models/ModelWithString.js';
+export type { SimpleBoolean } from './models/SimpleBoolean.js';
+export type { SimpleFile } from './models/SimpleFile.js';
+export type { SimpleInteger } from './models/SimpleInteger.js';
+export type { SimpleReference } from './models/SimpleReference.js';
+export type { SimpleString } from './models/SimpleString.js';
+export type { SimpleStringWithPattern } from './models/SimpleStringWithPattern.js';
+
+export { $_default } from './schemas/$_default.js';
+export { $ArrayWithArray } from './schemas/$ArrayWithArray.js';
+export { $ArrayWithBooleans } from './schemas/$ArrayWithBooleans.js';
+export { $ArrayWithNumbers } from './schemas/$ArrayWithNumbers.js';
+export { $ArrayWithProperties } from './schemas/$ArrayWithProperties.js';
+export { $ArrayWithReferences } from './schemas/$ArrayWithReferences.js';
+export { $ArrayWithStrings } from './schemas/$ArrayWithStrings.js';
+export { $CommentWithBackticks } from './schemas/$CommentWithBackticks.js';
+export { $CommentWithBreaks } from './schemas/$CommentWithBreaks.js';
+export { $CommentWithExpressionPlaceholders } from './schemas/$CommentWithExpressionPlaceholders.js';
+export { $CommentWithQuotes } from './schemas/$CommentWithQuotes.js';
+export { $CommentWithReservedCharacters } from './schemas/$CommentWithReservedCharacters.js';
+export { $CommentWithSlashes } from './schemas/$CommentWithSlashes.js';
+export { $Date } from './schemas/$Date.js';
+export { $DictionaryWithArray } from './schemas/$DictionaryWithArray.js';
+export { $DictionaryWithDictionary } from './schemas/$DictionaryWithDictionary.js';
+export { $DictionaryWithProperties } from './schemas/$DictionaryWithProperties.js';
+export { $DictionaryWithReference } from './schemas/$DictionaryWithReference.js';
+export { $DictionaryWithString } from './schemas/$DictionaryWithString.js';
+export { $EnumFromDescription } from './schemas/$EnumFromDescription.js';
+export { $EnumWithExtensions } from './schemas/$EnumWithExtensions.js';
+export { $EnumWithNumbers } from './schemas/$EnumWithNumbers.js';
+export { $EnumWithStrings } from './schemas/$EnumWithStrings.js';
+export { $ModelThatExtends } from './schemas/$ModelThatExtends.js';
+export { $ModelThatExtendsExtends } from './schemas/$ModelThatExtendsExtends.js';
+export { $ModelWithArray } from './schemas/$ModelWithArray.js';
+export { $ModelWithBoolean } from './schemas/$ModelWithBoolean.js';
+export { $ModelWithCircularReference } from './schemas/$ModelWithCircularReference.js';
+export { $ModelWithDictionary } from './schemas/$ModelWithDictionary.js';
+export { $ModelWithDuplicateImports } from './schemas/$ModelWithDuplicateImports.js';
+export { $ModelWithDuplicateProperties } from './schemas/$ModelWithDuplicateProperties.js';
+export { $ModelWithEnum } from './schemas/$ModelWithEnum.js';
+export { $ModelWithEnumFromDescription } from './schemas/$ModelWithEnumFromDescription.js';
+export { $ModelWithInteger } from './schemas/$ModelWithInteger.js';
+export { $ModelWithNestedEnums } from './schemas/$ModelWithNestedEnums.js';
+export { $ModelWithNestedProperties } from './schemas/$ModelWithNestedProperties.js';
+export { $ModelWithNullableString } from './schemas/$ModelWithNullableString.js';
+export { $ModelWithOrderedProperties } from './schemas/$ModelWithOrderedProperties.js';
+export { $ModelWithPattern } from './schemas/$ModelWithPattern.js';
+export { $ModelWithProperties } from './schemas/$ModelWithProperties.js';
+export { $ModelWithReference } from './schemas/$ModelWithReference.js';
+export { $ModelWithString } from './schemas/$ModelWithString.js';
+export { $SimpleBoolean } from './schemas/$SimpleBoolean.js';
+export { $SimpleFile } from './schemas/$SimpleFile.js';
+export { $SimpleInteger } from './schemas/$SimpleInteger.js';
+export { $SimpleReference } from './schemas/$SimpleReference.js';
+export { $SimpleString } from './schemas/$SimpleString.js';
+export { $SimpleStringWithPattern } from './schemas/$SimpleStringWithPattern.js';
+
+export * from './data-types';
+export * from './hooks';
+export * as pathnames from './pathnames';
+export * as server from './server';
+export * as client from './client';
+"
+`;
+
+exports[`v2 should generate: test/generated/v2/data-types/index.ts 1`] = `
 "/* generated using openapi-typescript-codegen -- do no edit */
 /* istanbul ignore file */
 /* tslint:disable */
@@ -473,7 +819,7 @@ export * from './types.js';
 "
 `;
 
-exports[`v2 should generate: test/generated/v2/factories/types.ts 1`] = `
+exports[`v2 should generate: test/generated/v2/data-types/types.ts 1`] = `
 "/* generated using openapi-typescript-codegen -- do no edit */
 /* istanbul ignore file */
 /* tslint:disable */
@@ -800,352 +1146,6 @@ export type ErrorTestErrorCodeInput = {
 export type ErrorTestErrorCodeOutput = any;
 
 
-"
-`;
-
-exports[`v2 should generate: test/generated/v2/hooks/CollectionFormat.ts 1`] = `
-"/* generated using openapi-typescript-codegen -- do no edit */
-/* istanbul ignore file */
-/* tslint:disable */
-/* eslint-disable */
-
-import * as Types from '../factories/types.js';
-import { createSwrHook } from '../../../../factories-module.js';
-
-export const useCollectionFormat = createSwrHook<Types.CollectionFormatCollectionFormatInput, Types.CollectionFormatCollectionFormatOutput>({
-    path: '/api/v{api-version}/collectionFormat',
-    method: 'GET',
-});
-
-"
-`;
-
-exports[`v2 should generate: test/generated/v2/hooks/Complex.ts 1`] = `
-"/* generated using openapi-typescript-codegen -- do no edit */
-/* istanbul ignore file */
-/* tslint:disable */
-/* eslint-disable */
-
-import * as Types from '../factories/types.js';
-import { createSwrHook } from '../../../../factories-module.js';
-
-export const useComplexTypes = createSwrHook<Types.ComplexComplexTypesInput, Types.ComplexComplexTypesOutput>({
-    path: '/api/v{api-version}/complex',
-    method: 'GET',
-});
-
-"
-`;
-
-exports[`v2 should generate: test/generated/v2/hooks/Default.ts 1`] = `
-"/* generated using openapi-typescript-codegen -- do no edit */
-/* istanbul ignore file */
-/* tslint:disable */
-/* eslint-disable */
-
-import * as Types from '../factories/types.js';
-import { createSwrHook } from '../../../../factories-module.js';
-
-export const useServiceWithEmptyTag = createSwrHook<Types.DefaultServiceWithEmptyTagInput, Types.DefaultServiceWithEmptyTagOutput>({
-    path: '/api/v{api-version}/no-tag',
-    method: 'GET',
-});
-
-"
-`;
-
-exports[`v2 should generate: test/generated/v2/hooks/Defaults.ts 1`] = `
-"/* generated using openapi-typescript-codegen -- do no edit */
-/* istanbul ignore file */
-/* tslint:disable */
-/* eslint-disable */
-
-import * as Types from '../factories/types.js';
-import { createSwrHook } from '../../../../factories-module.js';
-
-export const useCallWithDefaultParameters = createSwrHook<Types.DefaultsCallWithDefaultParametersInput, Types.DefaultsCallWithDefaultParametersOutput>({
-    path: '/api/v{api-version}/defaults',
-    method: 'GET',
-});
-
-"
-`;
-
-exports[`v2 should generate: test/generated/v2/hooks/Duplicate.ts 1`] = `
-"/* generated using openapi-typescript-codegen -- do no edit */
-/* istanbul ignore file */
-/* tslint:disable */
-/* eslint-disable */
-
-import * as Types from '../factories/types.js';
-import { createSwrHook } from '../../../../factories-module.js';
-
-export const useDuplicateName = createSwrHook<Types.DuplicateDuplicateNameInput, Types.DuplicateDuplicateNameOutput>({
-    path: '/api/v{api-version}/duplicate',
-    method: 'GET',
-});
-
-"
-`;
-
-exports[`v2 should generate: test/generated/v2/hooks/MultipleTags1.ts 1`] = `
-"/* generated using openapi-typescript-codegen -- do no edit */
-/* istanbul ignore file */
-/* tslint:disable */
-/* eslint-disable */
-
-import * as Types from '../factories/types.js';
-import { createSwrHook } from '../../../../factories-module.js';
-
-export const useDummyA = createSwrHook<Types.MultipleTags1DummyAInput, Types.MultipleTags1DummyAOutput>({
-    path: '/api/v{api-version}/multiple-tags/a',
-    method: 'GET',
-});
-export const useDummyB = createSwrHook<Types.MultipleTags1DummyBInput, Types.MultipleTags1DummyBOutput>({
-    path: '/api/v{api-version}/multiple-tags/b',
-    method: 'GET',
-});
-
-"
-`;
-
-exports[`v2 should generate: test/generated/v2/hooks/MultipleTags2.ts 1`] = `
-"/* generated using openapi-typescript-codegen -- do no edit */
-/* istanbul ignore file */
-/* tslint:disable */
-/* eslint-disable */
-
-import * as Types from '../factories/types.js';
-import { createSwrHook } from '../../../../factories-module.js';
-
-export const useDummyA = createSwrHook<Types.MultipleTags2DummyAInput, Types.MultipleTags2DummyAOutput>({
-    path: '/api/v{api-version}/multiple-tags/a',
-    method: 'GET',
-});
-export const useDummyB = createSwrHook<Types.MultipleTags2DummyBInput, Types.MultipleTags2DummyBOutput>({
-    path: '/api/v{api-version}/multiple-tags/b',
-    method: 'GET',
-});
-
-"
-`;
-
-exports[`v2 should generate: test/generated/v2/hooks/MultipleTags3.ts 1`] = `
-"/* generated using openapi-typescript-codegen -- do no edit */
-/* istanbul ignore file */
-/* tslint:disable */
-/* eslint-disable */
-
-import * as Types from '../factories/types.js';
-import { createSwrHook } from '../../../../factories-module.js';
-
-export const useDummyB = createSwrHook<Types.MultipleTags3DummyBInput, Types.MultipleTags3DummyBOutput>({
-    path: '/api/v{api-version}/multiple-tags/b',
-    method: 'GET',
-});
-
-"
-`;
-
-exports[`v2 should generate: test/generated/v2/hooks/NoContent.ts 1`] = `
-"/* generated using openapi-typescript-codegen -- do no edit */
-/* istanbul ignore file */
-/* tslint:disable */
-/* eslint-disable */
-
-import * as Types from '../factories/types.js';
-import { createSwrHook } from '../../../../factories-module.js';
-
-export const useCallWithNoContentResponse = createSwrHook<Types.NoContentCallWithNoContentResponseInput, Types.NoContentCallWithNoContentResponseOutput>({
-    path: '/api/v{api-version}/no-content',
-    method: 'GET',
-});
-
-"
-`;
-
-exports[`v2 should generate: test/generated/v2/hooks/Response.ts 1`] = `
-"/* generated using openapi-typescript-codegen -- do no edit */
-/* istanbul ignore file */
-/* tslint:disable */
-/* eslint-disable */
-
-import * as Types from '../factories/types.js';
-import { createSwrHook } from '../../../../factories-module.js';
-
-export const useCallWithResponse = createSwrHook<Types.ResponseCallWithResponseInput, Types.ResponseCallWithResponseOutput>({
-    path: '/api/v{api-version}/response',
-    method: 'GET',
-});
-
-"
-`;
-
-exports[`v2 should generate: test/generated/v2/hooks/Simple.ts 1`] = `
-"/* generated using openapi-typescript-codegen -- do no edit */
-/* istanbul ignore file */
-/* tslint:disable */
-/* eslint-disable */
-
-import * as Types from '../factories/types.js';
-import { createSwrHook } from '../../../../factories-module.js';
-
-export const useGetCallWithoutParametersAndResponse = createSwrHook<Types.SimpleGetCallWithoutParametersAndResponseInput, Types.SimpleGetCallWithoutParametersAndResponseOutput>({
-    path: '/api/v{api-version}/simple',
-    method: 'GET',
-});
-
-"
-`;
-
-exports[`v2 should generate: test/generated/v2/hooks/Types.ts 1`] = `
-"/* generated using openapi-typescript-codegen -- do no edit */
-/* istanbul ignore file */
-/* tslint:disable */
-/* eslint-disable */
-
-import * as Types from '../factories/types.js';
-import { createSwrHook } from '../../../../factories-module.js';
-
-export const useTypes = createSwrHook<Types.TypesTypesInput, Types.TypesTypesOutput>({
-    path: '/api/v{api-version}/types',
-    method: 'GET',
-});
-
-"
-`;
-
-exports[`v2 should generate: test/generated/v2/hooks/index.ts 1`] = `
-"/* generated using openapi-typescript-codegen -- do no edit */
-/* istanbul ignore file */
-/* tslint:disable */
-/* eslint-disable */
-
-export * as default from './Default.js';
-export * as simple from './Simple.js';
-export * as defaults from './Defaults.js';
-export * as duplicate from './Duplicate.js';
-export * as noContent from './NoContent.js';
-export * as multipleTags1 from './MultipleTags1.js';
-export * as multipleTags2 from './MultipleTags2.js';
-export * as multipleTags3 from './MultipleTags3.js';
-export * as response from './Response.js';
-export * as collectionFormat from './CollectionFormat.js';
-export * as types from './Types.js';
-export * as complex from './Complex.js';
-
-"
-`;
-
-exports[`v2 should generate: test/generated/v2/index.ts 1`] = `
-"/* generated using openapi-typescript-codegen -- do no edit */
-/* istanbul ignore file */
-/* tslint:disable */
-/* eslint-disable */
-
-export type { _default } from './models/_default.js';
-export type { ArrayWithArray } from './models/ArrayWithArray.js';
-export type { ArrayWithBooleans } from './models/ArrayWithBooleans.js';
-export type { ArrayWithNumbers } from './models/ArrayWithNumbers.js';
-export type { ArrayWithProperties } from './models/ArrayWithProperties.js';
-export type { ArrayWithReferences } from './models/ArrayWithReferences.js';
-export type { ArrayWithStrings } from './models/ArrayWithStrings.js';
-export type { CommentWithBackticks } from './models/CommentWithBackticks.js';
-export type { CommentWithBreaks } from './models/CommentWithBreaks.js';
-export type { CommentWithExpressionPlaceholders } from './models/CommentWithExpressionPlaceholders.js';
-export type { CommentWithQuotes } from './models/CommentWithQuotes.js';
-export type { CommentWithReservedCharacters } from './models/CommentWithReservedCharacters.js';
-export type { CommentWithSlashes } from './models/CommentWithSlashes.js';
-export type { Date } from './models/Date.js';
-export type { DictionaryWithArray } from './models/DictionaryWithArray.js';
-export type { DictionaryWithDictionary } from './models/DictionaryWithDictionary.js';
-export type { DictionaryWithProperties } from './models/DictionaryWithProperties.js';
-export type { DictionaryWithReference } from './models/DictionaryWithReference.js';
-export type { DictionaryWithString } from './models/DictionaryWithString.js';
-export type { EnumFromDescription } from './models/EnumFromDescription.js';
-export { EnumWithExtensions } from './models/EnumWithExtensions.js';
-export { EnumWithNumbers } from './models/EnumWithNumbers.js';
-export { EnumWithStrings } from './models/EnumWithStrings.js';
-export type { ModelThatExtends } from './models/ModelThatExtends.js';
-export type { ModelThatExtendsExtends } from './models/ModelThatExtendsExtends.js';
-export type { ModelWithArray } from './models/ModelWithArray.js';
-export type { ModelWithBoolean } from './models/ModelWithBoolean.js';
-export type { ModelWithCircularReference } from './models/ModelWithCircularReference.js';
-export type { ModelWithDictionary } from './models/ModelWithDictionary.js';
-export type { ModelWithDuplicateImports } from './models/ModelWithDuplicateImports.js';
-export type { ModelWithDuplicateProperties } from './models/ModelWithDuplicateProperties.js';
-export { ModelWithEnum } from './models/ModelWithEnum.js';
-export type { ModelWithEnumFromDescription } from './models/ModelWithEnumFromDescription.js';
-export type { ModelWithInteger } from './models/ModelWithInteger.js';
-export type { ModelWithNestedEnums } from './models/ModelWithNestedEnums.js';
-export type { ModelWithNestedProperties } from './models/ModelWithNestedProperties.js';
-export type { ModelWithNullableString } from './models/ModelWithNullableString.js';
-export type { ModelWithOrderedProperties } from './models/ModelWithOrderedProperties.js';
-export type { ModelWithPattern } from './models/ModelWithPattern.js';
-export type { ModelWithProperties } from './models/ModelWithProperties.js';
-export type { ModelWithReference } from './models/ModelWithReference.js';
-export type { ModelWithString } from './models/ModelWithString.js';
-export type { SimpleBoolean } from './models/SimpleBoolean.js';
-export type { SimpleFile } from './models/SimpleFile.js';
-export type { SimpleInteger } from './models/SimpleInteger.js';
-export type { SimpleReference } from './models/SimpleReference.js';
-export type { SimpleString } from './models/SimpleString.js';
-export type { SimpleStringWithPattern } from './models/SimpleStringWithPattern.js';
-
-export { $_default } from './schemas/$_default.js';
-export { $ArrayWithArray } from './schemas/$ArrayWithArray.js';
-export { $ArrayWithBooleans } from './schemas/$ArrayWithBooleans.js';
-export { $ArrayWithNumbers } from './schemas/$ArrayWithNumbers.js';
-export { $ArrayWithProperties } from './schemas/$ArrayWithProperties.js';
-export { $ArrayWithReferences } from './schemas/$ArrayWithReferences.js';
-export { $ArrayWithStrings } from './schemas/$ArrayWithStrings.js';
-export { $CommentWithBackticks } from './schemas/$CommentWithBackticks.js';
-export { $CommentWithBreaks } from './schemas/$CommentWithBreaks.js';
-export { $CommentWithExpressionPlaceholders } from './schemas/$CommentWithExpressionPlaceholders.js';
-export { $CommentWithQuotes } from './schemas/$CommentWithQuotes.js';
-export { $CommentWithReservedCharacters } from './schemas/$CommentWithReservedCharacters.js';
-export { $CommentWithSlashes } from './schemas/$CommentWithSlashes.js';
-export { $Date } from './schemas/$Date.js';
-export { $DictionaryWithArray } from './schemas/$DictionaryWithArray.js';
-export { $DictionaryWithDictionary } from './schemas/$DictionaryWithDictionary.js';
-export { $DictionaryWithProperties } from './schemas/$DictionaryWithProperties.js';
-export { $DictionaryWithReference } from './schemas/$DictionaryWithReference.js';
-export { $DictionaryWithString } from './schemas/$DictionaryWithString.js';
-export { $EnumFromDescription } from './schemas/$EnumFromDescription.js';
-export { $EnumWithExtensions } from './schemas/$EnumWithExtensions.js';
-export { $EnumWithNumbers } from './schemas/$EnumWithNumbers.js';
-export { $EnumWithStrings } from './schemas/$EnumWithStrings.js';
-export { $ModelThatExtends } from './schemas/$ModelThatExtends.js';
-export { $ModelThatExtendsExtends } from './schemas/$ModelThatExtendsExtends.js';
-export { $ModelWithArray } from './schemas/$ModelWithArray.js';
-export { $ModelWithBoolean } from './schemas/$ModelWithBoolean.js';
-export { $ModelWithCircularReference } from './schemas/$ModelWithCircularReference.js';
-export { $ModelWithDictionary } from './schemas/$ModelWithDictionary.js';
-export { $ModelWithDuplicateImports } from './schemas/$ModelWithDuplicateImports.js';
-export { $ModelWithDuplicateProperties } from './schemas/$ModelWithDuplicateProperties.js';
-export { $ModelWithEnum } from './schemas/$ModelWithEnum.js';
-export { $ModelWithEnumFromDescription } from './schemas/$ModelWithEnumFromDescription.js';
-export { $ModelWithInteger } from './schemas/$ModelWithInteger.js';
-export { $ModelWithNestedEnums } from './schemas/$ModelWithNestedEnums.js';
-export { $ModelWithNestedProperties } from './schemas/$ModelWithNestedProperties.js';
-export { $ModelWithNullableString } from './schemas/$ModelWithNullableString.js';
-export { $ModelWithOrderedProperties } from './schemas/$ModelWithOrderedProperties.js';
-export { $ModelWithPattern } from './schemas/$ModelWithPattern.js';
-export { $ModelWithProperties } from './schemas/$ModelWithProperties.js';
-export { $ModelWithReference } from './schemas/$ModelWithReference.js';
-export { $ModelWithString } from './schemas/$ModelWithString.js';
-export { $SimpleBoolean } from './schemas/$SimpleBoolean.js';
-export { $SimpleFile } from './schemas/$SimpleFile.js';
-export { $SimpleInteger } from './schemas/$SimpleInteger.js';
-export { $SimpleReference } from './schemas/$SimpleReference.js';
-export { $SimpleString } from './schemas/$SimpleString.js';
-export { $SimpleStringWithPattern } from './schemas/$SimpleStringWithPattern.js';
-
-export * from './factories';
-export * from './hooks';
-export * as pathnames from './pathnames';
-export * as server from './server';
-export * as client from './client';
 "
 `;
 
@@ -3288,7 +3288,7 @@ exports[`v2 should generate: test/generated/v2/server/CollectionFormat.ts 1`] = 
 /* tslint:disable */
 /* eslint-disable */
 
-import * as Types from '../factories/types.js';
+import * as Types from '../data-types/types.js';
 import { createServerResolver } from '../../../../factories-module.js';
 
 /**
@@ -3307,7 +3307,7 @@ exports[`v2 should generate: test/generated/v2/server/Complex.ts 1`] = `
 /* tslint:disable */
 /* eslint-disable */
 
-import * as Types from '../factories/types.js';
+import * as Types from '../data-types/types.js';
 import { createServerResolver } from '../../../../factories-module.js';
 
 /**
@@ -3327,7 +3327,7 @@ exports[`v2 should generate: test/generated/v2/server/Default.ts 1`] = `
 /* tslint:disable */
 /* eslint-disable */
 
-import * as Types from '../factories/types.js';
+import * as Types from '../data-types/types.js';
 import { createServerResolver } from '../../../../factories-module.js';
 
 /**
@@ -3346,7 +3346,7 @@ exports[`v2 should generate: test/generated/v2/server/Defaults.ts 1`] = `
 /* tslint:disable */
 /* eslint-disable */
 
-import * as Types from '../factories/types.js';
+import * as Types from '../data-types/types.js';
 import { createServerResolver } from '../../../../factories-module.js';
 
 /**
@@ -3377,7 +3377,7 @@ exports[`v2 should generate: test/generated/v2/server/Descriptions.ts 1`] = `
 /* tslint:disable */
 /* eslint-disable */
 
-import * as Types from '../factories/types.js';
+import * as Types from '../data-types/types.js';
 import { createServerResolver } from '../../../../factories-module.js';
 
 /**
@@ -3396,7 +3396,7 @@ exports[`v2 should generate: test/generated/v2/server/Duplicate.ts 1`] = `
 /* tslint:disable */
 /* eslint-disable */
 
-import * as Types from '../factories/types.js';
+import * as Types from '../data-types/types.js';
 import { createServerResolver } from '../../../../factories-module.js';
 
 /**
@@ -3433,7 +3433,7 @@ exports[`v2 should generate: test/generated/v2/server/Error.ts 1`] = `
 /* tslint:disable */
 /* eslint-disable */
 
-import * as Types from '../factories/types.js';
+import * as Types from '../data-types/types.js';
 import { createServerResolver } from '../../../../factories-module.js';
 
 /**
@@ -3453,7 +3453,7 @@ exports[`v2 should generate: test/generated/v2/server/Header.ts 1`] = `
 /* tslint:disable */
 /* eslint-disable */
 
-import * as Types from '../factories/types.js';
+import * as Types from '../data-types/types.js';
 import { createServerResolver } from '../../../../factories-module.js';
 
 /**
@@ -3473,7 +3473,7 @@ exports[`v2 should generate: test/generated/v2/server/MultipleTags1.ts 1`] = `
 /* tslint:disable */
 /* eslint-disable */
 
-import * as Types from '../factories/types.js';
+import * as Types from '../data-types/types.js';
 import { createServerResolver } from '../../../../factories-module.js';
 
 /**
@@ -3500,7 +3500,7 @@ exports[`v2 should generate: test/generated/v2/server/MultipleTags2.ts 1`] = `
 /* tslint:disable */
 /* eslint-disable */
 
-import * as Types from '../factories/types.js';
+import * as Types from '../data-types/types.js';
 import { createServerResolver } from '../../../../factories-module.js';
 
 /**
@@ -3527,7 +3527,7 @@ exports[`v2 should generate: test/generated/v2/server/MultipleTags3.ts 1`] = `
 /* tslint:disable */
 /* eslint-disable */
 
-import * as Types from '../factories/types.js';
+import * as Types from '../data-types/types.js';
 import { createServerResolver } from '../../../../factories-module.js';
 
 /**
@@ -3547,7 +3547,7 @@ exports[`v2 should generate: test/generated/v2/server/NoContent.ts 1`] = `
 /* tslint:disable */
 /* eslint-disable */
 
-import * as Types from '../factories/types.js';
+import * as Types from '../data-types/types.js';
 import { createServerResolver } from '../../../../factories-module.js';
 
 /**
@@ -3567,7 +3567,7 @@ exports[`v2 should generate: test/generated/v2/server/Parameters.ts 1`] = `
 /* tslint:disable */
 /* eslint-disable */
 
-import * as Types from '../factories/types.js';
+import * as Types from '../data-types/types.js';
 import { createServerResolver } from '../../../../factories-module.js';
 
 /**
@@ -3592,7 +3592,7 @@ exports[`v2 should generate: test/generated/v2/server/Response.ts 1`] = `
 /* tslint:disable */
 /* eslint-disable */
 
-import * as Types from '../factories/types.js';
+import * as Types from '../data-types/types.js';
 import { createServerResolver } from '../../../../factories-module.js';
 
 /**
@@ -3629,7 +3629,7 @@ exports[`v2 should generate: test/generated/v2/server/Simple.ts 1`] = `
 /* tslint:disable */
 /* eslint-disable */
 
-import * as Types from '../factories/types.js';
+import * as Types from '../data-types/types.js';
 import { createServerResolver } from '../../../../factories-module.js';
 
 /**
@@ -3684,7 +3684,7 @@ exports[`v2 should generate: test/generated/v2/server/Types.ts 1`] = `
 /* tslint:disable */
 /* eslint-disable */
 
-import * as Types from '../factories/types.js';
+import * as Types from '../data-types/types.js';
 import { createServerResolver } from '../../../../factories-module.js';
 
 /**
@@ -3873,7 +3873,7 @@ export { $SimpleReference } from './schemas/$SimpleReference.js';
 export { $SimpleString } from './schemas/$SimpleString.js';
 export { $SimpleStringWithPattern } from './schemas/$SimpleStringWithPattern.js';
 
-export * from './factories';
+export * from './data-types';
 export * from './hooks';
 export * as pathnames from './pathnames';
 export * as server from './server';
