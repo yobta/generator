@@ -10,7 +10,7 @@ import { writeClientIndex } from './writeClientIndex.js';
 import { writeClientModels } from './writeClientModels.js';
 import { writeClientSchemas } from './writeClientSchemas.js';
 import { writeClientPathnames } from './writeClientPathnames.js';
-import { writeClientFactories } from './writeClientFactories.js';
+import { writeClientDataTypes } from './writeClientDataTypes.js';
 import { writeClientServers } from './writeClientServers.js';
 import { writeClientClients } from './writeClientClients.js';
 import { writeClientHooks } from './writeClientHooks.js';
@@ -47,7 +47,7 @@ export const writeClient = async (
     const outputPathHook = resolve(outputPath, 'hooks');
     const outputPathModels = resolve(outputPath, 'models');
     const outputPathSchemas = resolve(outputPath, 'schemas');
-    const outputPathFactories = resolve(outputPath, 'factories');
+    const outputPathFactories = resolve(outputPath, 'data-types');
     const absoluteFactoriesFile = resolve(process.cwd(), factories);
 
     if (!isSubDirectory(process.cwd(), output)) {
@@ -56,7 +56,7 @@ export const writeClient = async (
 
     await rmdir(outputPathFactories);
     await mkdir(outputPathFactories);
-    await writeClientFactories(client.services, templates, outputPathFactories, indent, allowImportingTsExtensions);
+    await writeClientDataTypes(client.services, templates, outputPathFactories, indent, allowImportingTsExtensions);
 
     await rmdir(outputPathPathnames);
     await mkdir(outputPathPathnames);

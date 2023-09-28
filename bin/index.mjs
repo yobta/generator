@@ -14,7 +14,7 @@ const params = program
     .usage('[options]')
     .version(pkg.version)
     .requiredOption('-i, --input <value>', 'OpenAPI specification, can be a path, url or string content (required)')
-    .requiredOption('-f, --factories <value>', 'Path to file with factories functions (required)')
+    .requiredOption('-f, --factories <value>', 'Path to file with factory functions (required)')
     .option('-o, --output <value>', 'Output directory (default ./generated/open-api)')
     .option('--useUnionTypes <value>', 'Use union types instead of enums', true)
     .option('--exportServices <value>', 'Write services to disk', true)

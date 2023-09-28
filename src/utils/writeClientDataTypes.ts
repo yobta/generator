@@ -16,7 +16,7 @@ import { Service } from '../client/interfaces/Service.js';
  * @param indent Indentation options (4, 2 or tab)
  * @param allowImportingTsExtensions Generate .ts extentions on imports enstead .js
  */
-export const writeClientFactories = async (
+export const writeClientDataTypes = async (
     services: Service[],
     templates: Templates,
     outputPath: string,
@@ -27,14 +27,14 @@ export const writeClientFactories = async (
     const resolvers = [
         {
             name: 'types',
-            template: templates.exports.factories.types,
+            template: templates.exports['data-types'].types,
             context: { services, allowImportingTsExtensions },
         },
     ];
     const index = [
         {
             name: 'index',
-            template: templates.exports.factories.index,
+            template: templates.exports['data-types'].index,
             context: { resolvers, extension, allowImportingTsExtensions },
         },
     ];

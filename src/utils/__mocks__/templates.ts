@@ -7,7 +7,7 @@ export const templates: Templates = {
             pathname: () => 'pathname',
             index: () => 'pathnameIndex',
         },
-        factories: {
+        'data-types': {
             types: () => 'factoriesTypes',
             index: () => 'factoriesIndex',
         },
