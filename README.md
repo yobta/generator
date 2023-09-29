@@ -1,26 +1,11 @@
-# OpenAPI Typescript Codegen
+# SDK Generator
 
-[![NPM][npm-image]][npm-url]
-[![License][license-image]][license-url]
-[![Downloads][downloads-image]][downloads-url]
-[![Build][build-image]][build-url]
-
-> Node.js library that generates Typescript clients based on the OpenAPI specification.
-
-## Why?
-
--   Frontend ❤️ OpenAPI, but we do not want to use JAVA codegen in our builds
--   Quick, lightweight, robust and framework-agnostic 🚀
--   Supports OpenAPI specification v2.0 and v3.0
--   Supports JSON and YAML files for input
--   Supports generation through CLI, Node.js and NPX
--   Supports tsc and @babel/plugin-transform-typescript
--   Supports external references using [json-schema-ref-parser](https://github.com/APIDevTools/json-schema-ref-parser/)
+> Node.js library that generates React/Nextjs/Swr/Typescript SDK based on the OpenAPI specification.
 
 ## Install
 
 ```
-npm install @yobta/generator --save-dev
+pnpm i @yobta/generator
 ```
 
 ## Usage
@@ -45,7 +30,7 @@ $ generate-yobta --help
     $ generate-yobta --input ./spec.json --output ./generated --factories ./src/factories
 ```
 
-# Documentation
+## Documentation
 
 -   [Basic usage](docs/basic-usage.md)
 -   [Usage In Code](docs/in-code-usage.md)
@@ -55,17 +40,10 @@ $ generate-yobta --help
 -   [Nullable props (OpenAPI v2)](docs/nullable-props.md)
 -   [External references](docs/external-references.md)
 
-# Support
+## Support
 
 -   [Babel support](docs/babel-support.md)
 
-[npm-url]: https://npmjs.org/package/openapi-typescript-codegen
-[npm-image]: https://img.shields.io/npm/v/openapi-typescript-codegen.svg
-[license-url]: LICENSE
-[license-image]: http://img.shields.io/npm/l/openapi-typescript-codegen.svg
-[coverage-url]: https://codecov.io/gh/ferdikoomen/openapi-typescript-codegen
-[coverage-image]: https://img.shields.io/codecov/c/github/ferdikoomen/openapi-typescript-codegen.svg
-[downloads-url]: http://npm-stat.com/charts.html?package=openapi-typescript-codegen
-[downloads-image]: http://img.shields.io/npm/dm/openapi-typescript-codegen.svg
-[build-url]: https://circleci.com/gh/ferdikoomen/openapi-typescript-codegen/tree/master
-[build-image]: https://circleci.com/gh/ferdikoomen/openapi-typescript-codegen/tree/master.svg?style=svg
+## Credits
+
+This repository is a standalone fork of [openapi-typescript-codegen](https://github.com/ferdikoomen/openapi-typescript-codegen). While it retains the same schema parsing mechanisms, it generates a distinct client that features [fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API), split server/client queries, and [SWR](https://swr.vercel.app/) support.
