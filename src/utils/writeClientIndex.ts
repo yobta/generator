@@ -19,6 +19,7 @@ import { sortServicesByName } from './sortServicesByName.js';
  * @param exportSchemas Generate schemas
  * @param postfixModels Model name postfix
  * @param allowImportingTsExtensions Generate .ts extentions on imports enstead .js
+ * @param totalHooks How many hooks had already generated
  */
 export const writeClientIndex = async (
     client: Client,
@@ -28,7 +29,8 @@ export const writeClientIndex = async (
     exportServices: boolean,
     exportSchemas: boolean,
     postfixModels: string,
-    allowImportingTsExtensions: boolean
+    allowImportingTsExtensions: boolean,
+    totalHooks: number
 ): Promise<void> => {
     const templateResult = templates.index({
         exportServices,
@@ -40,6 +42,7 @@ export const writeClientIndex = async (
         models: sortModelsByName(client.models),
         services: sortServicesByName(client.services),
         allowImportingTsExtensions,
+        totalHooks,
     });
 
     await writeFile(resolve(outputPath, 'index.ts'), templateResult);

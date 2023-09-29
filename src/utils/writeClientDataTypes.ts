@@ -3,7 +3,7 @@ import type { Templates } from './registerHandlebarTemplates';
 
 import { resolve } from 'path';
 
-import { writeFile } from './fileSystem.js';
+import { rmdir, writeFile } from './fileSystem.js';
 import { formatCode as f } from './formatCode.js';
 import { formatIndentation as i } from './formatIndentation.js';
 import { Service } from '../client/interfaces/Service.js';
@@ -23,6 +23,10 @@ export const writeClientDataTypes = async (
     indent: Indent,
     allowImportingTsExtensions: boolean
 ): Promise<void> => {
+    if (!services.length) {
+        await rmdir(outputPath);
+        return;
+    }
     const extension = 'ts';
     const resolvers = [
         {

@@ -62,6 +62,7 @@ export const writeClient = async (
     await mkdir(outputPathRoutes);
     await writeClientRoutes(client.services, templates, outputPathRoutes, indent, allowImportingTsExtensions);
 
+    let totalHooks = 0;
     if (exportServices) {
         await rmdir(outputPathServer);
         await mkdir(outputPathServer);
@@ -87,7 +88,7 @@ export const writeClient = async (
 
         await rmdir(outputPathHook);
         await mkdir(outputPathHook);
-        await writeClientHooks(
+        totalHooks = await writeClientHooks(
             client.services,
             absoluteFactoriesFile,
             templates,
@@ -123,6 +124,7 @@ export const writeClient = async (
         exportServices,
         exportSchemas,
         postfixModels,
-        allowImportingTsExtensions
+        allowImportingTsExtensions,
+        totalHooks
     );
 };

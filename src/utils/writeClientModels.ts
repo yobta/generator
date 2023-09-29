@@ -4,7 +4,7 @@ import type { Templates } from './registerHandlebarTemplates';
 
 import { resolve } from 'path';
 
-import { writeFile } from './fileSystem.js';
+import { rmdir, writeFile } from './fileSystem.js';
 import { formatCode as f } from './formatCode.js';
 import { formatIndentation as i } from './formatIndentation.js';
 
@@ -25,6 +25,10 @@ export const writeClientModels = async (
     indent: Indent,
     allowImportingTsExtensions: boolean
 ): Promise<void> => {
+    if (!models.length) {
+        await rmdir(outputPath);
+        return;
+    }
     for (const model of models) {
         const file = resolve(outputPath, `${model.name}.ts`);
         const templateResult = templates.exports.model({
