@@ -4,7 +4,7 @@ import type { Templates } from './registerHandlebarTemplates';
 
 import { relative, resolve } from 'path';
 
-import { writeFile } from './fileSystem.js';
+import { rmdir, writeFile } from './fileSystem.js';
 import { formatCode as f } from './formatCode.js';
 import { formatIndentation as i } from './formatIndentation.js';
 
@@ -25,6 +25,10 @@ export const writeClientServers = async (
     indent: Indent,
     allowImportingTsExtensions: boolean
 ): Promise<void> => {
+    if (!services.length) {
+        await rmdir(outputPath);
+        return;
+    }
     const writedFiles = [];
     for (const service of services) {
         const file = resolve(outputPath, `${service.name}.ts`);

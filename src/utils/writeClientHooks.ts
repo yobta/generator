@@ -4,7 +4,7 @@ import type { Templates } from './registerHandlebarTemplates';
 
 import { relative, resolve } from 'path';
 
-import { writeFile } from './fileSystem.js';
+import { writeFile, rmdir } from './fileSystem.js';
 import { formatCode as f } from './formatCode.js';
 import { formatIndentation as i } from './formatIndentation.js';
 
@@ -24,10 +24,12 @@ export const writeClientHooks = async (
     outputPath: string,
     indent: Indent,
     allowImportingTsExtensions: boolean
-): Promise<void> => {
+): Promise<number> => {
     const writedFiles = [];
+    let totalHooks = 0;
     for (const service of services) {
         const getOperations = service.operations.filter(operation => operation.method === 'GET');
+        totalHooks += getOperations.length;
         if (!getOperations.length) continue;
         const file = resolve(outputPath, `${service.name}.ts`);
         const templateResult = templates.exports.hooks.resolver({
@@ -43,4 +45,8 @@ export const writeClientHooks = async (
         const templateResult = templates.exports.hooks.index({ writedFiles, allowImportingTsExtensions });
         await writeFile(file, i(f(templateResult), indent));
     }
+    if (!totalHooks) {
+        await rmdir(outputPath);
+    }
+    return totalHooks;
 };
