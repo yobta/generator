@@ -9,7 +9,7 @@ import { writeClientRoutes } from './writeClientRoutes';
 
 jest.mock('./fileSystem');
 
-describe('writeClientPathnames', () => {
+describe('writeClientRoutes', () => {
     it('should write to filesystem', async () => {
         const services: Service[] = [
             {
@@ -21,7 +21,7 @@ describe('writeClientPathnames', () => {
 
         await writeClientRoutes(services, templates, '/', Indent.SPACE_4, false);
 
-        expect(writeFile).toBeCalledWith('/User.ts', `pathname${EOL}`);
-        expect(writeFile).toBeCalledWith('/index.ts', `pathnameIndex${EOL}`);
+        expect(writeFile).toBeCalledWith('/User.ts', `route${EOL}`);
+        expect(writeFile).toBeCalledWith('/index.ts', `routesIndex${EOL}`);
     });
 });

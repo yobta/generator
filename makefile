@@ -36,3 +36,7 @@ dist: build
 i:
 	rm -rf node_modules
 	pnpm i
+
+tmp: build
+	./bin/index.mjs -i http://localhost:8000/web/openapi.json -o ./generated.ignore/ -f ./src/factories.ignore.ts --exportSchemas true # --allowImportingTsExtensions
+
