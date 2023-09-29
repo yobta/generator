@@ -1,6 +1,9 @@
-import RefParser from 'json-schema-ref-parser';
+import fetch from 'node-fetch';
+import RefParser from '@apidevtools/json-schema-ref-parser';
 
 import { AnyOpenApi } from '../openApi';
+
+Object.assign(globalThis, { fetch });
 
 /**
  * Load and parse te open api spec. If the file extension is ".yml" or ".yaml"
