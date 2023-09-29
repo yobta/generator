@@ -1,4 +1,4 @@
-import RefParser from 'json-schema-ref-parser';
+import RefParser from '@apidevtools/json-schema-ref-parser';
 
 import { AnyOpenApi } from '../openApi';
 
