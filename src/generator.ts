@@ -56,7 +56,7 @@ export const generate = async ({
         throw new Error(`Argument 'factories' is require`);
     }
 
-    const extention = allowImportingTsExtensions ? '.ts' : '.js';
+    const extention = allowImportingTsExtensions ? '.ts' : '';
     const factories = factoriesRaw.replace(/\.(ts|js)$/, '') + extention;
 
     const openApi = isString(input) ? await getOpenApiSpec(input) : input;
