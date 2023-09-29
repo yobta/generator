@@ -3,9 +3,9 @@ import type { Templates } from '../registerHandlebarTemplates';
 export const templates: Templates = {
     index: () => 'index',
     exports: {
-        pathnames: {
-            pathname: () => 'pathname',
-            index: () => 'pathnameIndex',
+        routes: {
+            route: () => 'route',
+            index: () => 'routesIndex',
         },
         'data-types': {
             types: () => 'factoriesTypes',

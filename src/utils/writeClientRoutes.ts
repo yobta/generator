@@ -16,7 +16,7 @@ import { formatIndentation as i } from './formatIndentation.js';
  * @param indent Indentation options (4, 2 or tab)
  * @param allowImportingTsExtensions Generate .ts extentions on imports enstead .js
  */
-export const writeClientPathnames = async (
+export const writeClientRoutes = async (
     services: Service[],
     templates: Templates,
     outputPath: string,
@@ -26,13 +26,13 @@ export const writeClientPathnames = async (
     const writedFiles = [];
     for (const service of services) {
         const file = resolve(outputPath, `${service.name}.ts`);
-        const templateResult = templates.exports.pathnames.pathname(service);
+        const templateResult = templates.exports.routes.route(service);
         await writeFile(file, i(f(templateResult), indent));
         writedFiles.push({ fileName: service.name });
     }
     if (writedFiles.length) {
         const file = resolve(outputPath, 'index.ts');
-        const templateResult = templates.exports.pathnames.index({ writedFiles, allowImportingTsExtensions });
+        const templateResult = templates.exports.routes.index({ writedFiles, allowImportingTsExtensions });
         await writeFile(file, i(f(templateResult), indent));
     }
 };

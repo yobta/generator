@@ -9,7 +9,7 @@ import { isSubDirectory } from './isSubdirectory.js';
 import { writeClientIndex } from './writeClientIndex.js';
 import { writeClientModels } from './writeClientModels.js';
 import { writeClientSchemas } from './writeClientSchemas.js';
-import { writeClientPathnames } from './writeClientPathnames.js';
+import { writeClientRoutes } from './writeClientRoutes.js';
 import { writeClientDataTypes } from './writeClientDataTypes.js';
 import { writeClientServers } from './writeClientServers.js';
 import { writeClientClients } from './writeClientClients.js';
@@ -41,7 +41,7 @@ export const writeClient = async (
     allowImportingTsExtensions: boolean
 ): Promise<void> => {
     const outputPath = resolve(process.cwd(), output);
-    const outputPathPathnames = resolve(outputPath, 'pathnames');
+    const outputPathRoutes = resolve(outputPath, 'routes');
     const outputPathServer = resolve(outputPath, 'server');
     const outputPathClient = resolve(outputPath, 'client');
     const outputPathHook = resolve(outputPath, 'hooks');
@@ -58,9 +58,9 @@ export const writeClient = async (
     await mkdir(outputPathFactories);
     await writeClientDataTypes(client.services, templates, outputPathFactories, indent, allowImportingTsExtensions);
 
-    await rmdir(outputPathPathnames);
-    await mkdir(outputPathPathnames);
-    await writeClientPathnames(client.services, templates, outputPathPathnames, indent, allowImportingTsExtensions);
+    await rmdir(outputPathRoutes);
+    await mkdir(outputPathRoutes);
+    await writeClientRoutes(client.services, templates, outputPathRoutes, indent, allowImportingTsExtensions);
 
     if (exportServices) {
         await rmdir(outputPathServer);

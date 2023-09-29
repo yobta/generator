@@ -8,8 +8,8 @@ import { precompiledTemplates } from './precompileTemplates.js';
 export interface Templates {
     index: TemplateDelegate;
     exports: {
-        pathnames: {
-            pathname: TemplateDelegate;
+        routes: {
+            route: TemplateDelegate;
             index: TemplateDelegate;
         };
         'data-types': {
@@ -44,13 +44,13 @@ export const registerHandlebarTemplates = (root: { useUnionTypes: boolean }): Te
     const templates: Templates = {
         index: handlebars.template(precompiledTemplates.templateIndex),
         exports: {
-            pathnames: {
-                pathname: handlebars.template(precompiledTemplates.templatePathname),
-                index: handlebars.template(precompiledTemplates.templatePathnameIndex),
+            routes: {
+                route: handlebars.template(precompiledTemplates.templateRoute),
+                index: handlebars.template(precompiledTemplates.templateRoutesIndex),
             },
             'data-types': {
-                types: handlebars.template(precompiledTemplates.templateFactoryTypes),
-                index: handlebars.template(precompiledTemplates.templateFactoryIndex),
+                types: handlebars.template(precompiledTemplates.templateDataTypes),
+                index: handlebars.template(precompiledTemplates.templateDataTypesIndex),
             },
             server: {
                 resolver: handlebars.template(precompiledTemplates.templateServerResolver),
@@ -78,7 +78,6 @@ export const registerHandlebarTemplates = (root: { useUnionTypes: boolean }): Te
     handlebars.registerPartial('isNullable', handlebars.template(precompiledTemplates.partialIsNullable));
     handlebars.registerPartial('isReadOnly', handlebars.template(precompiledTemplates.partialIsReadOnly));
     handlebars.registerPartial('isRequired', handlebars.template(precompiledTemplates.partialIsRequired));
-    handlebars.registerPartial('parameters', handlebars.template(precompiledTemplates.partialParameters));
     handlebars.registerPartial('parametersType', handlebars.template(precompiledTemplates.partialParametersType));
     handlebars.registerPartial('result', handlebars.template(precompiledTemplates.partialResult));
     handlebars.registerPartial('schema', handlebars.template(precompiledTemplates.partialSchema));

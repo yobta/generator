@@ -6,9 +6,10 @@ export type EndpointConfig = {
 
 export type EndpointOptions = Omit<RequestInit, 'method' | 'body'>;
 
-export type RequestInput = Record<string | number, unknown> &
-    (
-        | { formData: Record<string, string | Blob>; requestBody?: never }
-        | { requestBody: BodyInit; formData?: never }
-        | {}
-    );
+export type RequestInput =
+    | Record<string | number, unknown> &
+          (
+              | { formData: Record<string, string | Blob>; requestBody?: never }
+              | { requestBody: BodyInit; formData?: never }
+              | {}
+          );

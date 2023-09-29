@@ -44,12 +44,12 @@ const getPath = (config: EndpointConfig, input: Omit<RequestInput, 'formData' | 
     return url;
 };
 
-const getUrl = (config: EndpointConfig, { formData, requestBody, ...params }: RequestInput): string => {
+const getUrl = (config: EndpointConfig, { formData, requestBody, ...params }: RequestInput = {}): string => {
     const searchParams = qs.stringify(params);
     return [getPath(config, params), searchParams].filter(Boolean).join('?');
 };
 
-const getFormData = ({ formData }: RequestInput): FormData | undefined => {
+const getFormData = ({ formData }: RequestInput = {}): FormData | undefined => {
     if (!formData) {
         return undefined;
     }
@@ -78,7 +78,7 @@ const getFormData = ({ formData }: RequestInput): FormData | undefined => {
     return nextFormData;
 };
 
-const getRequestBody = ({ requestBody }: RequestInput): BodyInit | undefined => {
+const getRequestBody = ({ requestBody }: RequestInput = {}): BodyInit | undefined => {
     if (requestBody === undefined) {
         return undefined;
     }
@@ -88,7 +88,7 @@ const getRequestBody = ({ requestBody }: RequestInput): BodyInit | undefined => 
     return JSON.stringify(requestBody);
 };
 
-const getHeaders = (config: EndpointConfig, input: RequestInput, options?: EndpointOptions): Headers => {
+const getHeaders = (config: EndpointConfig, input: RequestInput = {}, options?: EndpointOptions): Headers => {
     const headers = Object.entries({
         Accept: 'application/json',
         ...options?.headers,
@@ -115,10 +115,9 @@ const getHeaders = (config: EndpointConfig, input: RequestInput, options?: Endpo
 
 export const createRequestParams = <Input extends RequestInput>(
     config: EndpointConfig,
-    rawInput?: Input,
+    input?: Input,
     options?: EndpointOptions
 ): [RequestInfo, RequestInit] => {
-    const input = rawInput || {};
     const url = getUrl(config, input);
     const init: RequestInit = {
         ...options,
