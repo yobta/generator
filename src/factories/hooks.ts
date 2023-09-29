@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { SWRConfiguration, SWRResponse } from 'swr';
 
-import { EndpointConfig, RequestInput, SchemaOptions } from './commons';
+import { EndpointConfig, RequestInput, EndpointOptions } from './commons';
 
 export type SWRHookResult<Data, E = Error, SWRConfig extends SWRConfiguration = SWRConfiguration> = SWRResponse<
     Data,
@@ -12,5 +12,5 @@ export type SWRHookResult<Data, E = Error, SWRConfig extends SWRConfiguration = 
 export interface SWRHookFactory {
     <Input extends RequestInput, Output, E = Error, SWRConfig extends SWRConfiguration = SWRConfiguration<Output, E>>(
         config: EndpointConfig
-    ): (input: Input, swrOptions?: SWRConfig, fetchOptions?: SchemaOptions) => SWRHookResult<Output, E, SWRConfig>;
+    ): (input: Input, swrOptions?: SWRConfig, fetchOptions?: EndpointOptions) => SWRHookResult<Output, E, SWRConfig>;
 }

@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
-import type { EndpointConfig, RequestInput, SchemaOptions } from '../factories';
+import type { EndpointConfig, RequestInput, EndpointOptions } from '../factories';
 
 import qs from 'query-string';
 
@@ -33,12 +33,23 @@ const isFormData = (value: unknown): value is FormData => {
 
 // region main
 
-const getUrl = (config: EndpointConfig, { formData, requestBody, ...params }: RequestInput = {}): string => {
-    const searchParams = qs.stringify(params);
-    return [config.path, searchParams].filter(Boolean).join('?');
+const getPath = (config: EndpointConfig, input: Omit<RequestInput, 'formData' | 'requestBody'> = {}): string => {
+    const url = config.route.replace(/{(.*?)}/g, (substring: string, group: string) => {
+        if (input.hasOwnProperty(group)) {
+            return encodeURI(String(input[group]));
+        }
+        return substring;
+    });
+
+    return url;
 };
 
-const getFormData = ({ formData }: RequestInput = {}): FormData | undefined => {
+const getUrl = (config: EndpointConfig, { formData, requestBody, ...params }: RequestInput): string => {
+    const searchParams = qs.stringify(params);
+    return [getPath(config, params), searchParams].filter(Boolean).join('?');
+};
+
+const getFormData = ({ formData }: RequestInput): FormData | undefined => {
     if (!formData) {
         return undefined;
     }
@@ -67,7 +78,7 @@ const getFormData = ({ formData }: RequestInput = {}): FormData | undefined => {
     return nextFormData;
 };
 
-const getRequestBody = ({ requestBody }: RequestInput = {}): BodyInit | undefined => {
+const getRequestBody = ({ requestBody }: RequestInput): BodyInit | undefined => {
     if (requestBody === undefined) {
         return undefined;
     }
@@ -77,7 +88,7 @@ const getRequestBody = ({ requestBody }: RequestInput = {}): BodyInit | undefine
     return JSON.stringify(requestBody);
 };
 
-const getHeaders = (config: EndpointConfig, input: RequestInput = {}, options?: SchemaOptions): Headers => {
+const getHeaders = (config: EndpointConfig, input: RequestInput, options?: EndpointOptions): Headers => {
     const headers = Object.entries({
         Accept: 'application/json',
         ...options?.headers,
@@ -104,9 +115,10 @@ const getHeaders = (config: EndpointConfig, input: RequestInput = {}, options?: 
 
 export const createRequestParams = <Input extends RequestInput>(
     config: EndpointConfig,
-    input?: Input,
-    options?: SchemaOptions
+    rawInput?: Input,
+    options?: EndpointOptions
 ): [RequestInfo, RequestInit] => {
+    const input = rawInput || {};
     const url = getUrl(config, input);
     const init: RequestInit = {
         ...options,
