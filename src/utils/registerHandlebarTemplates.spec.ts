@@ -6,7 +6,7 @@ describe('registerHandlebarTemplates', () => {
             useUnionTypes: false,
         });
         expect(templates.index).toBeDefined();
-        expect(templates.exports.pathnames).toBeDefined();
+        expect(templates.exports.routes).toBeDefined();
         expect(templates.exports['data-types']).toBeDefined();
         expect(templates.exports.client).toBeDefined();
         expect(templates.exports.hooks).toBeDefined();

@@ -1,12 +1,15 @@
 export type EndpointConfig = {
-    path: string;
+    route: string;
     method: 'GET' | 'PUT' | 'POST' | 'DELETE' | 'OPTIONS' | 'HEAD' | 'PATCH';
     mediaType?: string;
 };
 
-export type SchemaOptions = Omit<RequestInit, 'method' | 'body'>;
+export type EndpointOptions = Omit<RequestInit, 'method' | 'body'>;
 
 export type RequestInput =
-    | { formData: Record<string, string | Blob>; requestBody?: never }
-    | { requestBody: BodyInit; formData?: never }
-    | Record<string | number, unknown>;
+    | Record<string | number, unknown> &
+          (
+              | { formData: Record<string, string | Blob>; requestBody?: never }
+              | { requestBody: BodyInit; formData?: never }
+              | {}
+          );

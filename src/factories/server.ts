@@ -1,8 +1,8 @@
-import { EndpointConfig, RequestInput, SchemaOptions } from './commons';
+import { EndpointConfig, RequestInput, EndpointOptions } from './commons';
 
 export interface ServerResolverFactory {
     <Input extends RequestInput, Output>(config: EndpointConfig): (
         input: Input,
-        options?: SchemaOptions
+        options?: EndpointOptions
     ) => Promise<Output>;
 }
