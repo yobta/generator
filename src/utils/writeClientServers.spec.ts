@@ -1,4 +1,4 @@
-import type { Service } from '../client/interfaces/Service';
+import type { Client } from '../client/interfaces/Client';
 
 import { EOL } from 'os';
 
@@ -11,15 +11,31 @@ jest.mock('./fileSystem');
 
 describe('writeClientServers', () => {
     it('should write to filesystem', async () => {
-        const services: Service[] = [
-            {
-                name: 'User',
-                operations: [],
-                imports: [],
-            },
-        ];
+        const client: Client = {
+            server: 'http://localhost:8080',
+            version: 'v1',
+            models: [],
+            services: [
+                {
+                    name: 'User',
+                    operations: [],
+                    imports: [],
+                },
+            ],
+        };
 
-        await writeClientServers(services, './factories.ts', templates, '/', Indent.SPACE_4, false);
+        await writeClientServers({
+            client,
+            absoluteFactoriesFile: './factories.ts',
+            templates,
+            outputPath: '/',
+            indent: Indent.SPACE_4,
+            allowImportingTsExtensions: false,
+            useUnionTypes: false,
+            exportSchemas: false,
+            exportServices: true,
+            postfixModels: '',
+        });
 
         expect(writeFile).toBeCalledWith('/server.ts', `server${EOL}`);
     });

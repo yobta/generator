@@ -1,35 +1,33 @@
-import type { Model } from '../client/interfaces/Model';
-import type { Indent } from '../Indent';
-import type { Templates } from './registerHandlebarTemplates';
-
 import { resolve } from 'path';
 
 import { rmdir, writeFile } from './fileSystem.js';
 import { formatCode as f } from './formatCode.js';
 import { formatIndentation as i } from './formatIndentation.js';
+import { WriteClientPartContext } from './writeClientTypes';
 
 /**
  * Generate Models using the Handlebar template and write to disk.
- * @param models Array of Models to write
- * @param templates The loaded handlebar templates
- * @param outputPath Directory to write the generated files to
- * @param useUnionTypes Use union types instead of enums
- * @param indent Indentation options (4, 2 or tab)
- * @param allowImportingTsExtensions Generate .ts extentions on imports enstead .js
+ * @param {Object} args
+ * @param {Object} args.client OpenApi client
+ * @param {Object} args.templates The loaded handlebar templates
+ * @param {string} args.outputPath Directory to write the generated files to
+ * @param {boolean} args.useUnionTypes Use union types instead of enums
+ * @param {boolean} args.allowImportingTsExtensions Generate .ts extentions on imports enstead .js
+ * @param {string} args.indent Indentation options (4, 2 or tab)
  */
-export const writeClientModels = async (
-    models: Model[],
-    templates: Templates,
-    outputPath: string,
-    useUnionTypes: boolean,
-    indent: Indent,
-    allowImportingTsExtensions: boolean
-): Promise<void> => {
-    if (!models.length) {
+export const writeClientModels = async ({
+    client,
+    templates,
+    outputPath,
+    useUnionTypes,
+    indent,
+    allowImportingTsExtensions,
+}: WriteClientPartContext): Promise<void> => {
+    if (!client.models.length) {
         await rmdir(outputPath);
         return;
     }
-    for (const model of models) {
+    for (const model of client.models) {
         const file = resolve(outputPath, `${model.name}.ts`);
         const templateResult = templates.exports.model({
             ...model,

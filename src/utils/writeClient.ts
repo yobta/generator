@@ -1,6 +1,4 @@
-import type { Client } from '../client/interfaces/Client';
-import type { Indent } from '../Indent';
-import type { Templates } from './registerHandlebarTemplates.js';
+import type { WriteClientArgs, WriteClientPartContext } from './writeClientTypes.js';
 
 import { resolve } from 'path';
 
@@ -28,93 +26,47 @@ import { writeClientHooks } from './writeClientHooks.js';
  * @param postfixModels Model name postfix
  * @param allowImportingTsExtensions Generate .ts extentions on imports enstead .js
  */
-export const writeClient = async (
-    client: Client,
-    templates: Templates,
-    output: string,
-    factories: string,
-    useUnionTypes: boolean,
-    exportServices: boolean,
-    exportSchemas: boolean,
-    indent: Indent,
-    postfixModels: string,
-    allowImportingTsExtensions: boolean
-): Promise<void> => {
+export const writeClient = async (args: WriteClientArgs): Promise<void> => {
+    const { client, exportServices, exportSchemas, output, factories } = args;
     const outputPath = resolve(process.cwd(), output);
     const outputPathModels = resolve(outputPath, 'models');
     const outputPathSchemas = resolve(outputPath, 'schemas');
-    const absoluteFactoriesFile = resolve(process.cwd(), factories);
 
     if (!isSubDirectory(process.cwd(), output)) {
         throw new Error(`Output folder is not a subdirectory of the current working directory`);
     }
 
+    const partContext: WriteClientPartContext = {
+        ...args,
+        outputPath,
+        absoluteFactoriesFile: resolve(process.cwd(), factories),
+    };
+
     await rmdir(outputPath);
     await mkdir(outputPath);
 
-    await writeClientDataTypes(client.services, templates, outputPath, indent, allowImportingTsExtensions);
-
-    await writeClientRoutes(client.services, templates, outputPath, indent);
+    await writeClientDataTypes(partContext);
+    await writeClientRoutes(partContext);
 
     let totalHooks = 0;
     if (exportServices) {
-        await writeClientServers(
-            client.services,
-            absoluteFactoriesFile,
-            templates,
-            outputPath,
-            indent,
-            allowImportingTsExtensions
-        );
-
-        await writeClientClients(
-            client.services,
-            absoluteFactoriesFile,
-            templates,
-            outputPath,
-            indent,
-            allowImportingTsExtensions
-        );
-
-        totalHooks = await writeClientHooks(
-            client.services,
-            absoluteFactoriesFile,
-            templates,
-            outputPath,
-            indent,
-            allowImportingTsExtensions
-        );
+        await writeClientServers(partContext);
+        await writeClientClients(partContext);
+        totalHooks = await writeClientHooks(partContext);
     }
 
     await rmdir(outputPathSchemas);
     if (exportSchemas && client.models.length) {
         await mkdir(outputPathSchemas);
-        await writeClientSchemas(client.models, templates, outputPathSchemas, useUnionTypes, indent);
+        await writeClientSchemas({ ...partContext, outputPath: outputPathSchemas });
     }
 
     await rmdir(outputPathModels);
     if (client.models.length) {
         await mkdir(outputPathModels);
-        await writeClientModels(
-            client.models,
-            templates,
-            outputPathModels,
-            useUnionTypes,
-            indent,
-            allowImportingTsExtensions
-        );
+        await writeClientModels({ ...partContext, outputPath: outputPathModels });
     }
 
     await mkdir(outputPath);
-    await writeClientIndex(
-        client,
-        templates,
-        outputPath,
-        useUnionTypes,
-        exportServices,
-        exportSchemas,
-        postfixModels,
-        allowImportingTsExtensions,
-        totalHooks
-    );
+    await writeClientIndex({ ...partContext, totalHooks });
 };

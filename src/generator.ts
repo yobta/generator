@@ -11,6 +11,7 @@ import { registerHandlebarTemplates } from './utils/registerHandlebarTemplates.j
 import { writeClient } from './utils/writeClient.js';
 import { AnyOpenApi } from './openApi/index.js';
 import { createRequestParams } from './utils/createRequestParams.js';
+import { WriteClientArgs } from './utils/writeClientTypes.js';
 
 export type Options = {
     input: string | AnyOpenApi;
@@ -65,23 +66,24 @@ export const generate = async ({
         useUnionTypes,
     });
 
+    const args: Omit<WriteClientArgs, 'client'> = {
+        templates,
+        output,
+        factories,
+        useUnionTypes,
+        exportServices,
+        exportSchemas,
+        indent,
+        postfixModels,
+        allowImportingTsExtensions,
+    };
+
     switch (openApiVersion) {
         case OpenApiVersion.V2: {
             const client = parseV2(openApi as OpenApiV2);
             const clientFinal = postProcessClient(client);
             if (!write) break;
-            await writeClient(
-                clientFinal,
-                templates,
-                output,
-                factories,
-                useUnionTypes,
-                exportServices,
-                exportSchemas,
-                indent,
-                postfixModels,
-                allowImportingTsExtensions
-            );
+            await writeClient({ ...args, client: clientFinal });
             break;
         }
 
@@ -89,18 +91,7 @@ export const generate = async ({
             const client = parseV3(openApi as OpenApiV3);
             const clientFinal = postProcessClient(client);
             if (!write) break;
-            await writeClient(
-                clientFinal,
-                templates,
-                output,
-                factories,
-                useUnionTypes,
-                exportServices,
-                exportSchemas,
-                indent,
-                postfixModels,
-                allowImportingTsExtensions
-            );
+            await writeClient({ ...args, client: clientFinal });
             break;
         }
     }
