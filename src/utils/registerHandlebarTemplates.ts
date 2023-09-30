@@ -13,7 +13,10 @@ export interface Templates {
         server: TemplateDelegate;
         client: TemplateDelegate;
         hooks: TemplateDelegate;
-        model: TemplateDelegate;
+        model: {
+            item: TemplateDelegate;
+            index: TemplateDelegate;
+        };
         schema: TemplateDelegate;
     };
 }
@@ -34,7 +37,10 @@ export const registerHandlebarTemplates = (root: { useUnionTypes: boolean }): Te
             server: handlebars.template(precompiledTemplates.templateExportServer),
             client: handlebars.template(precompiledTemplates.templateExportClient),
             hooks: handlebars.template(precompiledTemplates.templateExportHooks),
-            model: handlebars.template(precompiledTemplates.templateExportModel),
+            model: {
+                item: handlebars.template(precompiledTemplates.templateExportModel),
+                index: handlebars.template(precompiledTemplates.templateExportModelIndex),
+            },
             schema: handlebars.template(precompiledTemplates.templateExportSchema),
         },
     };

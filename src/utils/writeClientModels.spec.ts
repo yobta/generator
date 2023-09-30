@@ -56,5 +56,6 @@ describe('writeClientModels', () => {
         });
 
         expect(writeFile).toBeCalledWith('/User.ts', `model${EOL}`);
+        expect(writeFile).toBeCalledWith('/index.ts', `modelIndex${EOL}`);
     });
 });

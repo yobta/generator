@@ -8,7 +8,8 @@ const basePath = path.join(__dirname, '../templates');
 const getTemplatePath = (realativePath: string): string => path.join(basePath, realativePath);
 
 const templatesData = [
-    { name: 'templateExportModel', filePath: 'exportModel.hbs' },
+    { name: 'templateExportModel', filePath: 'exportModel/model.hbs' },
+    { name: 'templateExportModelIndex', filePath: 'exportModel/index.hbs' },
     { name: 'templateExportSchema', filePath: 'exportSchema.hbs' },
     { name: 'templateExportRoutes', filePath: 'exportRoutes.hbs' },
     { name: 'templateExportDataTypes', filePath: 'exportDataTypes.hbs' },

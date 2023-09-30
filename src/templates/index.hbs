@@ -1,17 +1,7 @@
 {{>header}}
-{{#if models}}
 
-{{#each models}}
-{{#if @root.useUnionTypes}}
-export type { {{{name}}}{{#if @root.postfixModels}} as {{{name}}}{{{@root.postfixModels}}}{{/if}} } from './models/{{{name}}}{{>tsExtention}}';
-{{else if enum}}
-export { {{{name}}}{{#if @root.postfixModels}} as {{{name}}}{{{@root.postfixModels}}}{{/if}} } from './models/{{{name}}}{{>tsExtention}}';
-{{else if enums}}
-export { {{{name}}}{{#if @root.postfixModels}} as {{{name}}}{{{@root.postfixModels}}}{{/if}} } from './models/{{{name}}}{{>tsExtention}}';
-{{else}}
-export type { {{{name}}}{{#if @root.postfixModels}} as {{{name}}}{{{@root.postfixModels}}}{{/if}} } from './models/{{{name}}}{{>tsExtention}}';
-{{/if}}
-{{/each}}
+{{#if models}}
+export * from './models/index{{>tsExtention}}'
 {{/if}}
 {{#if @root.exportSchemas}}
 {{#if models}}

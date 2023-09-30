@@ -14,6 +14,7 @@ import { WriteClientPartContext } from './types.js';
  * @param {boolean} args.useUnionTypes Use union types instead of enums
  * @param {boolean} args.allowImportingTsExtensions Generate .ts extentions on imports enstead .js
  * @param {string} args.indent Indentation options (4, 2 or tab)
+ * @param {string} args.postfixModels Model name postfix
  */
 export const writeClientModels = async ({
     client,
@@ -22,18 +23,31 @@ export const writeClientModels = async ({
     useUnionTypes,
     indent,
     allowImportingTsExtensions,
+    postfixModels,
 }: WriteClientPartContext): Promise<void> => {
     if (!client.models.length) {
         await rmdir(outputPath);
         return;
     }
+    const writedModels = [];
+
     for (const model of client.models) {
         const file = resolve(outputPath, `${model.name}.ts`);
-        const templateResult = templates.exports.model({
+        const templateResult = templates.exports.model.item({
             ...model,
-            useUnionTypes,
             allowImportingTsExtensions,
+            useUnionTypes,
         });
+        await writeFile(file, i(f(templateResult), indent));
+        writedModels.push(model);
+    }
+    if (writedModels.length) {
+        const templateResult = templates.exports.model.index({
+            writedModels,
+            allowImportingTsExtensions,
+            postfixModels,
+        });
+        const file = resolve(outputPath, 'index.ts');
         await writeFile(file, i(f(templateResult), indent));
     }
 };

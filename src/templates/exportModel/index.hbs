@@ -1,0 +1,12 @@
+{{>header}}
+
+{{#unless @root.postfixModels}}
+{{#each writedModels}}
+	export * from './{{{name}}}{{>tsExtention}}'
+{{/each}}
+{{/unless}}
+{{#if @root.postfixModels}}
+{{#each writedModels}}
+	export { {{{name}}} as {{{name}}}{{{@root.postfixModels}}} } from './{{{name}}}{{>tsExtention}}'
+{{/each}}
+{{/if}}

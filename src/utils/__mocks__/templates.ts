@@ -8,7 +8,10 @@ export const templates: Templates = {
         server: () => 'server',
         client: () => 'client',
         hooks: () => 'hooks',
-        model: () => 'model',
+        model: {
+            item: () => 'model',
+            index: () => 'modelIndex',
+        },
         schema: () => 'schema',
     },
 };
