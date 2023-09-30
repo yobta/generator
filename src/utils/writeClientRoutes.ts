@@ -4,7 +4,7 @@ import type { Templates } from './registerHandlebarTemplates';
 
 import { resolve } from 'path';
 
-import { rmdir, writeFile } from './fileSystem.js';
+import { writeFile } from './fileSystem.js';
 import { formatCode as f } from './formatCode.js';
 import { formatIndentation as i } from './formatIndentation.js';
 
@@ -14,29 +14,17 @@ import { formatIndentation as i } from './formatIndentation.js';
  * @param templates The loaded handlebar templates
  * @param outputPath Directory to write the generated files to
  * @param indent Indentation options (4, 2 or tab)
- * @param allowImportingTsExtensions Generate .ts extentions on imports enstead .js
  */
 export const writeClientRoutes = async (
     services: Service[],
     templates: Templates,
     outputPath: string,
-    indent: Indent,
-    allowImportingTsExtensions: boolean
+    indent: Indent
 ): Promise<void> => {
     if (!services.length) {
-        await rmdir(outputPath);
         return;
     }
-    const writedFiles = [];
-    for (const service of services) {
-        const file = resolve(outputPath, `${service.name}.ts`);
-        const templateResult = templates.exports.routes.route(service);
-        await writeFile(file, i(f(templateResult), indent));
-        writedFiles.push({ fileName: service.name });
-    }
-    if (writedFiles.length) {
-        const file = resolve(outputPath, 'index.ts');
-        const templateResult = templates.exports.routes.index({ writedFiles, allowImportingTsExtensions });
-        await writeFile(file, i(f(templateResult), indent));
-    }
+    const file = resolve(outputPath, `routes.ts`);
+    const templateResult = templates.exports.routes({ services });
+    await writeFile(file, i(f(templateResult), indent));
 };

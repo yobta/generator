@@ -8,10 +8,7 @@ import { precompiledTemplates } from './precompileTemplates.js';
 export interface Templates {
     index: TemplateDelegate;
     exports: {
-        routes: {
-            route: TemplateDelegate;
-            index: TemplateDelegate;
-        };
+        routes: TemplateDelegate;
         'data-types': TemplateDelegate;
         server: {
             resolver: TemplateDelegate;
@@ -35,10 +32,7 @@ export const registerHandlebarTemplates = (root: { useUnionTypes: boolean }): Te
     const templates: Templates = {
         index: handlebars.template(precompiledTemplates.templateIndex),
         exports: {
-            routes: {
-                route: handlebars.template(precompiledTemplates.templateRoute),
-                index: handlebars.template(precompiledTemplates.templateRoutesIndex),
-            },
+            routes: handlebars.template(precompiledTemplates.templateExportRoutes),
             'data-types': handlebars.template(precompiledTemplates.templateDataTypes),
             server: {
                 resolver: handlebars.template(precompiledTemplates.templateServerResolver),

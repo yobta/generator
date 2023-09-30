@@ -19,9 +19,8 @@ describe('writeClientRoutes', () => {
             },
         ];
 
-        await writeClientRoutes(services, templates, '/', Indent.SPACE_4, false);
+        await writeClientRoutes(services, templates, '/', Indent.SPACE_4);
 
-        expect(writeFile).toBeCalledWith('/User.ts', `route${EOL}`);
-        expect(writeFile).toBeCalledWith('/index.ts', `routesIndex${EOL}`);
+        expect(writeFile).toBeCalledWith('/routes.ts', `routes${EOL}`);
     });
 });

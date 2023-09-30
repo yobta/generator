@@ -41,7 +41,6 @@ export const writeClient = async (
     allowImportingTsExtensions: boolean
 ): Promise<void> => {
     const outputPath = resolve(process.cwd(), output);
-    const outputPathRoutes = resolve(outputPath, 'routes');
     const outputPathServer = resolve(outputPath, 'server');
     const outputPathModels = resolve(outputPath, 'models');
     const outputPathSchemas = resolve(outputPath, 'schemas');
@@ -56,9 +55,7 @@ export const writeClient = async (
 
     await writeClientDataTypes(client.services, templates, outputPath, indent, allowImportingTsExtensions);
 
-    await rmdir(outputPathRoutes);
-    await mkdir(outputPathRoutes);
-    await writeClientRoutes(client.services, templates, outputPathRoutes, indent, allowImportingTsExtensions);
+    await writeClientRoutes(client.services, templates, outputPath, indent);
 
     let totalHooks = 0;
     if (exportServices) {

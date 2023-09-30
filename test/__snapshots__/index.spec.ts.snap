@@ -825,7 +825,7 @@ export { $SimpleStringWithPattern } from './schemas/$SimpleStringWithPattern';
 
 export * from './data-types';
 export * from './hooks';
-export * as routes from './routes';
+export * from './routes';
 export * as server from './server';
 export * from './client';
 "
@@ -1684,7 +1684,7 @@ export type SimpleStringWithPattern = string;
 "
 `;
 
-exports[`v2 should generate: test/generated/v2/routes/CollectionFormat.ts 1`] = `
+exports[`v2 should generate: test/generated/v2/routes.ts 1`] = `
 "/* generated using openapi-typescript-codegen -- do no edit */
 /* istanbul ignore file */
 /* tslint:disable */
@@ -1693,307 +1693,163 @@ exports[`v2 should generate: test/generated/v2/routes/CollectionFormat.ts 1`] = 
 /**
  * @throws ApiError
  */
-export const collectionFormat = '/api/v{api-version}/collectionFormat';
-
-"
-`;
-
-exports[`v2 should generate: test/generated/v2/routes/Complex.ts 1`] = `
-"/* generated using openapi-typescript-codegen -- do no edit */
-/* istanbul ignore file */
-/* tslint:disable */
-/* eslint-disable */
+export const serviceWithEmptyTagRoute = '/api/v{api-version}/no-tag';
 
 /**
  * @throws ApiError
  */
-export const complexTypes = '/api/v{api-version}/complex';
-
-"
-`;
-
-exports[`v2 should generate: test/generated/v2/routes/Default.ts 1`] = `
-"/* generated using openapi-typescript-codegen -- do no edit */
-/* istanbul ignore file */
-/* tslint:disable */
-/* eslint-disable */
+export const getCallWithoutParametersAndResponseRoute = '/api/v{api-version}/simple';
 
 /**
  * @throws ApiError
  */
-export const serviceWithEmptyTag = '/api/v{api-version}/no-tag';
-
-"
-`;
-
-exports[`v2 should generate: test/generated/v2/routes/Defaults.ts 1`] = `
-"/* generated using openapi-typescript-codegen -- do no edit */
-/* istanbul ignore file */
-/* tslint:disable */
-/* eslint-disable */
+export const putCallWithoutParametersAndResponseRoute = '/api/v{api-version}/simple';
 
 /**
  * @throws ApiError
  */
-export const callWithDefaultParameters = '/api/v{api-version}/defaults';
-/**
- * @throws ApiError
- */
-export const callWithDefaultOptionalParameters = '/api/v{api-version}/defaults';
-/**
- * @throws ApiError
- */
-export const callToTestOrderOfParams = '/api/v{api-version}/defaults';
-
-"
-`;
-
-exports[`v2 should generate: test/generated/v2/routes/Descriptions.ts 1`] = `
-"/* generated using openapi-typescript-codegen -- do no edit */
-/* istanbul ignore file */
-/* tslint:disable */
-/* eslint-disable */
+export const postCallWithoutParametersAndResponseRoute = '/api/v{api-version}/simple';
 
 /**
  * @throws ApiError
  */
-export const callWithDescriptions = '/api/v{api-version}/descriptions/';
-
-"
-`;
-
-exports[`v2 should generate: test/generated/v2/routes/Duplicate.ts 1`] = `
-"/* generated using openapi-typescript-codegen -- do no edit */
-/* istanbul ignore file */
-/* tslint:disable */
-/* eslint-disable */
+export const deleteCallWithoutParametersAndResponseRoute = '/api/v{api-version}/simple';
 
 /**
  * @throws ApiError
  */
-export const duplicateName = '/api/v{api-version}/duplicate';
-/**
- * @throws ApiError
- */
-export const duplicateName1 = '/api/v{api-version}/duplicate';
-/**
- * @throws ApiError
- */
-export const duplicateName2 = '/api/v{api-version}/duplicate';
-/**
- * @throws ApiError
- */
-export const duplicateName3 = '/api/v{api-version}/duplicate';
-
-"
-`;
-
-exports[`v2 should generate: test/generated/v2/routes/Error.ts 1`] = `
-"/* generated using openapi-typescript-codegen -- do no edit */
-/* istanbul ignore file */
-/* tslint:disable */
-/* eslint-disable */
+export const optionsCallWithoutParametersAndResponseRoute = '/api/v{api-version}/simple';
 
 /**
  * @throws ApiError
  */
-export const testErrorCode = '/api/v{api-version}/error';
-
-"
-`;
-
-exports[`v2 should generate: test/generated/v2/routes/Header.ts 1`] = `
-"/* generated using openapi-typescript-codegen -- do no edit */
-/* istanbul ignore file */
-/* tslint:disable */
-/* eslint-disable */
+export const headCallWithoutParametersAndResponseRoute = '/api/v{api-version}/simple';
 
 /**
  * @throws ApiError
  */
-export const callWithResultFromHeader = '/api/v{api-version}/header';
-
-"
-`;
-
-exports[`v2 should generate: test/generated/v2/routes/MultipleTags1.ts 1`] = `
-"/* generated using openapi-typescript-codegen -- do no edit */
-/* istanbul ignore file */
-/* tslint:disable */
-/* eslint-disable */
+export const patchCallWithoutParametersAndResponseRoute = '/api/v{api-version}/simple';
 
 /**
  * @throws ApiError
  */
-export const dummyA = '/api/v{api-version}/multiple-tags/a';
-/**
- * @throws ApiError
- */
-export const dummyB = '/api/v{api-version}/multiple-tags/b';
-
-"
-`;
-
-exports[`v2 should generate: test/generated/v2/routes/MultipleTags2.ts 1`] = `
-"/* generated using openapi-typescript-codegen -- do no edit */
-/* istanbul ignore file */
-/* tslint:disable */
-/* eslint-disable */
+export const callWithDescriptionsRoute = '/api/v{api-version}/descriptions/';
 
 /**
  * @throws ApiError
  */
-export const dummyA = '/api/v{api-version}/multiple-tags/a';
-/**
- * @throws ApiError
- */
-export const dummyB = '/api/v{api-version}/multiple-tags/b';
-
-"
-`;
-
-exports[`v2 should generate: test/generated/v2/routes/MultipleTags3.ts 1`] = `
-"/* generated using openapi-typescript-codegen -- do no edit */
-/* istanbul ignore file */
-/* tslint:disable */
-/* eslint-disable */
+export const callWithParametersRoute = '/api/v{api-version}/parameters/{parameterPath}';
 
 /**
  * @throws ApiError
  */
-export const dummyB = '/api/v{api-version}/multiple-tags/b';
-
-"
-`;
-
-exports[`v2 should generate: test/generated/v2/routes/NoContent.ts 1`] = `
-"/* generated using openapi-typescript-codegen -- do no edit */
-/* istanbul ignore file */
-/* tslint:disable */
-/* eslint-disable */
+export const callWithWeirdParameterNamesRoute = '/api/v{api-version}/parameters/{parameter.path.1}/{parameter-path-2}/{PARAMETER-PATH-3}';
 
 /**
  * @throws ApiError
  */
-export const callWithNoContentResponse = '/api/v{api-version}/no-content';
-
-"
-`;
-
-exports[`v2 should generate: test/generated/v2/routes/Parameters.ts 1`] = `
-"/* generated using openapi-typescript-codegen -- do no edit */
-/* istanbul ignore file */
-/* tslint:disable */
-/* eslint-disable */
+export const callWithDefaultParametersRoute = '/api/v{api-version}/defaults';
 
 /**
  * @throws ApiError
  */
-export const callWithParameters = '/api/v{api-version}/parameters/{parameterPath}';
-/**
- * @throws ApiError
- */
-export const callWithWeirdParameterNames = '/api/v{api-version}/parameters/{parameter.path.1}/{parameter-path-2}/{PARAMETER-PATH-3}';
-
-"
-`;
-
-exports[`v2 should generate: test/generated/v2/routes/Response.ts 1`] = `
-"/* generated using openapi-typescript-codegen -- do no edit */
-/* istanbul ignore file */
-/* tslint:disable */
-/* eslint-disable */
+export const callWithDefaultOptionalParametersRoute = '/api/v{api-version}/defaults';
 
 /**
  * @throws ApiError
  */
-export const callWithResponse = '/api/v{api-version}/response';
-/**
- * @throws ApiError
- */
-export const callWithDuplicateResponses = '/api/v{api-version}/response';
-/**
- * @throws ApiError
- */
-export const callWithResponses = '/api/v{api-version}/response';
-
-"
-`;
-
-exports[`v2 should generate: test/generated/v2/routes/Simple.ts 1`] = `
-"/* generated using openapi-typescript-codegen -- do no edit */
-/* istanbul ignore file */
-/* tslint:disable */
-/* eslint-disable */
+export const callToTestOrderOfParamsRoute = '/api/v{api-version}/defaults';
 
 /**
  * @throws ApiError
  */
-export const getCallWithoutParametersAndResponse = '/api/v{api-version}/simple';
-/**
- * @throws ApiError
- */
-export const putCallWithoutParametersAndResponse = '/api/v{api-version}/simple';
-/**
- * @throws ApiError
- */
-export const postCallWithoutParametersAndResponse = '/api/v{api-version}/simple';
-/**
- * @throws ApiError
- */
-export const deleteCallWithoutParametersAndResponse = '/api/v{api-version}/simple';
-/**
- * @throws ApiError
- */
-export const optionsCallWithoutParametersAndResponse = '/api/v{api-version}/simple';
-/**
- * @throws ApiError
- */
-export const headCallWithoutParametersAndResponse = '/api/v{api-version}/simple';
-/**
- * @throws ApiError
- */
-export const patchCallWithoutParametersAndResponse = '/api/v{api-version}/simple';
-
-"
-`;
-
-exports[`v2 should generate: test/generated/v2/routes/Types.ts 1`] = `
-"/* generated using openapi-typescript-codegen -- do no edit */
-/* istanbul ignore file */
-/* tslint:disable */
-/* eslint-disable */
+export const duplicateNameRoute = '/api/v{api-version}/duplicate';
 
 /**
  * @throws ApiError
  */
-export const types = '/api/v{api-version}/types';
+export const duplicateName1Route = '/api/v{api-version}/duplicate';
 
-"
-`;
+/**
+ * @throws ApiError
+ */
+export const duplicateName2Route = '/api/v{api-version}/duplicate';
 
-exports[`v2 should generate: test/generated/v2/routes/index.ts 1`] = `
-"/* generated using openapi-typescript-codegen -- do no edit */
-/* istanbul ignore file */
-/* tslint:disable */
-/* eslint-disable */
+/**
+ * @throws ApiError
+ */
+export const duplicateName3Route = '/api/v{api-version}/duplicate';
 
-export * as Default from './Default'
-export * as Simple from './Simple'
-export * as Descriptions from './Descriptions'
-export * as Parameters from './Parameters'
-export * as Defaults from './Defaults'
-export * as Duplicate from './Duplicate'
-export * as NoContent from './NoContent'
-export * as MultipleTags1 from './MultipleTags1'
-export * as MultipleTags2 from './MultipleTags2'
-export * as MultipleTags3 from './MultipleTags3'
-export * as Response from './Response'
-export * as CollectionFormat from './CollectionFormat'
-export * as Types from './Types'
-export * as Complex from './Complex'
-export * as Header from './Header'
-export * as Error from './Error'
+/**
+ * @throws ApiError
+ */
+export const callWithNoContentResponseRoute = '/api/v{api-version}/no-content';
+
+/**
+ * @throws ApiError
+ */
+export const dummyAMultipleTags1Route = '/api/v{api-version}/multiple-tags/a';
+
+/**
+ * @throws ApiError
+ */
+export const dummyBMultipleTags1Route = '/api/v{api-version}/multiple-tags/b';
+
+/**
+ * @throws ApiError
+ */
+export const dummyAMultipleTags2Route = '/api/v{api-version}/multiple-tags/a';
+
+/**
+ * @throws ApiError
+ */
+export const dummyBMultipleTags2Route = '/api/v{api-version}/multiple-tags/b';
+
+/**
+ * @throws ApiError
+ */
+export const dummyBMultipleTags3Route = '/api/v{api-version}/multiple-tags/b';
+
+/**
+ * @throws ApiError
+ */
+export const callWithResponseRoute = '/api/v{api-version}/response';
+
+/**
+ * @throws ApiError
+ */
+export const callWithDuplicateResponsesRoute = '/api/v{api-version}/response';
+
+/**
+ * @throws ApiError
+ */
+export const callWithResponsesRoute = '/api/v{api-version}/response';
+
+/**
+ * @throws ApiError
+ */
+export const collectionFormatRoute = '/api/v{api-version}/collectionFormat';
+
+/**
+ * @throws ApiError
+ */
+export const typesRoute = '/api/v{api-version}/types';
+
+/**
+ * @throws ApiError
+ */
+export const complexTypesRoute = '/api/v{api-version}/complex';
+
+/**
+ * @throws ApiError
+ */
+export const callWithResultFromHeaderRoute = '/api/v{api-version}/header';
+
+/**
+ * @throws ApiError
+ */
+export const testErrorCodeRoute = '/api/v{api-version}/error';
+
 
 "
 `;
@@ -3409,156 +3265,218 @@ export * as error from './Error';
 "
 `;
 
-exports[`v3 should generate: test/generated/v3/index.ts 1`] = `
+exports[`v3 should generate: test/generated/v3/routes.ts 1`] = `
 "/* generated using openapi-typescript-codegen -- do no edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 
-export type { _default } from './models/_default';
-export type { ArrayWithArray } from './models/ArrayWithArray';
-export type { ArrayWithBooleans } from './models/ArrayWithBooleans';
-export type { ArrayWithNumbers } from './models/ArrayWithNumbers';
-export type { ArrayWithProperties } from './models/ArrayWithProperties';
-export type { ArrayWithReferences } from './models/ArrayWithReferences';
-export type { ArrayWithStrings } from './models/ArrayWithStrings';
-export type { CommentWithBackticks } from './models/CommentWithBackticks';
-export type { CommentWithBreaks } from './models/CommentWithBreaks';
-export type { CommentWithExpressionPlaceholders } from './models/CommentWithExpressionPlaceholders';
-export type { CommentWithQuotes } from './models/CommentWithQuotes';
-export type { CommentWithReservedCharacters } from './models/CommentWithReservedCharacters';
-export type { CommentWithSlashes } from './models/CommentWithSlashes';
-export type { CompositionBaseModel } from './models/CompositionBaseModel';
-export type { CompositionExtendedModel } from './models/CompositionExtendedModel';
-export type { CompositionWithAllOfAndNullable } from './models/CompositionWithAllOfAndNullable';
-export type { CompositionWithAnyOf } from './models/CompositionWithAnyOf';
-export type { CompositionWithAnyOfAndNullable } from './models/CompositionWithAnyOfAndNullable';
-export type { CompositionWithAnyOfAnonymous } from './models/CompositionWithAnyOfAnonymous';
-export type { CompositionWithOneOf } from './models/CompositionWithOneOf';
-export type { CompositionWithOneOfAndComplexArrayDictionary } from './models/CompositionWithOneOfAndComplexArrayDictionary';
-export type { CompositionWithOneOfAndNullable } from './models/CompositionWithOneOfAndNullable';
-export type { CompositionWithOneOfAndSimpleArrayDictionary } from './models/CompositionWithOneOfAndSimpleArrayDictionary';
-export type { CompositionWithOneOfAndSimpleDictionary } from './models/CompositionWithOneOfAndSimpleDictionary';
-export type { CompositionWithOneOfAnonymous } from './models/CompositionWithOneOfAnonymous';
-export type { CompositionWithOneOfDiscriminator } from './models/CompositionWithOneOfDiscriminator';
-export type { DeprecatedModel } from './models/DeprecatedModel';
-export type { DictionaryWithArray } from './models/DictionaryWithArray';
-export type { DictionaryWithDictionary } from './models/DictionaryWithDictionary';
-export type { DictionaryWithProperties } from './models/DictionaryWithProperties';
-export type { DictionaryWithReference } from './models/DictionaryWithReference';
-export type { DictionaryWithString } from './models/DictionaryWithString';
-export type { EnumFromDescription } from './models/EnumFromDescription';
-export { EnumWithExtensions } from './models/EnumWithExtensions';
-export { EnumWithNumbers } from './models/EnumWithNumbers';
-export { EnumWithStrings } from './models/EnumWithStrings';
-export type { File } from './models/File';
-export type { FreeFormObjectWithAdditionalPropertiesEqEmptyObject } from './models/FreeFormObjectWithAdditionalPropertiesEqEmptyObject';
-export type { FreeFormObjectWithAdditionalPropertiesEqTrue } from './models/FreeFormObjectWithAdditionalPropertiesEqTrue';
-export type { FreeFormObjectWithoutAdditionalProperties } from './models/FreeFormObjectWithoutAdditionalProperties';
-export type { ModelCircle } from './models/ModelCircle';
-export type { ModelSquare } from './models/ModelSquare';
-export type { ModelThatExtends } from './models/ModelThatExtends';
-export type { ModelThatExtendsExtends } from './models/ModelThatExtendsExtends';
-export type { ModelWithArray } from './models/ModelWithArray';
-export type { ModelWithBoolean } from './models/ModelWithBoolean';
-export type { ModelWithCircularReference } from './models/ModelWithCircularReference';
-export type { ModelWithDictionary } from './models/ModelWithDictionary';
-export type { ModelWithDuplicateImports } from './models/ModelWithDuplicateImports';
-export type { ModelWithDuplicateProperties } from './models/ModelWithDuplicateProperties';
-export { ModelWithEnum } from './models/ModelWithEnum';
-export type { ModelWithEnumFromDescription } from './models/ModelWithEnumFromDescription';
-export type { ModelWithInteger } from './models/ModelWithInteger';
-export type { ModelWithNestedEnums } from './models/ModelWithNestedEnums';
-export type { ModelWithNestedProperties } from './models/ModelWithNestedProperties';
-export type { ModelWithNullableString } from './models/ModelWithNullableString';
-export type { ModelWithOrderedProperties } from './models/ModelWithOrderedProperties';
-export type { ModelWithPattern } from './models/ModelWithPattern';
-export type { ModelWithProperties } from './models/ModelWithProperties';
-export type { ModelWithReference } from './models/ModelWithReference';
-export type { ModelWithString } from './models/ModelWithString';
-export type { Pageable } from './models/Pageable';
-export type { SimpleBoolean } from './models/SimpleBoolean';
-export type { SimpleFile } from './models/SimpleFile';
-export type { SimpleInteger } from './models/SimpleInteger';
-export type { SimpleParameter } from './models/SimpleParameter';
-export type { SimpleReference } from './models/SimpleReference';
-export type { SimpleString } from './models/SimpleString';
-export type { SimpleStringWithPattern } from './models/SimpleStringWithPattern';
+/**
+ * @throws ApiError
+ */
+export const serviceWithEmptyTagRoute = '/api/v{api-version}/no-tag';
 
-export { $_default } from './schemas/$_default';
-export { $ArrayWithArray } from './schemas/$ArrayWithArray';
-export { $ArrayWithBooleans } from './schemas/$ArrayWithBooleans';
-export { $ArrayWithNumbers } from './schemas/$ArrayWithNumbers';
-export { $ArrayWithProperties } from './schemas/$ArrayWithProperties';
-export { $ArrayWithReferences } from './schemas/$ArrayWithReferences';
-export { $ArrayWithStrings } from './schemas/$ArrayWithStrings';
-export { $CommentWithBackticks } from './schemas/$CommentWithBackticks';
-export { $CommentWithBreaks } from './schemas/$CommentWithBreaks';
-export { $CommentWithExpressionPlaceholders } from './schemas/$CommentWithExpressionPlaceholders';
-export { $CommentWithQuotes } from './schemas/$CommentWithQuotes';
-export { $CommentWithReservedCharacters } from './schemas/$CommentWithReservedCharacters';
-export { $CommentWithSlashes } from './schemas/$CommentWithSlashes';
-export { $CompositionBaseModel } from './schemas/$CompositionBaseModel';
-export { $CompositionExtendedModel } from './schemas/$CompositionExtendedModel';
-export { $CompositionWithAllOfAndNullable } from './schemas/$CompositionWithAllOfAndNullable';
-export { $CompositionWithAnyOf } from './schemas/$CompositionWithAnyOf';
-export { $CompositionWithAnyOfAndNullable } from './schemas/$CompositionWithAnyOfAndNullable';
-export { $CompositionWithAnyOfAnonymous } from './schemas/$CompositionWithAnyOfAnonymous';
-export { $CompositionWithOneOf } from './schemas/$CompositionWithOneOf';
-export { $CompositionWithOneOfAndComplexArrayDictionary } from './schemas/$CompositionWithOneOfAndComplexArrayDictionary';
-export { $CompositionWithOneOfAndNullable } from './schemas/$CompositionWithOneOfAndNullable';
-export { $CompositionWithOneOfAndSimpleArrayDictionary } from './schemas/$CompositionWithOneOfAndSimpleArrayDictionary';
-export { $CompositionWithOneOfAndSimpleDictionary } from './schemas/$CompositionWithOneOfAndSimpleDictionary';
-export { $CompositionWithOneOfAnonymous } from './schemas/$CompositionWithOneOfAnonymous';
-export { $CompositionWithOneOfDiscriminator } from './schemas/$CompositionWithOneOfDiscriminator';
-export { $DeprecatedModel } from './schemas/$DeprecatedModel';
-export { $DictionaryWithArray } from './schemas/$DictionaryWithArray';
-export { $DictionaryWithDictionary } from './schemas/$DictionaryWithDictionary';
-export { $DictionaryWithProperties } from './schemas/$DictionaryWithProperties';
-export { $DictionaryWithReference } from './schemas/$DictionaryWithReference';
-export { $DictionaryWithString } from './schemas/$DictionaryWithString';
-export { $EnumFromDescription } from './schemas/$EnumFromDescription';
-export { $EnumWithExtensions } from './schemas/$EnumWithExtensions';
-export { $EnumWithNumbers } from './schemas/$EnumWithNumbers';
-export { $EnumWithStrings } from './schemas/$EnumWithStrings';
-export { $File } from './schemas/$File';
-export { $FreeFormObjectWithAdditionalPropertiesEqEmptyObject } from './schemas/$FreeFormObjectWithAdditionalPropertiesEqEmptyObject';
-export { $FreeFormObjectWithAdditionalPropertiesEqTrue } from './schemas/$FreeFormObjectWithAdditionalPropertiesEqTrue';
-export { $FreeFormObjectWithoutAdditionalProperties } from './schemas/$FreeFormObjectWithoutAdditionalProperties';
-export { $ModelCircle } from './schemas/$ModelCircle';
-export { $ModelSquare } from './schemas/$ModelSquare';
-export { $ModelThatExtends } from './schemas/$ModelThatExtends';
-export { $ModelThatExtendsExtends } from './schemas/$ModelThatExtendsExtends';
-export { $ModelWithArray } from './schemas/$ModelWithArray';
-export { $ModelWithBoolean } from './schemas/$ModelWithBoolean';
-export { $ModelWithCircularReference } from './schemas/$ModelWithCircularReference';
-export { $ModelWithDictionary } from './schemas/$ModelWithDictionary';
-export { $ModelWithDuplicateImports } from './schemas/$ModelWithDuplicateImports';
-export { $ModelWithDuplicateProperties } from './schemas/$ModelWithDuplicateProperties';
-export { $ModelWithEnum } from './schemas/$ModelWithEnum';
-export { $ModelWithEnumFromDescription } from './schemas/$ModelWithEnumFromDescription';
-export { $ModelWithInteger } from './schemas/$ModelWithInteger';
-export { $ModelWithNestedEnums } from './schemas/$ModelWithNestedEnums';
-export { $ModelWithNestedProperties } from './schemas/$ModelWithNestedProperties';
-export { $ModelWithNullableString } from './schemas/$ModelWithNullableString';
-export { $ModelWithOrderedProperties } from './schemas/$ModelWithOrderedProperties';
-export { $ModelWithPattern } from './schemas/$ModelWithPattern';
-export { $ModelWithProperties } from './schemas/$ModelWithProperties';
-export { $ModelWithReference } from './schemas/$ModelWithReference';
-export { $ModelWithString } from './schemas/$ModelWithString';
-export { $Pageable } from './schemas/$Pageable';
-export { $SimpleBoolean } from './schemas/$SimpleBoolean';
-export { $SimpleFile } from './schemas/$SimpleFile';
-export { $SimpleInteger } from './schemas/$SimpleInteger';
-export { $SimpleParameter } from './schemas/$SimpleParameter';
-export { $SimpleReference } from './schemas/$SimpleReference';
-export { $SimpleString } from './schemas/$SimpleString';
-export { $SimpleStringWithPattern } from './schemas/$SimpleStringWithPattern';
+/**
+ * @throws ApiError
+ */
+export const getCallWithoutParametersAndResponseRoute = '/api/v{api-version}/simple';
 
-export * from './data-types';
-export * from './hooks';
-export * as routes from './routes';
-export * as server from './server';
-export * from './client';
+/**
+ * @throws ApiError
+ */
+export const putCallWithoutParametersAndResponseRoute = '/api/v{api-version}/simple';
+
+/**
+ * @throws ApiError
+ */
+export const postCallWithoutParametersAndResponseRoute = '/api/v{api-version}/simple';
+
+/**
+ * @throws ApiError
+ */
+export const deleteCallWithoutParametersAndResponseRoute = '/api/v{api-version}/simple';
+
+/**
+ * @throws ApiError
+ */
+export const optionsCallWithoutParametersAndResponseRoute = '/api/v{api-version}/simple';
+
+/**
+ * @throws ApiError
+ */
+export const headCallWithoutParametersAndResponseRoute = '/api/v{api-version}/simple';
+
+/**
+ * @throws ApiError
+ */
+export const patchCallWithoutParametersAndResponseRoute = '/api/v{api-version}/simple';
+
+/**
+ * @throws ApiError
+ */
+export const callWithDescriptionsRoute = '/api/v{api-version}/descriptions/';
+
+/**
+ * @deprecated
+ * @throws ApiError
+ */
+export const deprecatedCallRoute = '/api/v{api-version}/parameters/deprecated';
+
+/**
+ * @throws ApiError
+ */
+export const callWithParametersRoute = '/api/v{api-version}/parameters/{parameterPath}';
+
+/**
+ * @throws ApiError
+ */
+export const callWithWeirdParameterNamesRoute = '/api/v{api-version}/parameters/{parameter.path.1}/{parameter-path-2}/{PARAMETER-PATH-3}';
+
+/**
+ * @throws ApiError
+ */
+export const getCallWithOptionalParamRoute = '/api/v{api-version}/parameters/';
+
+/**
+ * @throws ApiError
+ */
+export const postCallWithOptionalParamRoute = '/api/v{api-version}/parameters/';
+
+/**
+ * @throws ApiError
+ */
+export const postApiRequestBodyRoute = '/api/v{api-version}/requestBody/';
+
+/**
+ * @throws ApiError
+ */
+export const postApiFormDataRoute = '/api/v{api-version}/formData/';
+
+/**
+ * @throws ApiError
+ */
+export const callWithDefaultParametersRoute = '/api/v{api-version}/defaults';
+
+/**
+ * @throws ApiError
+ */
+export const callWithDefaultOptionalParametersRoute = '/api/v{api-version}/defaults';
+
+/**
+ * @throws ApiError
+ */
+export const callToTestOrderOfParamsRoute = '/api/v{api-version}/defaults';
+
+/**
+ * @throws ApiError
+ */
+export const duplicateNameRoute = '/api/v{api-version}/duplicate';
+
+/**
+ * @throws ApiError
+ */
+export const duplicateName1Route = '/api/v{api-version}/duplicate';
+
+/**
+ * @throws ApiError
+ */
+export const duplicateName2Route = '/api/v{api-version}/duplicate';
+
+/**
+ * @throws ApiError
+ */
+export const duplicateName3Route = '/api/v{api-version}/duplicate';
+
+/**
+ * @throws ApiError
+ */
+export const callWithNoContentResponseRoute = '/api/v{api-version}/no-content';
+
+/**
+ * @throws ApiError
+ */
+export const dummyAMultipleTags1Route = '/api/v{api-version}/multiple-tags/a';
+
+/**
+ * @throws ApiError
+ */
+export const dummyBMultipleTags1Route = '/api/v{api-version}/multiple-tags/b';
+
+/**
+ * @throws ApiError
+ */
+export const dummyAMultipleTags2Route = '/api/v{api-version}/multiple-tags/a';
+
+/**
+ * @throws ApiError
+ */
+export const dummyBMultipleTags2Route = '/api/v{api-version}/multiple-tags/b';
+
+/**
+ * @throws ApiError
+ */
+export const dummyBMultipleTags3Route = '/api/v{api-version}/multiple-tags/b';
+
+/**
+ * @throws ApiError
+ */
+export const callWithResponseRoute = '/api/v{api-version}/response';
+
+/**
+ * @throws ApiError
+ */
+export const callWithDuplicateResponsesRoute = '/api/v{api-version}/response';
+
+/**
+ * @throws ApiError
+ */
+export const callWithResponsesRoute = '/api/v{api-version}/response';
+
+/**
+ * @throws ApiError
+ */
+export const collectionFormatRoute = '/api/v{api-version}/collectionFormat';
+
+/**
+ * @throws ApiError
+ */
+export const typesRoute = '/api/v{api-version}/types';
+
+/**
+ * @throws ApiError
+ */
+export const uploadFileRoute = '/api/v{api-version}/upload';
+
+/**
+ * @throws ApiError
+ */
+export const complexTypesRoute = '/api/v{api-version}/complex';
+
+/**
+ * @throws ApiError
+ */
+export const complexParamsRoute = '/api/v{api-version}/complex/{id}';
+
+/**
+ * @throws ApiError
+ */
+export const multipartRequestRoute = '/api/v{api-version}/multipart';
+
+/**
+ * @throws ApiError
+ */
+export const multipartResponseRoute = '/api/v{api-version}/multipart';
+
+/**
+ * @throws ApiError
+ */
+export const callWithResultFromHeaderRoute = '/api/v{api-version}/header';
+
+/**
+ * @throws ApiError
+ */
+export const testErrorCodeRoute = '/api/v{api-version}/error';
+
+
 "
 `;

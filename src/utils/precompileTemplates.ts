@@ -10,8 +10,7 @@ const getTemplatePath = (realativePath: string): string => path.join(basePath, r
 const templatesData = [
     { name: 'templateExportModel', filePath: 'exportModel.hbs' },
     { name: 'templateExportSchema', filePath: 'exportSchema.hbs' },
-    { name: 'templateRoute', filePath: 'routes/route.hbs' },
-    { name: 'templateRoutesIndex', filePath: 'routes/index.hbs' },
+    { name: 'templateExportRoutes', filePath: 'exportRoutes.hbs' },
     { name: 'templateDataTypes', filePath: 'exportDataTypes.hbs' },
     { name: 'templateServerResolver', filePath: 'server/resolver.hbs' },
     { name: 'templateServerIndex', filePath: 'server/index.hbs' },
