@@ -17,7 +17,7 @@ import { createSwrHook } from '{{{factories}}}';
 {{/if}}
 	* @throws ApiError
 */
-export const use{{{operationName . ../. @root.services true}}} = createSwrHook<Types.{{{../name}}}{{{capitalize name}}}Input, Types.{{{../name}}}{{{capitalize name}}}Output>({
+export const use{{{operationNameCapitalized . ../. @root.services true}}} = createSwrHook<Types.{{{../name}}}{{{capitalize name}}}Input, Types.{{{../name}}}{{{capitalize name}}}Output>({
 	route: '{{{path}}}',
 	method: '{{{method}}}'{{#if parametersBody}}{{#if parametersBody.mediaType}},
 	mediaType: '{{{parametersBody.mediaType}}}'{{/if}}{{/if}},

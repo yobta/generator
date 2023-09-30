@@ -107,15 +107,18 @@ export const registerHandlebarHelpers = (root: { useUnionTypes: boolean }): void
 
     Handlebars.registerHelper(
         'operationName',
-        (
-            operation: Service['operations'][number],
-            service: Service,
-            services: Service[],
-            capitalizeName?: boolean
-        ): string => {
+        (operation: Service['operations'][number], service: Service, services: Service[]): string => {
+            const { name } = operation;
+            return countOperationNames(name, services) > 1 ? `${name}${service.name}` : name;
+        }
+    );
+
+    Handlebars.registerHelper(
+        'operationNameCapitalized',
+        (operation: Service['operations'][number], service: Service, services: Service[]): string => {
             const { name } = operation;
             const nextName = countOperationNames(name, services) > 1 ? `${name}${service.name}` : name;
-            return capitalizeName ? capitalize(nextName) : nextName;
+            return capitalize(nextName);
         }
     );
 };
