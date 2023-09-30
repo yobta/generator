@@ -3,7 +3,7 @@ import { resolve } from 'path';
 import { writeFile } from './fileSystem.js';
 import { sortModelsByName } from './sortModelsByName.js';
 import { sortServicesByName } from './sortServicesByName.js';
-import { WriteClientPartContext } from './writeClientTypes';
+import { WriteClientPartContext } from './types.js';
 
 /**
  * Generate the OpenAPI client index file using the Handlebar template and write it to disk.

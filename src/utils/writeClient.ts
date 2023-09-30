@@ -1,4 +1,4 @@
-import type { WriteClientArgs, WriteClientPartContext } from './writeClientTypes.js';
+import type { WriteClientArgs, WriteClientPartContext } from './types.js';
 
 import { resolve } from 'path';
 

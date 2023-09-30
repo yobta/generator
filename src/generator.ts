@@ -11,7 +11,7 @@ import { registerHandlebarTemplates } from './utils/registerHandlebarTemplates.j
 import { writeClient } from './utils/writeClient.js';
 import { AnyOpenApi } from './openApi/index.js';
 import { createRequestParams } from './utils/createRequestParams.js';
-import { WriteClientArgs } from './utils/writeClientTypes.js';
+import { WriteClientArgs } from './utils/types.js';
 
 export type Options = {
     input: string | AnyOpenApi;

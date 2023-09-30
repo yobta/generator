@@ -7,7 +7,7 @@ import { formatCode as f } from './formatCode.js';
 import { formatIndentation as i } from './formatIndentation.js';
 import { Operation } from '../client/interfaces/Operation';
 import { EndpointConfig } from '../factories';
-import { WriteClientPartContext } from './writeClientTypes';
+import { WriteClientPartContext } from './types.js';
 
 type HttpMethods = EndpointConfig['method'][];
 

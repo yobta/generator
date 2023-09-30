@@ -3,7 +3,7 @@ import { resolve } from 'path';
 import { writeFile } from './fileSystem.js';
 import { formatCode as f } from './formatCode.js';
 import { formatIndentation as i } from './formatIndentation.js';
-import { WriteClientPartContext } from './writeClientTypes';
+import { WriteClientPartContext } from './types.js';
 
 /**
  * Generate Routes using the Handlebar template and write to disk.
