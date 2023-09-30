@@ -22,6 +22,14 @@ const params = program
     .option('--indent <value>', 'Indentation options [4, 2, tabs]', '4')
     .option('--postfixModels <value>', 'Model name postfix')
     .option('--allowImportingTsExtensions', 'Generate .ts extentions on imports enstead .js', false)
+    .option(
+        '--allowedHooksMethods <value>',
+        'Http methods for which hooks will be generated (example: GET,HEAD), default GET'
+    )
+    .option(
+        '--allowedServerMethods <value>',
+        'Http methods for which server resolvers will be generated (example: GET,HEAD), default GET'
+    )
     .parse(process.argv)
     .opts();
 
@@ -38,6 +46,8 @@ if (OpenAPI) {
         indent: params.indent,
         postfixModels: params.postfixModels,
         allowImportingTsExtensions: params.allowImportingTsExtensions,
+        allowedHooksMethods: params.allowedHooksMethods,
+        allowedServerMethods: params.allowedServerMethods,
     })
         .then(() => {
             process.exit(0);

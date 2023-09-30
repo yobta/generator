@@ -670,27 +670,27 @@ export const useCallWithNoContentResponse = createSwrHook<Types.NoContentCallWit
     method: 'GET',
 });
 
-export const useDummyA = createSwrHook<Types.MultipleTags1DummyAInput, Types.MultipleTags1DummyAOutput>({
+export const useDummyAMultipleTags1 = createSwrHook<Types.MultipleTags1DummyAInput, Types.MultipleTags1DummyAOutput>({
     route: '/api/v{api-version}/multiple-tags/a',
     method: 'GET',
 });
 
-export const useDummyB = createSwrHook<Types.MultipleTags1DummyBInput, Types.MultipleTags1DummyBOutput>({
+export const useDummyBMultipleTags1 = createSwrHook<Types.MultipleTags1DummyBInput, Types.MultipleTags1DummyBOutput>({
     route: '/api/v{api-version}/multiple-tags/b',
     method: 'GET',
 });
 
-export const useDummyA = createSwrHook<Types.MultipleTags2DummyAInput, Types.MultipleTags2DummyAOutput>({
+export const useDummyAMultipleTags2 = createSwrHook<Types.MultipleTags2DummyAInput, Types.MultipleTags2DummyAOutput>({
     route: '/api/v{api-version}/multiple-tags/a',
     method: 'GET',
 });
 
-export const useDummyB = createSwrHook<Types.MultipleTags2DummyBInput, Types.MultipleTags2DummyBOutput>({
+export const useDummyBMultipleTags2 = createSwrHook<Types.MultipleTags2DummyBInput, Types.MultipleTags2DummyBOutput>({
     route: '/api/v{api-version}/multiple-tags/b',
     method: 'GET',
 });
 
-export const useDummyB = createSwrHook<Types.MultipleTags3DummyBInput, Types.MultipleTags3DummyBOutput>({
+export const useDummyBMultipleTags3 = createSwrHook<Types.MultipleTags3DummyBInput, Types.MultipleTags3DummyBOutput>({
     route: '/api/v{api-version}/multiple-tags/b',
     method: 'GET',
 });
@@ -2846,69 +2846,6 @@ export const serverGetCallWithoutParametersAndResponse = createServerResolver<Ty
 
 /**
  */
-export const serverPutCallWithoutParametersAndResponse = createServerResolver<Types.SimplePutCallWithoutParametersAndResponseInput, Types.SimplePutCallWithoutParametersAndResponseOutput>({
-    route: '/api/v{api-version}/simple',
-    method: 'PUT',
-});
-
-/**
- */
-export const serverPostCallWithoutParametersAndResponse = createServerResolver<Types.SimplePostCallWithoutParametersAndResponseInput, Types.SimplePostCallWithoutParametersAndResponseOutput>({
-    route: '/api/v{api-version}/simple',
-    method: 'POST',
-});
-
-/**
- */
-export const serverDeleteCallWithoutParametersAndResponse = createServerResolver<Types.SimpleDeleteCallWithoutParametersAndResponseInput, Types.SimpleDeleteCallWithoutParametersAndResponseOutput>({
-    route: '/api/v{api-version}/simple',
-    method: 'DELETE',
-});
-
-/**
- */
-export const serverOptionsCallWithoutParametersAndResponse = createServerResolver<Types.SimpleOptionsCallWithoutParametersAndResponseInput, Types.SimpleOptionsCallWithoutParametersAndResponseOutput>({
-    route: '/api/v{api-version}/simple',
-    method: 'OPTIONS',
-});
-
-/**
- */
-export const serverHeadCallWithoutParametersAndResponse = createServerResolver<Types.SimpleHeadCallWithoutParametersAndResponseInput, Types.SimpleHeadCallWithoutParametersAndResponseOutput>({
-    route: '/api/v{api-version}/simple',
-    method: 'HEAD',
-});
-
-/**
- */
-export const serverPatchCallWithoutParametersAndResponse = createServerResolver<Types.SimplePatchCallWithoutParametersAndResponseInput, Types.SimplePatchCallWithoutParametersAndResponseOutput>({
-    route: '/api/v{api-version}/simple',
-    method: 'PATCH',
-});
-
-/**
- */
-export const serverCallWithDescriptions = createServerResolver<Types.DescriptionsCallWithDescriptionsInput, Types.DescriptionsCallWithDescriptionsOutput>({
-    route: '/api/v{api-version}/descriptions/',
-    method: 'POST',
-});
-
-/**
- */
-export const serverCallWithParameters = createServerResolver<Types.ParametersCallWithParametersInput, Types.ParametersCallWithParametersOutput>({
-    route: '/api/v{api-version}/parameters/{parameterPath}',
-    method: 'POST',
-});
-
-/**
- */
-export const serverCallWithWeirdParameterNames = createServerResolver<Types.ParametersCallWithWeirdParameterNamesInput, Types.ParametersCallWithWeirdParameterNamesOutput>({
-    route: '/api/v{api-version}/parameters/{parameter.path.1}/{parameter-path-2}/{PARAMETER-PATH-3}',
-    method: 'POST',
-});
-
-/**
- */
 export const serverCallWithDefaultParameters = createServerResolver<Types.DefaultsCallWithDefaultParametersInput, Types.DefaultsCallWithDefaultParametersOutput>({
     route: '/api/v{api-version}/defaults',
     method: 'GET',
@@ -2916,44 +2853,9 @@ export const serverCallWithDefaultParameters = createServerResolver<Types.Defaul
 
 /**
  */
-export const serverCallWithDefaultOptionalParameters = createServerResolver<Types.DefaultsCallWithDefaultOptionalParametersInput, Types.DefaultsCallWithDefaultOptionalParametersOutput>({
-    route: '/api/v{api-version}/defaults',
-    method: 'POST',
-});
-
-/**
- */
-export const serverCallToTestOrderOfParams = createServerResolver<Types.DefaultsCallToTestOrderOfParamsInput, Types.DefaultsCallToTestOrderOfParamsOutput>({
-    route: '/api/v{api-version}/defaults',
-    method: 'PUT',
-});
-
-/**
- */
 export const serverDuplicateName = createServerResolver<Types.DuplicateDuplicateNameInput, Types.DuplicateDuplicateNameOutput>({
     route: '/api/v{api-version}/duplicate',
     method: 'GET',
-});
-
-/**
- */
-export const serverDuplicateName1 = createServerResolver<Types.DuplicateDuplicateName1Input, Types.DuplicateDuplicateName1Output>({
-    route: '/api/v{api-version}/duplicate',
-    method: 'POST',
-});
-
-/**
- */
-export const serverDuplicateName2 = createServerResolver<Types.DuplicateDuplicateName2Input, Types.DuplicateDuplicateName2Output>({
-    route: '/api/v{api-version}/duplicate',
-    method: 'PUT',
-});
-
-/**
- */
-export const serverDuplicateName3 = createServerResolver<Types.DuplicateDuplicateName3Input, Types.DuplicateDuplicateName3Output>({
-    route: '/api/v{api-version}/duplicate',
-    method: 'DELETE',
 });
 
 /**
@@ -3013,25 +2915,6 @@ export const serverCallWithResponse = createServerResolver<Types.ResponseCallWit
 });
 
 /**
- * @returns ModelWithString Message for default response
- */
-export const serverCallWithDuplicateResponses = createServerResolver<Types.ResponseCallWithDuplicateResponsesInput, Types.ResponseCallWithDuplicateResponsesOutput>({
-    route: '/api/v{api-version}/response',
-    method: 'POST',
-});
-
-/**
- * @returns any Message for 200 response
- * @returns ModelWithString Message for default response
- * @returns ModelThatExtends Message for 201 response
- * @returns ModelThatExtendsExtends Message for 202 response
- */
-export const serverCallWithResponses = createServerResolver<Types.ResponseCallWithResponsesInput, Types.ResponseCallWithResponsesOutput>({
-    route: '/api/v{api-version}/response',
-    method: 'PUT',
-});
-
-/**
  */
 export const serverCollectionFormat = createServerResolver<Types.CollectionFormatCollectionFormatInput, Types.CollectionFormatCollectionFormatOutput>({
     route: '/api/v{api-version}/collectionFormat',
@@ -3055,22 +2938,6 @@ export const serverTypes = createServerResolver<Types.TypesTypesInput, Types.Typ
 export const serverComplexTypes = createServerResolver<Types.ComplexComplexTypesInput, Types.ComplexComplexTypesOutput>({
     route: '/api/v{api-version}/complex',
     method: 'GET',
-});
-
-/**
- * @returns string Successful response
- */
-export const serverCallWithResultFromHeader = createServerResolver<Types.HeaderCallWithResultFromHeaderInput, Types.HeaderCallWithResultFromHeaderOutput>({
-    route: '/api/v{api-version}/header',
-    method: 'POST',
-});
-
-/**
- * @returns any Custom message: Successful response
- */
-export const serverTestErrorCode = createServerResolver<Types.ErrorTestErrorCodeInput, Types.ErrorTestErrorCodeOutput>({
-    route: '/api/v{api-version}/error',
-    method: 'POST',
 });
 
 
@@ -3102,107 +2969,10 @@ export const serverGetCallWithoutParametersAndResponse = createServerResolver<Ty
 
 /**
  */
-export const serverPutCallWithoutParametersAndResponse = createServerResolver<Types.SimplePutCallWithoutParametersAndResponseInput, Types.SimplePutCallWithoutParametersAndResponseOutput>({
-    route: '/api/v{api-version}/simple',
-    method: 'PUT',
-});
-
-/**
- */
-export const serverPostCallWithoutParametersAndResponse = createServerResolver<Types.SimplePostCallWithoutParametersAndResponseInput, Types.SimplePostCallWithoutParametersAndResponseOutput>({
-    route: '/api/v{api-version}/simple',
-    method: 'POST',
-});
-
-/**
- */
-export const serverDeleteCallWithoutParametersAndResponse = createServerResolver<Types.SimpleDeleteCallWithoutParametersAndResponseInput, Types.SimpleDeleteCallWithoutParametersAndResponseOutput>({
-    route: '/api/v{api-version}/simple',
-    method: 'DELETE',
-});
-
-/**
- */
-export const serverOptionsCallWithoutParametersAndResponse = createServerResolver<Types.SimpleOptionsCallWithoutParametersAndResponseInput, Types.SimpleOptionsCallWithoutParametersAndResponseOutput>({
-    route: '/api/v{api-version}/simple',
-    method: 'OPTIONS',
-});
-
-/**
- */
-export const serverHeadCallWithoutParametersAndResponse = createServerResolver<Types.SimpleHeadCallWithoutParametersAndResponseInput, Types.SimpleHeadCallWithoutParametersAndResponseOutput>({
-    route: '/api/v{api-version}/simple',
-    method: 'HEAD',
-});
-
-/**
- */
-export const serverPatchCallWithoutParametersAndResponse = createServerResolver<Types.SimplePatchCallWithoutParametersAndResponseInput, Types.SimplePatchCallWithoutParametersAndResponseOutput>({
-    route: '/api/v{api-version}/simple',
-    method: 'PATCH',
-});
-
-/**
- */
-export const serverCallWithDescriptions = createServerResolver<Types.DescriptionsCallWithDescriptionsInput, Types.DescriptionsCallWithDescriptionsOutput>({
-    route: '/api/v{api-version}/descriptions/',
-    method: 'POST',
-});
-
-/**
- * @deprecated
- */
-export const serverDeprecatedCall = createServerResolver<Types.DeprecatedDeprecatedCallInput, Types.DeprecatedDeprecatedCallOutput>({
-    route: '/api/v{api-version}/parameters/deprecated',
-    method: 'POST',
-});
-
-/**
- */
-export const serverCallWithParameters = createServerResolver<Types.ParametersCallWithParametersInput, Types.ParametersCallWithParametersOutput>({
-    route: '/api/v{api-version}/parameters/{parameterPath}',
-    method: 'POST',
-    mediaType: 'application/json',
-});
-
-/**
- */
-export const serverCallWithWeirdParameterNames = createServerResolver<Types.ParametersCallWithWeirdParameterNamesInput, Types.ParametersCallWithWeirdParameterNamesOutput>({
-    route: '/api/v{api-version}/parameters/{parameter.path.1}/{parameter-path-2}/{PARAMETER-PATH-3}',
-    method: 'POST',
-    mediaType: 'application/json',
-});
-
-/**
- */
 export const serverGetCallWithOptionalParam = createServerResolver<Types.ParametersGetCallWithOptionalParamInput, Types.ParametersGetCallWithOptionalParamOutput>({
     route: '/api/v{api-version}/parameters/',
     method: 'GET',
     mediaType: 'application/json',
-});
-
-/**
- */
-export const serverPostCallWithOptionalParam = createServerResolver<Types.ParametersPostCallWithOptionalParamInput, Types.ParametersPostCallWithOptionalParamOutput>({
-    route: '/api/v{api-version}/parameters/',
-    method: 'POST',
-    mediaType: 'application/json',
-});
-
-/**
- */
-export const serverPostApiRequestBody = createServerResolver<Types.RequestBodyPostApiRequestBodyInput, Types.RequestBodyPostApiRequestBodyOutput>({
-    route: '/api/v{api-version}/requestBody/',
-    method: 'POST',
-    mediaType: 'application/json',
-});
-
-/**
- */
-export const serverPostApiFormData = createServerResolver<Types.FormDataPostApiFormDataInput, Types.FormDataPostApiFormDataOutput>({
-    route: '/api/v{api-version}/formData/',
-    method: 'POST',
-    mediaType: 'multipart/form-data',
 });
 
 /**
@@ -3214,44 +2984,9 @@ export const serverCallWithDefaultParameters = createServerResolver<Types.Defaul
 
 /**
  */
-export const serverCallWithDefaultOptionalParameters = createServerResolver<Types.DefaultsCallWithDefaultOptionalParametersInput, Types.DefaultsCallWithDefaultOptionalParametersOutput>({
-    route: '/api/v{api-version}/defaults',
-    method: 'POST',
-});
-
-/**
- */
-export const serverCallToTestOrderOfParams = createServerResolver<Types.DefaultsCallToTestOrderOfParamsInput, Types.DefaultsCallToTestOrderOfParamsOutput>({
-    route: '/api/v{api-version}/defaults',
-    method: 'PUT',
-});
-
-/**
- */
 export const serverDuplicateName = createServerResolver<Types.DuplicateDuplicateNameInput, Types.DuplicateDuplicateNameOutput>({
     route: '/api/v{api-version}/duplicate',
     method: 'GET',
-});
-
-/**
- */
-export const serverDuplicateName1 = createServerResolver<Types.DuplicateDuplicateName1Input, Types.DuplicateDuplicateName1Output>({
-    route: '/api/v{api-version}/duplicate',
-    method: 'POST',
-});
-
-/**
- */
-export const serverDuplicateName2 = createServerResolver<Types.DuplicateDuplicateName2Input, Types.DuplicateDuplicateName2Output>({
-    route: '/api/v{api-version}/duplicate',
-    method: 'PUT',
-});
-
-/**
- */
-export const serverDuplicateName3 = createServerResolver<Types.DuplicateDuplicateName3Input, Types.DuplicateDuplicateName3Output>({
-    route: '/api/v{api-version}/duplicate',
-    method: 'DELETE',
 });
 
 /**
@@ -3311,25 +3046,6 @@ export const serverCallWithResponse = createServerResolver<Types.ResponseCallWit
 });
 
 /**
- * @returns ModelWithString Message for default response
- */
-export const serverCallWithDuplicateResponses = createServerResolver<Types.ResponseCallWithDuplicateResponsesInput, Types.ResponseCallWithDuplicateResponsesOutput>({
-    route: '/api/v{api-version}/response',
-    method: 'POST',
-});
-
-/**
- * @returns any Message for 200 response
- * @returns ModelWithString Message for default response
- * @returns ModelThatExtends Message for 201 response
- * @returns ModelThatExtendsExtends Message for 202 response
- */
-export const serverCallWithResponses = createServerResolver<Types.ResponseCallWithResponsesInput, Types.ResponseCallWithResponsesOutput>({
-    route: '/api/v{api-version}/response',
-    method: 'PUT',
-});
-
-/**
  */
 export const serverCollectionFormat = createServerResolver<Types.CollectionFormatCollectionFormatInput, Types.CollectionFormatCollectionFormatOutput>({
     route: '/api/v{api-version}/collectionFormat',
@@ -3348,14 +3064,6 @@ export const serverTypes = createServerResolver<Types.TypesTypesInput, Types.Typ
 });
 
 /**
- * @returns boolean
- */
-export const serverUploadFile = createServerResolver<Types.UploadUploadFileInput, Types.UploadUploadFileOutput>({
-    route: '/api/v{api-version}/upload',
-    method: 'POST',
-});
-
-/**
  * @returns ModelWithString Successful response
  */
 export const serverComplexTypes = createServerResolver<Types.ComplexComplexTypesInput, Types.ComplexComplexTypesOutput>({
@@ -3364,44 +3072,11 @@ export const serverComplexTypes = createServerResolver<Types.ComplexComplexTypes
 });
 
 /**
- * @returns ModelWithString Success
- */
-export const serverComplexParams = createServerResolver<Types.ComplexComplexParamsInput, Types.ComplexComplexParamsOutput>({
-    route: '/api/v{api-version}/complex/{id}',
-    method: 'PUT',
-    mediaType: 'application/json-patch+json',
-});
-
-/**
- */
-export const serverMultipartRequest = createServerResolver<Types.MultipartMultipartRequestInput, Types.MultipartMultipartRequestOutput>({
-    route: '/api/v{api-version}/multipart',
-    method: 'POST',
-    mediaType: 'multipart/form-data',
-});
-
-/**
  * @returns any OK
  */
 export const serverMultipartResponse = createServerResolver<Types.MultipartMultipartResponseInput, Types.MultipartMultipartResponseOutput>({
     route: '/api/v{api-version}/multipart',
     method: 'GET',
-});
-
-/**
- * @returns string Successful response
- */
-export const serverCallWithResultFromHeader = createServerResolver<Types.HeaderCallWithResultFromHeaderInput, Types.HeaderCallWithResultFromHeaderOutput>({
-    route: '/api/v{api-version}/header',
-    method: 'POST',
-});
-
-/**
- * @returns any Custom message: Successful response
- */
-export const serverTestErrorCode = createServerResolver<Types.ErrorTestErrorCodeInput, Types.ErrorTestErrorCodeOutput>({
-    route: '/api/v{api-version}/error',
-    method: 'POST',
 });
 
 

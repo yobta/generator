@@ -15,16 +15,19 @@ import { writeClientHooks } from './writeClientHooks.js';
 
 /**
  * Write our OpenAPI client, using the given templates at the given output
- * @param client Client object with all the models, services, etc.
- * @param templates Templates wrapper with all loaded Handlebars templates
- * @param output The relative location of the output directory
- * @param factories The relative location of the factories file
- * @param useUnionTypes Use union types instead of enums
- * @param exportServices Generate services
- * @param exportSchemas Generate schemas
- * @param indent Indentation options (4, 2 or tab)
- * @param postfixModels Model name postfix
- * @param allowImportingTsExtensions Generate .ts extentions on imports enstead .js
+ * @param {Object} args
+ * @param args.client Client object with all the models, services, etc.
+ * @param args.templates Templates wrapper with all loaded Handlebars templates
+ * @param args.output The relative location of the output directory
+ * @param args.factories The relative location of the factories file
+ * @param args.useUnionTypes Use union types instead of enums
+ * @param args.exportServices Generate services
+ * @param args.exportSchemas Generate schemas
+ * @param args.indent Indentation options (4, 2 or tab)
+ * @param args.postfixModels Model name postfix
+ * @param args.allowImportingTsExtensions Generate .ts extentions on imports enstead .js
+ * @param {string[]} args.allowedHooksMethods Http methods for which hooks will be generated
+ * @param {string[]} args.allowedServerMethods Http methods for which server resolvers will be generated
  */
 export const writeClient = async (args: WriteClientArgs): Promise<void> => {
     const { client, exportServices, exportSchemas, output, factories } = args;

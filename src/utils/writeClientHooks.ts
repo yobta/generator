@@ -1,22 +1,11 @@
-import type { Service } from '../client/interfaces/Service';
+import type { WriteClientPartContext } from './types.js';
 
 import { relative, resolve } from 'path';
 
 import { writeFile } from './fileSystem.js';
 import { formatCode as f } from './formatCode.js';
 import { formatIndentation as i } from './formatIndentation.js';
-import { Operation } from '../client/interfaces/Operation';
-import { EndpointConfig } from '../factories';
-import { WriteClientPartContext } from './types.js';
-
-type HttpMethods = EndpointConfig['method'][];
-
-const makeOperationsGetter =
-    (filterMethods?: HttpMethods) =>
-    ({ operations }: Service): Operation[] => {
-        if (!filterMethods) return operations;
-        return operations.filter(operation => filterMethods.includes(operation.method as HttpMethods[number]));
-    };
+import { makeOperationsGetter } from './makeOpertaionsGetter.js';
 
 /**
  * Generate Hooks using the Handlebar template and write to disk.
@@ -27,6 +16,7 @@ const makeOperationsGetter =
  * @param {string} args.absoluteFactoriesFile Directory to write the generated files to
  * @param {string} args.indent Indentation options (4, 2 or tab)
  * @param {boolean} args.allowImportingTsExtensions Generate .ts extentions on imports enstead .js
+ * @param {string[]} args.allowedHooksMethods Http methods for which hooks will be generated
  */
 export const writeClientHooks = async ({
     client,
@@ -35,8 +25,9 @@ export const writeClientHooks = async ({
     outputPath,
     indent,
     allowImportingTsExtensions,
+    allowedHooksMethods = ['GET'],
 }: WriteClientPartContext): Promise<number> => {
-    const getOperations = makeOperationsGetter(['GET']);
+    const getOperations = makeOperationsGetter(allowedHooksMethods);
     const file = resolve(outputPath, `hooks.ts`);
     const allOperations = client.services.map(getOperations).flat();
     if (!allOperations.length) {

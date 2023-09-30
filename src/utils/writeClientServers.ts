@@ -1,9 +1,11 @@
+import type { WriteClientPartContext } from './types.js';
+
 import { relative, resolve } from 'path';
 
 import { writeFile } from './fileSystem.js';
 import { formatCode as f } from './formatCode.js';
 import { formatIndentation as i } from './formatIndentation.js';
-import { WriteClientPartContext } from './types.js';
+import { makeOperationsGetter } from './makeOpertaionsGetter.js';
 
 /**
  * Generate Server using the Handlebar template and write to disk.
@@ -14,6 +16,7 @@ import { WriteClientPartContext } from './types.js';
  * @param {string} args.absoluteFactoriesFile Directory to write the generated files to
  * @param {string} args.indent Indentation options (4, 2 or tab)
  * @param {boolean} args.allowImportingTsExtensions Generate .ts extentions on imports enstead .js
+ * @param {string[]} args.allowedServerMethods Http methods for which server resolvers will be generated
  */
 export const writeClientServers = async ({
     client,
@@ -22,13 +25,16 @@ export const writeClientServers = async ({
     outputPath,
     indent,
     allowImportingTsExtensions,
+    allowedServerMethods = ['GET'],
 }: WriteClientPartContext): Promise<void> => {
-    if (!client.services.length) {
+    const getOperations = makeOperationsGetter(allowedServerMethods);
+    const file = resolve(outputPath, `server.ts`);
+    const allOperations = client.services.map(getOperations).flat();
+    if (!allOperations.length) {
         return;
     }
-    const file = resolve(outputPath, `server.ts`);
     const templateResult = templates.exports.server({
-        services: client.services,
+        services: client.services.map(service => ({ ...service, operations: getOperations(service) })),
         factories: relative(outputPath, absoluteFactoriesFile),
         allowImportingTsExtensions,
     });
