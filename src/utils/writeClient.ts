@@ -43,7 +43,6 @@ export const writeClient = async (
     const outputPath = resolve(process.cwd(), output);
     const outputPathRoutes = resolve(outputPath, 'routes');
     const outputPathServer = resolve(outputPath, 'server');
-    const outputPathClient = resolve(outputPath, 'client');
     const outputPathHook = resolve(outputPath, 'hooks');
     const outputPathModels = resolve(outputPath, 'models');
     const outputPathSchemas = resolve(outputPath, 'schemas');
@@ -53,6 +52,9 @@ export const writeClient = async (
     if (!isSubDirectory(process.cwd(), output)) {
         throw new Error(`Output folder is not a subdirectory of the current working directory`);
     }
+
+    await rmdir(outputPath);
+    await mkdir(outputPath);
 
     await rmdir(outputPathFactories);
     await mkdir(outputPathFactories);
@@ -75,13 +77,11 @@ export const writeClient = async (
             allowImportingTsExtensions
         );
 
-        await rmdir(outputPathClient);
-        await mkdir(outputPathClient);
         await writeClientClients(
             client.services,
             absoluteFactoriesFile,
             templates,
-            outputPathClient,
+            outputPath,
             indent,
             allowImportingTsExtensions
         );

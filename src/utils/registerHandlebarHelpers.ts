@@ -6,6 +6,8 @@ import Handlebars from 'handlebars';
 import { EOL } from 'os';
 
 import { unique } from './unique.js';
+import { countOperationNames } from './countOperationNames.js';
+import { Service } from '../client/interfaces/Service';
 
 export const registerHandlebarHelpers = (root: { useUnionTypes: boolean }): void => {
     Handlebars.registerHelper('ifdef', function (this: unknown, ...args): string {
@@ -103,4 +105,12 @@ export const registerHandlebarHelpers = (root: { useUnionTypes: boolean }): void
     Handlebars.registerHelper('capitalize', (value: string): string => {
         return value.charAt(0).toUpperCase() + value.slice(1);
     });
+
+    Handlebars.registerHelper(
+        'operationName',
+        (operation: Service['operations'][number], service: Service, services: Service[]): string => {
+            const { name } = operation;
+            return countOperationNames(name, services) > 1 ? `${name}${service.name}` : name;
+        }
+    );
 };

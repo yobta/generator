@@ -16,8 +16,7 @@ const templatesData = [
     { name: 'templateDataTypesIndex', filePath: 'data-types/index.hbs' },
     { name: 'templateServerResolver', filePath: 'server/resolver.hbs' },
     { name: 'templateServerIndex', filePath: 'server/index.hbs' },
-    { name: 'templateClientResolver', filePath: 'client/resolver.hbs' },
-    { name: 'templateClientIndex', filePath: 'client/index.hbs' },
+    { name: 'templateExportClient', filePath: 'exportClient.hbs' },
     { name: 'templateHookResolver', filePath: 'hooks/resolver.hbs' },
     { name: 'templateHookIndex', filePath: 'hooks/index.hbs' },
     { name: 'templateIndex', filePath: 'index.hbs' },
@@ -74,6 +73,7 @@ export const precompiledTemplates = templatesData.reduce((acc, { name, filePath 
                     escapeDescription: true,
                     camelCase: true,
                     capitalize: true,
+                    operationName: true,
                 },
             })} })()`
         ),

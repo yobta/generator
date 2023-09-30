@@ -28,6 +28,6 @@ export * from './data-types';
 {{#if totalHooks}}export * from './hooks';{{/if}}
 export * as routes from './routes';
 export * as server from './server';
-export * as client from './client';
+export * from './client{{>tsExtention}}';
 {{/if}}
 {{/if}}
