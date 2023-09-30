@@ -5,6 +5,18 @@ import { createSwrHook } from '{{{factories}}}';
 
 {{#each services}}
 {{#each operations}}
+/**
+{{#if deprecated}}
+	* @deprecated
+{{/if}}
+{{#if summary}}
+	* {{{escapeComment summary}}}
+{{/if}}
+{{#if description}}
+	* {{{escapeComment description}}}
+{{/if}}
+	* @throws ApiError
+*/
 export const use{{{operationName . ../. @root.services true}}} = createSwrHook<Types.{{{../name}}}{{{capitalize name}}}Input, Types.{{{../name}}}{{{capitalize name}}}Output>({
 	route: '{{{path}}}',
 	method: '{{{method}}}'{{#if parametersBody}}{{#if parametersBody.mediaType}},

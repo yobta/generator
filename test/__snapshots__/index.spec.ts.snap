@@ -645,71 +645,113 @@ exports[`v2 should generate: test/generated/v2/hooks.ts 1`] = `
 import * as Types from './data-types';
 import { createSwrHook } from '../../../factories-module';
 
+/**
+ * @throws ApiError
+ */
 export const useServiceWithEmptyTag = createSwrHook<Types.DefaultServiceWithEmptyTagInput, Types.DefaultServiceWithEmptyTagOutput>({
     route: '/api/v{api-version}/no-tag',
     method: 'GET',
 });
 
+/**
+ * @throws ApiError
+ */
 export const useGetCallWithoutParametersAndResponse = createSwrHook<Types.SimpleGetCallWithoutParametersAndResponseInput, Types.SimpleGetCallWithoutParametersAndResponseOutput>({
     route: '/api/v{api-version}/simple',
     method: 'GET',
 });
 
+/**
+ * @throws ApiError
+ */
 export const useCallWithDefaultParameters = createSwrHook<Types.DefaultsCallWithDefaultParametersInput, Types.DefaultsCallWithDefaultParametersOutput>({
     route: '/api/v{api-version}/defaults',
     method: 'GET',
 });
 
+/**
+ * @throws ApiError
+ */
 export const useDuplicateName = createSwrHook<Types.DuplicateDuplicateNameInput, Types.DuplicateDuplicateNameOutput>({
     route: '/api/v{api-version}/duplicate',
     method: 'GET',
 });
 
+/**
+ * @throws ApiError
+ */
 export const useCallWithNoContentResponse = createSwrHook<Types.NoContentCallWithNoContentResponseInput, Types.NoContentCallWithNoContentResponseOutput>({
     route: '/api/v{api-version}/no-content',
     method: 'GET',
 });
 
+/**
+ * @throws ApiError
+ */
 export const useDummyAMultipleTags1 = createSwrHook<Types.MultipleTags1DummyAInput, Types.MultipleTags1DummyAOutput>({
     route: '/api/v{api-version}/multiple-tags/a',
     method: 'GET',
 });
 
+/**
+ * @throws ApiError
+ */
 export const useDummyBMultipleTags1 = createSwrHook<Types.MultipleTags1DummyBInput, Types.MultipleTags1DummyBOutput>({
     route: '/api/v{api-version}/multiple-tags/b',
     method: 'GET',
 });
 
+/**
+ * @throws ApiError
+ */
 export const useDummyAMultipleTags2 = createSwrHook<Types.MultipleTags2DummyAInput, Types.MultipleTags2DummyAOutput>({
     route: '/api/v{api-version}/multiple-tags/a',
     method: 'GET',
 });
 
+/**
+ * @throws ApiError
+ */
 export const useDummyBMultipleTags2 = createSwrHook<Types.MultipleTags2DummyBInput, Types.MultipleTags2DummyBOutput>({
     route: '/api/v{api-version}/multiple-tags/b',
     method: 'GET',
 });
 
+/**
+ * @throws ApiError
+ */
 export const useDummyBMultipleTags3 = createSwrHook<Types.MultipleTags3DummyBInput, Types.MultipleTags3DummyBOutput>({
     route: '/api/v{api-version}/multiple-tags/b',
     method: 'GET',
 });
 
+/**
+ * @throws ApiError
+ */
 export const useCallWithResponse = createSwrHook<Types.ResponseCallWithResponseInput, Types.ResponseCallWithResponseOutput>({
     route: '/api/v{api-version}/response',
     method: 'GET',
 });
 
+/**
+ * @throws ApiError
+ */
 export const useCollectionFormat = createSwrHook<Types.CollectionFormatCollectionFormatInput, Types.CollectionFormatCollectionFormatOutput>({
     route: '/api/v{api-version}/collectionFormat',
     method: 'GET',
 });
 
+/**
+ * @throws ApiError
+ */
 export const useTypes = createSwrHook<Types.TypesTypesInput, Types.TypesTypesOutput>({
     route: '/api/v{api-version}/types',
     method: 'GET',
 });
 
+/**
+ * @throws ApiError
+ */
 export const useComplexTypes = createSwrHook<Types.ComplexComplexTypesInput, Types.ComplexComplexTypesOutput>({
     route: '/api/v{api-version}/complex',
     method: 'GET',
