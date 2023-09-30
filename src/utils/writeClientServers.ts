@@ -1,48 +1,42 @@
-import type { Service } from '../client/interfaces/Service';
-import type { Indent } from '../Indent';
-import type { Templates } from './registerHandlebarTemplates';
+import type { WriteClientPartContext } from './types.js';
 
 import { relative, resolve } from 'path';
 
-import { rmdir, writeFile } from './fileSystem.js';
+import { writeFile } from './fileSystem.js';
 import { formatCode as f } from './formatCode.js';
 import { formatIndentation as i } from './formatIndentation.js';
+import { makeOperationsGetter } from './makeOpertaionsGetter.js';
 
 /**
- * Generate Services using the Handlebar template and write to disk.
- * @param services Array of Services to write
- * @param factories Absolute path to factories file
- * @param templates The loaded handlebar templates
- * @param outputPath Directory to write the generated files to
- * @param indent Indentation options (4, 2 or tab)
- * @param allowImportingTsExtensions Generate .ts extentions on imports enstead .js
+ * Generate Server using the Handlebar template and write to disk.
+ * @param {Object} args
+ * @param {Object} args.client OpenApi client
+ * @param {Object} args.templates The loaded handlebar templates
+ * @param {string} args.outputPath Directory to write the generated files to
+ * @param {string} args.absoluteFactoriesFile Directory to write the generated files to
+ * @param {string} args.indent Indentation options (4, 2 or tab)
+ * @param {boolean} args.allowImportingTsExtensions Generate .ts extentions on imports enstead .js
+ * @param {string[]} args.allowedServerMethods Http methods for which server resolvers will be generated
  */
-export const writeClientServers = async (
-    services: Service[],
-    factories: string,
-    templates: Templates,
-    outputPath: string,
-    indent: Indent,
-    allowImportingTsExtensions: boolean
-): Promise<void> => {
-    if (!services.length) {
-        await rmdir(outputPath);
+export const writeClientServers = async ({
+    client,
+    absoluteFactoriesFile,
+    templates,
+    outputPath,
+    indent,
+    allowImportingTsExtensions,
+    allowedServerMethods = ['GET'],
+}: WriteClientPartContext): Promise<void> => {
+    const getOperations = makeOperationsGetter(allowedServerMethods);
+    const file = resolve(outputPath, `server.ts`);
+    const allOperations = client.services.map(getOperations).flat();
+    if (!allOperations.length) {
         return;
     }
-    const writedFiles = [];
-    for (const service of services) {
-        const file = resolve(outputPath, `${service.name}.ts`);
-        const templateResult = templates.exports.server.resolver({
-            service,
-            factories: relative(outputPath, factories),
-            allowImportingTsExtensions,
-        });
-        await writeFile(file, i(f(templateResult), indent));
-        writedFiles.push({ fileName: service.name });
-    }
-    if (writedFiles.length) {
-        const file = resolve(outputPath, 'index.ts');
-        const templateResult = templates.exports.server.index({ writedFiles, allowImportingTsExtensions });
-        await writeFile(file, i(f(templateResult), indent));
-    }
+    const templateResult = templates.exports.server({
+        services: client.services.map(service => ({ ...service, operations: getOperations(service) })),
+        factories: relative(outputPath, absoluteFactoriesFile),
+        allowImportingTsExtensions,
+    });
+    await writeFile(file, i(f(templateResult), indent));
 };

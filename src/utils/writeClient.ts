@@ -1,6 +1,4 @@
-import type { Client } from '../client/interfaces/Client';
-import type { Indent } from '../Indent';
-import type { Templates } from './registerHandlebarTemplates.js';
+import type { WriteClientArgs, WriteClientPartContext } from './types.js';
 
 import { resolve } from 'path';
 
@@ -17,114 +15,61 @@ import { writeClientHooks } from './writeClientHooks.js';
 
 /**
  * Write our OpenAPI client, using the given templates at the given output
- * @param client Client object with all the models, services, etc.
- * @param templates Templates wrapper with all loaded Handlebars templates
- * @param output The relative location of the output directory
- * @param factories The relative location of the factories file
- * @param useUnionTypes Use union types instead of enums
- * @param exportServices Generate services
- * @param exportSchemas Generate schemas
- * @param indent Indentation options (4, 2 or tab)
- * @param postfixModels Model name postfix
- * @param allowImportingTsExtensions Generate .ts extentions on imports enstead .js
+ * @param {Object} args
+ * @param args.client Client object with all the models, services, etc.
+ * @param args.templates Templates wrapper with all loaded Handlebars templates
+ * @param args.output The relative location of the output directory
+ * @param args.factories The relative location of the factories file
+ * @param args.useUnionTypes Use union types instead of enums
+ * @param args.exportServices Generate services
+ * @param args.exportSchemas Generate schemas
+ * @param args.indent Indentation options (4, 2 or tab)
+ * @param args.postfixModels Model name postfix
+ * @param args.allowImportingTsExtensions Generate .ts extentions on imports enstead .js
+ * @param {string[]} args.allowedHooksMethods Http methods for which hooks will be generated
+ * @param {string[]} args.allowedServerMethods Http methods for which server resolvers will be generated
  */
-export const writeClient = async (
-    client: Client,
-    templates: Templates,
-    output: string,
-    factories: string,
-    useUnionTypes: boolean,
-    exportServices: boolean,
-    exportSchemas: boolean,
-    indent: Indent,
-    postfixModels: string,
-    allowImportingTsExtensions: boolean
-): Promise<void> => {
+export const writeClient = async (args: WriteClientArgs): Promise<void> => {
+    const { client, exportServices, exportSchemas, output, factories } = args;
     const outputPath = resolve(process.cwd(), output);
-    const outputPathRoutes = resolve(outputPath, 'routes');
-    const outputPathServer = resolve(outputPath, 'server');
-    const outputPathClient = resolve(outputPath, 'client');
-    const outputPathHook = resolve(outputPath, 'hooks');
     const outputPathModels = resolve(outputPath, 'models');
     const outputPathSchemas = resolve(outputPath, 'schemas');
-    const outputPathFactories = resolve(outputPath, 'data-types');
-    const absoluteFactoriesFile = resolve(process.cwd(), factories);
 
     if (!isSubDirectory(process.cwd(), output)) {
         throw new Error(`Output folder is not a subdirectory of the current working directory`);
     }
 
-    await rmdir(outputPathFactories);
-    await mkdir(outputPathFactories);
-    await writeClientDataTypes(client.services, templates, outputPathFactories, indent, allowImportingTsExtensions);
+    const partContext: WriteClientPartContext = {
+        ...args,
+        outputPath,
+        absoluteFactoriesFile: resolve(process.cwd(), factories),
+    };
 
-    await rmdir(outputPathRoutes);
-    await mkdir(outputPathRoutes);
-    await writeClientRoutes(client.services, templates, outputPathRoutes, indent, allowImportingTsExtensions);
+    await rmdir(outputPath);
+    await mkdir(outputPath);
+
+    await writeClientDataTypes(partContext);
+    await writeClientRoutes(partContext);
 
     let totalHooks = 0;
     if (exportServices) {
-        await rmdir(outputPathServer);
-        await mkdir(outputPathServer);
-        await writeClientServers(
-            client.services,
-            absoluteFactoriesFile,
-            templates,
-            outputPathServer,
-            indent,
-            allowImportingTsExtensions
-        );
-
-        await rmdir(outputPathClient);
-        await mkdir(outputPathClient);
-        await writeClientClients(
-            client.services,
-            absoluteFactoriesFile,
-            templates,
-            outputPathClient,
-            indent,
-            allowImportingTsExtensions
-        );
-
-        await rmdir(outputPathHook);
-        await mkdir(outputPathHook);
-        totalHooks = await writeClientHooks(
-            client.services,
-            absoluteFactoriesFile,
-            templates,
-            outputPathHook,
-            indent,
-            allowImportingTsExtensions
-        );
+        await writeClientServers(partContext);
+        await writeClientClients(partContext);
+        totalHooks = await writeClientHooks(partContext);
     }
 
-    if (exportSchemas) {
-        await rmdir(outputPathSchemas);
+    await rmdir(outputPathSchemas);
+    if (exportSchemas && client.models.length) {
         await mkdir(outputPathSchemas);
-        await writeClientSchemas(client.models, templates, outputPathSchemas, useUnionTypes, indent);
+        await writeClientSchemas({ ...partContext, outputPath: outputPathSchemas });
     }
 
     await rmdir(outputPathModels);
-    await mkdir(outputPathModels);
-    await writeClientModels(
-        client.models,
-        templates,
-        outputPathModels,
-        useUnionTypes,
-        indent,
-        allowImportingTsExtensions
-    );
+    if (client.models.length) {
+        await mkdir(outputPathModels);
+        await writeClientModels({ ...partContext, outputPath: outputPathModels });
+    }
 
     await mkdir(outputPath);
-    await writeClientIndex(
-        client,
-        templates,
-        outputPath,
-        useUnionTypes,
-        exportServices,
-        exportSchemas,
-        postfixModels,
-        allowImportingTsExtensions,
-        totalHooks
-    );
+    await writeClientIndex({ ...partContext, totalHooks });
 };

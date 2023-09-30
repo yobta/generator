@@ -3,26 +3,11 @@ import type { Templates } from '../registerHandlebarTemplates';
 export const templates: Templates = {
     index: () => 'index',
     exports: {
-        routes: {
-            route: () => 'route',
-            index: () => 'routesIndex',
-        },
-        'data-types': {
-            types: () => 'factoriesTypes',
-            index: () => 'factoriesIndex',
-        },
-        server: {
-            resolver: () => 'sererResolver',
-            index: () => 'serverIndex',
-        },
-        client: {
-            resolver: () => 'clientResolver',
-            index: () => 'clientIndex',
-        },
-        hooks: {
-            resolver: () => 'hookResolver',
-            index: () => 'hookIndex',
-        },
+        routes: () => 'routes',
+        'data-types': () => 'dataTypes',
+        server: () => 'server',
+        client: () => 'client',
+        hooks: () => 'hooks',
         model: () => 'model',
         schema: () => 'schema',
     },

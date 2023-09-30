@@ -24,10 +24,18 @@ export { ${{{name}}} } from './schemas/${{{name}}}{{>tsExtention}}';
 {{#if @root.exportServices}}
 {{#if services}}
 
-export * from './data-types';
-{{#if totalHooks}}export * from './hooks';{{/if}}
-export * as routes from './routes';
-export * as server from './server';
-export * as client from './client';
+export * from './data-types{{>tsExtention}}';
+{{#if totalHooks}}
+export * from './hooks{{>tsExtention}}';
+{{/if}}
+export * from './routes{{>tsExtention}}';
+export * from './server{{>tsExtention}}';
+export * from './client{{>tsExtention}}';
 {{/if}}
 {{/if}}
+
+{{#unless models}}
+{{#unless services}}
+export {}
+{{/unless}}
+{{/unless}}

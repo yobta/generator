@@ -1,5 +1,6 @@
 {{>header}}
 
+{{#each services}}
 {{#each operations}}
 /**
 {{#if deprecated}}
@@ -13,5 +14,7 @@
 {{/if}}
 	* @throws ApiError
 */
-export const {{{name}}} = '{{path}}';
+export const {{{operationName . ../. @root.services}}}Route = '{{path}}';
+
+{{/each}}
 {{/each}}

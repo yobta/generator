@@ -1,37 +1,36 @@
-import type { Client } from '../client/interfaces/Client';
-
 import { resolve } from 'path';
 
 import { writeFile } from './fileSystem.js';
-import { Templates } from './registerHandlebarTemplates.js';
 import { sortModelsByName } from './sortModelsByName.js';
 import { sortServicesByName } from './sortServicesByName.js';
+import { WriteClientPartContext } from './types.js';
 
 /**
  * Generate the OpenAPI client index file using the Handlebar template and write it to disk.
  * The index file just contains all the exports you need to use the client as a standalone
  * library. But yuo can also import individual models and services directly.
- * @param client Client object, containing, models, schemas and services
- * @param templates The loaded handlebar templates
- * @param outputPath Directory to write the generated files to
- * @param useUnionTypes Use union types instead of enums
- * @param exportServices Generate services
- * @param exportSchemas Generate schemas
- * @param postfixModels Model name postfix
- * @param allowImportingTsExtensions Generate .ts extentions on imports enstead .js
- * @param totalHooks How many hooks had already generated
+ * @param {Object} args
+ * @param {Object} args.client OpenApi client
+ * @param {Object} args.templates The loaded handlebar templates
+ * @param {string} args.outputPath Directory to write the generated files to
+ * @param {boolean} args.useUnionTypes Use union types instead of enums
+ * @param {boolean} args.exportServices Generate services
+ * @param {boolean} args.exportSchemas Generate schemas
+ * @param {string} args.postfixModels Model name postfix
+ * @param {boolean} args.allowImportingTsExtensions Generate .ts extentions on imports enstead .js
+ * @param {number} args.totalHooks How many hooks had already generated
  */
-export const writeClientIndex = async (
-    client: Client,
-    templates: Templates,
-    outputPath: string,
-    useUnionTypes: boolean,
-    exportServices: boolean,
-    exportSchemas: boolean,
-    postfixModels: string,
-    allowImportingTsExtensions: boolean,
-    totalHooks: number
-): Promise<void> => {
+export const writeClientIndex = async ({
+    client,
+    templates,
+    outputPath,
+    useUnionTypes,
+    exportServices,
+    exportSchemas,
+    postfixModels,
+    allowImportingTsExtensions,
+    totalHooks,
+}: WriteClientPartContext & { totalHooks: number }): Promise<void> => {
     const templateResult = templates.index({
         exportServices,
         exportSchemas,

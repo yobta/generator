@@ -1,52 +1,43 @@
-import type { Service } from '../client/interfaces/Service';
-import type { Indent } from '../Indent';
-import type { Templates } from './registerHandlebarTemplates';
+import type { WriteClientPartContext } from './types.js';
 
 import { relative, resolve } from 'path';
 
-import { writeFile, rmdir } from './fileSystem.js';
+import { writeFile } from './fileSystem.js';
 import { formatCode as f } from './formatCode.js';
 import { formatIndentation as i } from './formatIndentation.js';
+import { makeOperationsGetter } from './makeOpertaionsGetter.js';
 
 /**
- * Generate Services using the Handlebar template and write to disk.
- * @param services Array of Services to write
- * @param factories Absolute path to factories file
- * @param templates The loaded handlebar templates
- * @param outputPath Directory to write the generated files to
- * @param indent Indentation options (4, 2 or tab)
- * @param allowImportingTsExtensions Generate .ts extentions on imports enstead .js
+ * Generate Hooks using the Handlebar template and write to disk.
+ * @param {Object} args
+ * @param {Object} args.client OpenApi client
+ * @param {Object} args.templates The loaded handlebar templates
+ * @param {string} args.outputPath Directory to write the generated files to
+ * @param {string} args.absoluteFactoriesFile Directory to write the generated files to
+ * @param {string} args.indent Indentation options (4, 2 or tab)
+ * @param {boolean} args.allowImportingTsExtensions Generate .ts extentions on imports enstead .js
+ * @param {string[]} args.allowedHooksMethods Http methods for which hooks will be generated
  */
-export const writeClientHooks = async (
-    services: Service[],
-    factories: string,
-    templates: Templates,
-    outputPath: string,
-    indent: Indent,
-    allowImportingTsExtensions: boolean
-): Promise<number> => {
-    const writedFiles = [];
-    let totalHooks = 0;
-    for (const service of services) {
-        const getOperations = service.operations.filter(operation => operation.method === 'GET');
-        totalHooks += getOperations.length;
-        if (!getOperations.length) continue;
-        const file = resolve(outputPath, `${service.name}.ts`);
-        const templateResult = templates.exports.hooks.resolver({
-            service: { ...service, operations: getOperations },
-            factories: relative(outputPath, factories),
-            allowImportingTsExtensions,
-        });
-        await writeFile(file, i(f(templateResult), indent));
-        writedFiles.push({ fileName: service.name });
+export const writeClientHooks = async ({
+    client,
+    absoluteFactoriesFile,
+    templates,
+    outputPath,
+    indent,
+    allowImportingTsExtensions,
+    allowedHooksMethods = ['GET'],
+}: WriteClientPartContext): Promise<number> => {
+    const getOperations = makeOperationsGetter(allowedHooksMethods);
+    const file = resolve(outputPath, `hooks.ts`);
+    const allOperations = client.services.map(getOperations).flat();
+    if (!allOperations.length) {
+        return 0;
     }
-    if (writedFiles.length) {
-        const file = resolve(outputPath, 'index.ts');
-        const templateResult = templates.exports.hooks.index({ writedFiles, allowImportingTsExtensions });
-        await writeFile(file, i(f(templateResult), indent));
-    }
-    if (!totalHooks) {
-        await rmdir(outputPath);
-    }
-    return totalHooks;
+    const templateResult = templates.exports.hooks({
+        services: client.services.map(service => ({ ...service, operations: getOperations(service) })),
+        factories: relative(outputPath, absoluteFactoriesFile),
+        allowImportingTsExtensions,
+    });
+    await writeFile(file, i(f(templateResult), indent));
+    return allOperations.length;
 };

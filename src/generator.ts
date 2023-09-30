@@ -11,6 +11,7 @@ import { registerHandlebarTemplates } from './utils/registerHandlebarTemplates.j
 import { writeClient } from './utils/writeClient.js';
 import { AnyOpenApi } from './openApi/index.js';
 import { createRequestParams } from './utils/createRequestParams.js';
+import { HttpMethods, WriteClientArgs } from './utils/types.js';
 
 export type Options = {
     input: string | AnyOpenApi;
@@ -23,6 +24,8 @@ export type Options = {
     postfixModels?: string;
     allowImportingTsExtensions?: boolean;
     write?: boolean;
+    allowedHooksMethods?: string;
+    allowedServerMethods?: string;
 };
 
 /**
@@ -39,6 +42,8 @@ export type Options = {
  * @param postfixModels Model name postfix
  * @param allowImportingTsExtensions (Generate .ts extentions on imports enstead .js)
  * @param write Write the files to disk (true or false)
+ * @param allowedHooksMethods Http methods for which hooks will be generated, default GET
+ * @param allowedServerMethods Http methods for which server resolvers will be generated, default GET
  */
 export const generate = async ({
     input,
@@ -51,6 +56,8 @@ export const generate = async ({
     postfixModels = '',
     allowImportingTsExtensions = false,
     write = true,
+    allowedHooksMethods,
+    allowedServerMethods,
 }: Options): Promise<void> => {
     if (!factoriesRaw) {
         throw new Error(`Argument 'factories' is require`);
@@ -65,23 +72,26 @@ export const generate = async ({
         useUnionTypes,
     });
 
+    const args: Omit<WriteClientArgs, 'client'> = {
+        templates,
+        output,
+        factories,
+        useUnionTypes,
+        exportServices,
+        exportSchemas,
+        indent,
+        postfixModels,
+        allowImportingTsExtensions,
+        allowedHooksMethods: allowedHooksMethods?.split(',') as HttpMethods,
+        allowedServerMethods: allowedServerMethods?.split(',') as HttpMethods,
+    };
+
     switch (openApiVersion) {
         case OpenApiVersion.V2: {
             const client = parseV2(openApi as OpenApiV2);
             const clientFinal = postProcessClient(client);
             if (!write) break;
-            await writeClient(
-                clientFinal,
-                templates,
-                output,
-                factories,
-                useUnionTypes,
-                exportServices,
-                exportSchemas,
-                indent,
-                postfixModels,
-                allowImportingTsExtensions
-            );
+            await writeClient({ ...args, client: clientFinal });
             break;
         }
 
@@ -89,18 +99,7 @@ export const generate = async ({
             const client = parseV3(openApi as OpenApiV3);
             const clientFinal = postProcessClient(client);
             if (!write) break;
-            await writeClient(
-                clientFinal,
-                templates,
-                output,
-                factories,
-                useUnionTypes,
-                exportServices,
-                exportSchemas,
-                indent,
-                postfixModels,
-                allowImportingTsExtensions
-            );
+            await writeClient({ ...args, client: clientFinal });
             break;
         }
     }

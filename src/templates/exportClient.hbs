@@ -1,10 +1,11 @@
 {{>header}}
 "use client";
 
-import * as Types from '../data-types/types{{>tsExtention}}';
+import * as Types from './data-types{{>tsExtention}}';
 import { createClientResolver } from '{{{factories}}}';
 
-{{#each service.operations}}
+{{#each services}}
+{{#each operations}}
 /**
 {{#if deprecated}}
 	* @deprecated
@@ -19,9 +20,11 @@ import { createClientResolver } from '{{{factories}}}';
 	 * @returns {{{type}}} {{#if description}}{{{escapeComment description}}}{{/if}}
 {{/each}}
 */
-export const {{{name}}} = createClientResolver<Types.{{{@root.service.name}}}{{{capitalize name}}}Input, Types.{{{@root.service.name}}}{{{capitalize name}}}Output>({
+export const {{{operationName . ../. @root.services}}} = createClientResolver<Types.{{{../name}}}{{{capitalize name}}}Input, Types.{{{../name}}}{{{capitalize name}}}Output>({
 	route: '{{{path}}}',
 	method: '{{{method}}}'{{#if parametersBody}}{{#if parametersBody.mediaType}},
 	mediaType: '{{{parametersBody.mediaType}}}'{{/if}}{{/if}},
 });
+
+{{/each}}
 {{/each}}

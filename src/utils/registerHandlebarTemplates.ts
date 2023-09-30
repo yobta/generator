@@ -8,26 +8,11 @@ import { precompiledTemplates } from './precompileTemplates.js';
 export interface Templates {
     index: TemplateDelegate;
     exports: {
-        routes: {
-            route: TemplateDelegate;
-            index: TemplateDelegate;
-        };
-        'data-types': {
-            types: TemplateDelegate;
-            index: TemplateDelegate;
-        };
-        server: {
-            resolver: TemplateDelegate;
-            index: TemplateDelegate;
-        };
-        client: {
-            resolver: TemplateDelegate;
-            index: TemplateDelegate;
-        };
-        hooks: {
-            resolver: TemplateDelegate;
-            index: TemplateDelegate;
-        };
+        routes: TemplateDelegate;
+        'data-types': TemplateDelegate;
+        server: TemplateDelegate;
+        client: TemplateDelegate;
+        hooks: TemplateDelegate;
         model: TemplateDelegate;
         schema: TemplateDelegate;
     };
@@ -44,26 +29,11 @@ export const registerHandlebarTemplates = (root: { useUnionTypes: boolean }): Te
     const templates: Templates = {
         index: handlebars.template(precompiledTemplates.templateIndex),
         exports: {
-            routes: {
-                route: handlebars.template(precompiledTemplates.templateRoute),
-                index: handlebars.template(precompiledTemplates.templateRoutesIndex),
-            },
-            'data-types': {
-                types: handlebars.template(precompiledTemplates.templateDataTypes),
-                index: handlebars.template(precompiledTemplates.templateDataTypesIndex),
-            },
-            server: {
-                resolver: handlebars.template(precompiledTemplates.templateServerResolver),
-                index: handlebars.template(precompiledTemplates.templateServerIndex),
-            },
-            client: {
-                resolver: handlebars.template(precompiledTemplates.templateClientResolver),
-                index: handlebars.template(precompiledTemplates.templateClientIndex),
-            },
-            hooks: {
-                resolver: handlebars.template(precompiledTemplates.templateHookResolver),
-                index: handlebars.template(precompiledTemplates.templateHookIndex),
-            },
+            routes: handlebars.template(precompiledTemplates.templateExportRoutes),
+            'data-types': handlebars.template(precompiledTemplates.templateExportDataTypes),
+            server: handlebars.template(precompiledTemplates.templateExportServer),
+            client: handlebars.template(precompiledTemplates.templateExportClient),
+            hooks: handlebars.template(precompiledTemplates.templateExportHooks),
             model: handlebars.template(precompiledTemplates.templateExportModel),
             schema: handlebars.template(precompiledTemplates.templateExportSchema),
         },

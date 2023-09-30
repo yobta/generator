@@ -16,18 +16,18 @@ describe('writeClient', () => {
             services: [],
         };
 
-        await writeClient(
+        await writeClient({
             client,
             templates,
-            './dist',
-            './factories.ts',
-            false,
-            true,
-            true,
-            Indent.SPACE_4,
-            'Model',
-            false
-        );
+            output: './dist',
+            factories: './factories.ts',
+            useUnionTypes: false,
+            exportServices: true,
+            exportSchemas: true,
+            indent: Indent.SPACE_4,
+            postfixModels: 'Model',
+            allowImportingTsExtensions: false,
+        });
 
         expect(rmdir).toBeCalled();
         expect(mkdir).toBeCalled();
