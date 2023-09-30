@@ -56,5 +56,6 @@ describe('writeClientSchemas', () => {
         });
 
         expect(writeFile).toBeCalledWith('/$User.ts', `schema${EOL}`);
+        expect(writeFile).toBeCalledWith('/index.ts', `schemaIndex${EOL}`);
     });
 });
