@@ -43,7 +43,6 @@ export const writeClient = async (
     const outputPath = resolve(process.cwd(), output);
     const outputPathRoutes = resolve(outputPath, 'routes');
     const outputPathServer = resolve(outputPath, 'server');
-    const outputPathHook = resolve(outputPath, 'hooks');
     const outputPathModels = resolve(outputPath, 'models');
     const outputPathSchemas = resolve(outputPath, 'schemas');
     const absoluteFactoriesFile = resolve(process.cwd(), factories);
@@ -83,13 +82,11 @@ export const writeClient = async (
             allowImportingTsExtensions
         );
 
-        await rmdir(outputPathHook);
-        await mkdir(outputPathHook);
         totalHooks = await writeClientHooks(
             client.services,
             absoluteFactoriesFile,
             templates,
-            outputPathHook,
+            outputPath,
             indent,
             allowImportingTsExtensions
         );

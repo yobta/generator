@@ -1,7 +1,7 @@
 {{>header}}
 "use client";
 
-import * as Types from './data-types/types{{>tsExtention}}';
+import * as Types from './data-types{{>tsExtention}}';
 import { createClientResolver } from '{{{factories}}}';
 
 {{#each services}}
@@ -25,5 +25,6 @@ export const {{{operationName . ../. @root.services}}} = createClientResolver<Ty
 	method: '{{{method}}}'{{#if parametersBody}}{{#if parametersBody.mediaType}},
 	mediaType: '{{{parametersBody.mediaType}}}'{{/if}}{{/if}},
 });
+
 {{/each}}
 {{/each}}

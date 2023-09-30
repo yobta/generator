@@ -7,7 +7,7 @@ exports[`v2 should generate: test/generated/v2/client.ts 1`] = `
 /* eslint-disable */
 "use client";
 
-import * as Types from './data-types/types';
+import * as Types from './data-types';
 import { createClientResolver } from '../../../factories-module';
 
 /**
@@ -16,108 +16,126 @@ export const serviceWithEmptyTag = createClientResolver<Types.DefaultServiceWith
     route: '/api/v{api-version}/no-tag',
     method: 'GET',
 });
+
 /**
  */
 export const getCallWithoutParametersAndResponse = createClientResolver<Types.SimpleGetCallWithoutParametersAndResponseInput, Types.SimpleGetCallWithoutParametersAndResponseOutput>({
     route: '/api/v{api-version}/simple',
     method: 'GET',
 });
+
 /**
  */
 export const putCallWithoutParametersAndResponse = createClientResolver<Types.SimplePutCallWithoutParametersAndResponseInput, Types.SimplePutCallWithoutParametersAndResponseOutput>({
     route: '/api/v{api-version}/simple',
     method: 'PUT',
 });
+
 /**
  */
 export const postCallWithoutParametersAndResponse = createClientResolver<Types.SimplePostCallWithoutParametersAndResponseInput, Types.SimplePostCallWithoutParametersAndResponseOutput>({
     route: '/api/v{api-version}/simple',
     method: 'POST',
 });
+
 /**
  */
 export const deleteCallWithoutParametersAndResponse = createClientResolver<Types.SimpleDeleteCallWithoutParametersAndResponseInput, Types.SimpleDeleteCallWithoutParametersAndResponseOutput>({
     route: '/api/v{api-version}/simple',
     method: 'DELETE',
 });
+
 /**
  */
 export const optionsCallWithoutParametersAndResponse = createClientResolver<Types.SimpleOptionsCallWithoutParametersAndResponseInput, Types.SimpleOptionsCallWithoutParametersAndResponseOutput>({
     route: '/api/v{api-version}/simple',
     method: 'OPTIONS',
 });
+
 /**
  */
 export const headCallWithoutParametersAndResponse = createClientResolver<Types.SimpleHeadCallWithoutParametersAndResponseInput, Types.SimpleHeadCallWithoutParametersAndResponseOutput>({
     route: '/api/v{api-version}/simple',
     method: 'HEAD',
 });
+
 /**
  */
 export const patchCallWithoutParametersAndResponse = createClientResolver<Types.SimplePatchCallWithoutParametersAndResponseInput, Types.SimplePatchCallWithoutParametersAndResponseOutput>({
     route: '/api/v{api-version}/simple',
     method: 'PATCH',
 });
+
 /**
  */
 export const callWithDescriptions = createClientResolver<Types.DescriptionsCallWithDescriptionsInput, Types.DescriptionsCallWithDescriptionsOutput>({
     route: '/api/v{api-version}/descriptions/',
     method: 'POST',
 });
+
 /**
  */
 export const callWithParameters = createClientResolver<Types.ParametersCallWithParametersInput, Types.ParametersCallWithParametersOutput>({
     route: '/api/v{api-version}/parameters/{parameterPath}',
     method: 'POST',
 });
+
 /**
  */
 export const callWithWeirdParameterNames = createClientResolver<Types.ParametersCallWithWeirdParameterNamesInput, Types.ParametersCallWithWeirdParameterNamesOutput>({
     route: '/api/v{api-version}/parameters/{parameter.path.1}/{parameter-path-2}/{PARAMETER-PATH-3}',
     method: 'POST',
 });
+
 /**
  */
 export const callWithDefaultParameters = createClientResolver<Types.DefaultsCallWithDefaultParametersInput, Types.DefaultsCallWithDefaultParametersOutput>({
     route: '/api/v{api-version}/defaults',
     method: 'GET',
 });
+
 /**
  */
 export const callWithDefaultOptionalParameters = createClientResolver<Types.DefaultsCallWithDefaultOptionalParametersInput, Types.DefaultsCallWithDefaultOptionalParametersOutput>({
     route: '/api/v{api-version}/defaults',
     method: 'POST',
 });
+
 /**
  */
 export const callToTestOrderOfParams = createClientResolver<Types.DefaultsCallToTestOrderOfParamsInput, Types.DefaultsCallToTestOrderOfParamsOutput>({
     route: '/api/v{api-version}/defaults',
     method: 'PUT',
 });
+
 /**
  */
 export const duplicateName = createClientResolver<Types.DuplicateDuplicateNameInput, Types.DuplicateDuplicateNameOutput>({
     route: '/api/v{api-version}/duplicate',
     method: 'GET',
 });
+
 /**
  */
 export const duplicateName1 = createClientResolver<Types.DuplicateDuplicateName1Input, Types.DuplicateDuplicateName1Output>({
     route: '/api/v{api-version}/duplicate',
     method: 'POST',
 });
+
 /**
  */
 export const duplicateName2 = createClientResolver<Types.DuplicateDuplicateName2Input, Types.DuplicateDuplicateName2Output>({
     route: '/api/v{api-version}/duplicate',
     method: 'PUT',
 });
+
 /**
  */
 export const duplicateName3 = createClientResolver<Types.DuplicateDuplicateName3Input, Types.DuplicateDuplicateName3Output>({
     route: '/api/v{api-version}/duplicate',
     method: 'DELETE',
 });
+
 /**
  * @returns void
  */
@@ -125,6 +143,7 @@ export const callWithNoContentResponse = createClientResolver<Types.NoContentCal
     route: '/api/v{api-version}/no-content',
     method: 'GET',
 });
+
 /**
  * @returns void
  */
@@ -132,6 +151,7 @@ export const dummyAMultipleTags1 = createClientResolver<Types.MultipleTags1Dummy
     route: '/api/v{api-version}/multiple-tags/a',
     method: 'GET',
 });
+
 /**
  * @returns void
  */
@@ -139,6 +159,7 @@ export const dummyBMultipleTags1 = createClientResolver<Types.MultipleTags1Dummy
     route: '/api/v{api-version}/multiple-tags/b',
     method: 'GET',
 });
+
 /**
  * @returns void
  */
@@ -146,6 +167,7 @@ export const dummyAMultipleTags2 = createClientResolver<Types.MultipleTags2Dummy
     route: '/api/v{api-version}/multiple-tags/a',
     method: 'GET',
 });
+
 /**
  * @returns void
  */
@@ -153,6 +175,7 @@ export const dummyBMultipleTags2 = createClientResolver<Types.MultipleTags2Dummy
     route: '/api/v{api-version}/multiple-tags/b',
     method: 'GET',
 });
+
 /**
  * @returns void
  */
@@ -160,6 +183,7 @@ export const dummyBMultipleTags3 = createClientResolver<Types.MultipleTags3Dummy
     route: '/api/v{api-version}/multiple-tags/b',
     method: 'GET',
 });
+
 /**
  * @returns ModelWithString Message for default response
  */
@@ -167,6 +191,7 @@ export const callWithResponse = createClientResolver<Types.ResponseCallWithRespo
     route: '/api/v{api-version}/response',
     method: 'GET',
 });
+
 /**
  * @returns ModelWithString Message for default response
  */
@@ -174,6 +199,7 @@ export const callWithDuplicateResponses = createClientResolver<Types.ResponseCal
     route: '/api/v{api-version}/response',
     method: 'POST',
 });
+
 /**
  * @returns any Message for 200 response
  * @returns ModelWithString Message for default response
@@ -184,12 +210,14 @@ export const callWithResponses = createClientResolver<Types.ResponseCallWithResp
     route: '/api/v{api-version}/response',
     method: 'PUT',
 });
+
 /**
  */
 export const collectionFormat = createClientResolver<Types.CollectionFormatCollectionFormatInput, Types.CollectionFormatCollectionFormatOutput>({
     route: '/api/v{api-version}/collectionFormat',
     method: 'GET',
 });
+
 /**
  * @returns number Response is a simple number
  * @returns string Response is a simple string
@@ -200,6 +228,7 @@ export const types = createClientResolver<Types.TypesTypesInput, Types.TypesType
     route: '/api/v{api-version}/types',
     method: 'GET',
 });
+
 /**
  * @returns ModelWithString Successful response
  */
@@ -207,6 +236,7 @@ export const complexTypes = createClientResolver<Types.ComplexComplexTypesInput,
     route: '/api/v{api-version}/complex',
     method: 'GET',
 });
+
 /**
  * @returns string Successful response
  */
@@ -214,6 +244,7 @@ export const callWithResultFromHeader = createClientResolver<Types.HeaderCallWit
     route: '/api/v{api-version}/header',
     method: 'POST',
 });
+
 /**
  * @returns any Custom message: Successful response
  */
@@ -221,6 +252,7 @@ export const testErrorCode = createClientResolver<Types.ErrorTestErrorCodeInput,
     route: '/api/v{api-version}/error',
     method: 'POST',
 });
+
 
 "
 `;
@@ -238,21 +270,37 @@ import type { ModelWithString } from './models/ModelWithString';
 import type { ModelWithString } from './models/ModelWithString';
 
 export type DefaultServiceWithEmptyTagInput = {};
+
 export type DefaultServiceWithEmptyTagOutput = void;
+
 export type SimpleGetCallWithoutParametersAndResponseInput = {};
+
 export type SimpleGetCallWithoutParametersAndResponseOutput = void;
+
 export type SimplePutCallWithoutParametersAndResponseInput = {};
+
 export type SimplePutCallWithoutParametersAndResponseOutput = void;
+
 export type SimplePostCallWithoutParametersAndResponseInput = {};
+
 export type SimplePostCallWithoutParametersAndResponseOutput = void;
+
 export type SimpleDeleteCallWithoutParametersAndResponseInput = {};
+
 export type SimpleDeleteCallWithoutParametersAndResponseOutput = void;
+
 export type SimpleOptionsCallWithoutParametersAndResponseInput = {};
+
 export type SimpleOptionsCallWithoutParametersAndResponseOutput = void;
+
 export type SimpleHeadCallWithoutParametersAndResponseInput = {};
+
 export type SimpleHeadCallWithoutParametersAndResponseOutput = void;
+
 export type SimplePatchCallWithoutParametersAndResponseInput = {};
+
 export type SimplePatchCallWithoutParametersAndResponseOutput = void;
+
 export type DescriptionsCallWithDescriptionsInput = {
     /**
      * Testing multiline comments in string: First line
@@ -282,7 +330,9 @@ export type DescriptionsCallWithDescriptionsInput = {
      */
     parameterWithReservedCharacters?: string;
 };
+
 export type DescriptionsCallWithDescriptionsOutput = void;
+
 export type ParametersCallWithParametersInput = {
     /**
      * This is the parameter that goes into the header
@@ -305,7 +355,9 @@ export type ParametersCallWithParametersInput = {
      */
     parameterPath: string;
 };
+
 export type ParametersCallWithParametersOutput = void;
+
 export type ParametersCallWithWeirdParameterNamesInput = {
     /**
      * This is the parameter that goes into the request header
@@ -340,7 +392,9 @@ export type ParametersCallWithWeirdParameterNamesInput = {
      */
     _default?: string;
 };
+
 export type ParametersCallWithWeirdParameterNamesOutput = void;
+
 export type DefaultsCallWithDefaultParametersInput = {
     /**
      * This is a simple string with default value
@@ -363,7 +417,9 @@ export type DefaultsCallWithDefaultParametersInput = {
      */
     parameterModel?: ModelWithString;
 };
+
 export type DefaultsCallWithDefaultParametersOutput = void;
+
 export type DefaultsCallWithDefaultOptionalParametersInput = {
     /**
      * This is a simple string that is optional with default value
@@ -386,7 +442,9 @@ export type DefaultsCallWithDefaultOptionalParametersInput = {
      */
     parameterModel?: ModelWithString;
 };
+
 export type DefaultsCallWithDefaultOptionalParametersOutput = void;
+
 export type DefaultsCallToTestOrderOfParamsInput = {
     /**
      * This is a string with no default
@@ -421,37 +479,65 @@ export type DefaultsCallToTestOrderOfParamsInput = {
      */
     parameterStringNullableWithDefault?: string | null;
 };
+
 export type DefaultsCallToTestOrderOfParamsOutput = void;
+
 export type DuplicateDuplicateNameInput = {};
+
 export type DuplicateDuplicateNameOutput = void;
+
 export type DuplicateDuplicateName1Input = {};
+
 export type DuplicateDuplicateName1Output = void;
+
 export type DuplicateDuplicateName2Input = {};
+
 export type DuplicateDuplicateName2Output = void;
+
 export type DuplicateDuplicateName3Input = {};
+
 export type DuplicateDuplicateName3Output = void;
+
 export type NoContentCallWithNoContentResponseInput = {};
+
 export type NoContentCallWithNoContentResponseOutput = void;
+
 export type MultipleTags1DummyAInput = {};
+
 export type MultipleTags1DummyAOutput = void;
+
 export type MultipleTags1DummyBInput = {};
+
 export type MultipleTags1DummyBOutput = void;
+
 export type MultipleTags2DummyAInput = {};
+
 export type MultipleTags2DummyAOutput = void;
+
 export type MultipleTags2DummyBInput = {};
+
 export type MultipleTags2DummyBOutput = void;
+
 export type MultipleTags3DummyBInput = {};
+
 export type MultipleTags3DummyBOutput = void;
+
 export type ResponseCallWithResponseInput = {};
+
 export type ResponseCallWithResponseOutput = ModelWithString;
+
 export type ResponseCallWithDuplicateResponsesInput = {};
+
 export type ResponseCallWithDuplicateResponsesOutput = ModelWithString;
+
 export type ResponseCallWithResponsesInput = {};
+
 export type ResponseCallWithResponsesOutput = {
     readonly '@namespace.string'?: string;
     readonly '@namespace.integer'?: number;
     readonly value?: Array<ModelWithString>;
 } | ModelWithString | ModelThatExtends | ModelThatExtendsExtends;
+
 export type CollectionFormatCollectionFormatInput = {
     /**
      * This is an array parameter that is sent as csv format (comma-separated values)
@@ -474,7 +560,9 @@ export type CollectionFormatCollectionFormatInput = {
      */
     parameterArrayMulti: Array<string>;
 };
+
 export type CollectionFormatCollectionFormatOutput = void;
+
 export type TypesTypesInput = {
     /**
      * This is an array parameter
@@ -509,7 +597,9 @@ export type TypesTypesInput = {
      */
     id?: number;
 };
+
 export type TypesTypesOutput = number | string | boolean | any;
+
 export type ComplexComplexTypesInput = {
     /**
      * Parameter containing object
@@ -526,250 +616,105 @@ export type ComplexComplexTypesInput = {
      */
     parameterReference: ModelWithString;
 };
+
 export type ComplexComplexTypesOutput = Array<ModelWithString>;
+
 export type HeaderCallWithResultFromHeaderInput = {};
+
 export type HeaderCallWithResultFromHeaderOutput = string;
+
 export type ErrorTestErrorCodeInput = {
     /**
      * Status code to return
      */
     status: string;
 };
+
 export type ErrorTestErrorCodeOutput = any;
 
+
 "
 `;
 
-exports[`v2 should generate: test/generated/v2/hooks/CollectionFormat.ts 1`] = `
+exports[`v2 should generate: test/generated/v2/hooks.ts 1`] = `
 "/* generated using openapi-typescript-codegen -- do no edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 
-import * as Types from '../data-types/types';
-import { createSwrHook } from '../../../../factories-module';
-
-export const useCollectionFormat = createSwrHook<Types.CollectionFormatCollectionFormatInput, Types.CollectionFormatCollectionFormatOutput>({
-    route: '/api/v{api-version}/collectionFormat',
-    method: 'GET',
-});
-
-"
-`;
-
-exports[`v2 should generate: test/generated/v2/hooks/Complex.ts 1`] = `
-"/* generated using openapi-typescript-codegen -- do no edit */
-/* istanbul ignore file */
-/* tslint:disable */
-/* eslint-disable */
-
-import * as Types from '../data-types/types';
-import { createSwrHook } from '../../../../factories-module';
-
-export const useComplexTypes = createSwrHook<Types.ComplexComplexTypesInput, Types.ComplexComplexTypesOutput>({
-    route: '/api/v{api-version}/complex',
-    method: 'GET',
-});
-
-"
-`;
-
-exports[`v2 should generate: test/generated/v2/hooks/Default.ts 1`] = `
-"/* generated using openapi-typescript-codegen -- do no edit */
-/* istanbul ignore file */
-/* tslint:disable */
-/* eslint-disable */
-
-import * as Types from '../data-types/types';
-import { createSwrHook } from '../../../../factories-module';
+import * as Types from './data-types';
+import { createSwrHook } from '../../../factories-module';
 
 export const useServiceWithEmptyTag = createSwrHook<Types.DefaultServiceWithEmptyTagInput, Types.DefaultServiceWithEmptyTagOutput>({
     route: '/api/v{api-version}/no-tag',
     method: 'GET',
 });
 
-"
-`;
-
-exports[`v2 should generate: test/generated/v2/hooks/Defaults.ts 1`] = `
-"/* generated using openapi-typescript-codegen -- do no edit */
-/* istanbul ignore file */
-/* tslint:disable */
-/* eslint-disable */
-
-import * as Types from '../data-types/types';
-import { createSwrHook } from '../../../../factories-module';
+export const useGetCallWithoutParametersAndResponse = createSwrHook<Types.SimpleGetCallWithoutParametersAndResponseInput, Types.SimpleGetCallWithoutParametersAndResponseOutput>({
+    route: '/api/v{api-version}/simple',
+    method: 'GET',
+});
 
 export const useCallWithDefaultParameters = createSwrHook<Types.DefaultsCallWithDefaultParametersInput, Types.DefaultsCallWithDefaultParametersOutput>({
     route: '/api/v{api-version}/defaults',
     method: 'GET',
 });
 
-"
-`;
-
-exports[`v2 should generate: test/generated/v2/hooks/Duplicate.ts 1`] = `
-"/* generated using openapi-typescript-codegen -- do no edit */
-/* istanbul ignore file */
-/* tslint:disable */
-/* eslint-disable */
-
-import * as Types from '../data-types/types';
-import { createSwrHook } from '../../../../factories-module';
-
 export const useDuplicateName = createSwrHook<Types.DuplicateDuplicateNameInput, Types.DuplicateDuplicateNameOutput>({
     route: '/api/v{api-version}/duplicate',
     method: 'GET',
 });
-
-"
-`;
-
-exports[`v2 should generate: test/generated/v2/hooks/MultipleTags1.ts 1`] = `
-"/* generated using openapi-typescript-codegen -- do no edit */
-/* istanbul ignore file */
-/* tslint:disable */
-/* eslint-disable */
-
-import * as Types from '../data-types/types';
-import { createSwrHook } from '../../../../factories-module';
-
-export const useDummyA = createSwrHook<Types.MultipleTags1DummyAInput, Types.MultipleTags1DummyAOutput>({
-    route: '/api/v{api-version}/multiple-tags/a',
-    method: 'GET',
-});
-export const useDummyB = createSwrHook<Types.MultipleTags1DummyBInput, Types.MultipleTags1DummyBOutput>({
-    route: '/api/v{api-version}/multiple-tags/b',
-    method: 'GET',
-});
-
-"
-`;
-
-exports[`v2 should generate: test/generated/v2/hooks/MultipleTags2.ts 1`] = `
-"/* generated using openapi-typescript-codegen -- do no edit */
-/* istanbul ignore file */
-/* tslint:disable */
-/* eslint-disable */
-
-import * as Types from '../data-types/types';
-import { createSwrHook } from '../../../../factories-module';
-
-export const useDummyA = createSwrHook<Types.MultipleTags2DummyAInput, Types.MultipleTags2DummyAOutput>({
-    route: '/api/v{api-version}/multiple-tags/a',
-    method: 'GET',
-});
-export const useDummyB = createSwrHook<Types.MultipleTags2DummyBInput, Types.MultipleTags2DummyBOutput>({
-    route: '/api/v{api-version}/multiple-tags/b',
-    method: 'GET',
-});
-
-"
-`;
-
-exports[`v2 should generate: test/generated/v2/hooks/MultipleTags3.ts 1`] = `
-"/* generated using openapi-typescript-codegen -- do no edit */
-/* istanbul ignore file */
-/* tslint:disable */
-/* eslint-disable */
-
-import * as Types from '../data-types/types';
-import { createSwrHook } from '../../../../factories-module';
-
-export const useDummyB = createSwrHook<Types.MultipleTags3DummyBInput, Types.MultipleTags3DummyBOutput>({
-    route: '/api/v{api-version}/multiple-tags/b',
-    method: 'GET',
-});
-
-"
-`;
-
-exports[`v2 should generate: test/generated/v2/hooks/NoContent.ts 1`] = `
-"/* generated using openapi-typescript-codegen -- do no edit */
-/* istanbul ignore file */
-/* tslint:disable */
-/* eslint-disable */
-
-import * as Types from '../data-types/types';
-import { createSwrHook } from '../../../../factories-module';
 
 export const useCallWithNoContentResponse = createSwrHook<Types.NoContentCallWithNoContentResponseInput, Types.NoContentCallWithNoContentResponseOutput>({
     route: '/api/v{api-version}/no-content',
     method: 'GET',
 });
 
-"
-`;
+export const useDummyA = createSwrHook<Types.MultipleTags1DummyAInput, Types.MultipleTags1DummyAOutput>({
+    route: '/api/v{api-version}/multiple-tags/a',
+    method: 'GET',
+});
 
-exports[`v2 should generate: test/generated/v2/hooks/Response.ts 1`] = `
-"/* generated using openapi-typescript-codegen -- do no edit */
-/* istanbul ignore file */
-/* tslint:disable */
-/* eslint-disable */
+export const useDummyB = createSwrHook<Types.MultipleTags1DummyBInput, Types.MultipleTags1DummyBOutput>({
+    route: '/api/v{api-version}/multiple-tags/b',
+    method: 'GET',
+});
 
-import * as Types from '../data-types/types';
-import { createSwrHook } from '../../../../factories-module';
+export const useDummyA = createSwrHook<Types.MultipleTags2DummyAInput, Types.MultipleTags2DummyAOutput>({
+    route: '/api/v{api-version}/multiple-tags/a',
+    method: 'GET',
+});
+
+export const useDummyB = createSwrHook<Types.MultipleTags2DummyBInput, Types.MultipleTags2DummyBOutput>({
+    route: '/api/v{api-version}/multiple-tags/b',
+    method: 'GET',
+});
+
+export const useDummyB = createSwrHook<Types.MultipleTags3DummyBInput, Types.MultipleTags3DummyBOutput>({
+    route: '/api/v{api-version}/multiple-tags/b',
+    method: 'GET',
+});
 
 export const useCallWithResponse = createSwrHook<Types.ResponseCallWithResponseInput, Types.ResponseCallWithResponseOutput>({
     route: '/api/v{api-version}/response',
     method: 'GET',
 });
 
-"
-`;
-
-exports[`v2 should generate: test/generated/v2/hooks/Simple.ts 1`] = `
-"/* generated using openapi-typescript-codegen -- do no edit */
-/* istanbul ignore file */
-/* tslint:disable */
-/* eslint-disable */
-
-import * as Types from '../data-types/types';
-import { createSwrHook } from '../../../../factories-module';
-
-export const useGetCallWithoutParametersAndResponse = createSwrHook<Types.SimpleGetCallWithoutParametersAndResponseInput, Types.SimpleGetCallWithoutParametersAndResponseOutput>({
-    route: '/api/v{api-version}/simple',
+export const useCollectionFormat = createSwrHook<Types.CollectionFormatCollectionFormatInput, Types.CollectionFormatCollectionFormatOutput>({
+    route: '/api/v{api-version}/collectionFormat',
     method: 'GET',
 });
-
-"
-`;
-
-exports[`v2 should generate: test/generated/v2/hooks/Types.ts 1`] = `
-"/* generated using openapi-typescript-codegen -- do no edit */
-/* istanbul ignore file */
-/* tslint:disable */
-/* eslint-disable */
-
-import * as Types from '../data-types/types';
-import { createSwrHook } from '../../../../factories-module';
 
 export const useTypes = createSwrHook<Types.TypesTypesInput, Types.TypesTypesOutput>({
     route: '/api/v{api-version}/types',
     method: 'GET',
 });
 
-"
-`;
+export const useComplexTypes = createSwrHook<Types.ComplexComplexTypesInput, Types.ComplexComplexTypesOutput>({
+    route: '/api/v{api-version}/complex',
+    method: 'GET',
+});
 
-exports[`v2 should generate: test/generated/v2/hooks/index.ts 1`] = `
-"/* generated using openapi-typescript-codegen -- do no edit */
-/* istanbul ignore file */
-/* tslint:disable */
-/* eslint-disable */
-
-export * as default from './Default';
-export * as simple from './Simple';
-export * as defaults from './Defaults';
-export * as duplicate from './Duplicate';
-export * as noContent from './NoContent';
-export * as multipleTags1 from './MultipleTags1';
-export * as multipleTags2 from './MultipleTags2';
-export * as multipleTags3 from './MultipleTags3';
-export * as response from './Response';
-export * as collectionFormat from './CollectionFormat';
-export * as types from './Types';
-export * as complex from './Complex';
 
 "
 `;

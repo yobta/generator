@@ -11,6 +11,8 @@ import type { {{{this}}} } from './models/{{{this}}}{{>tsExtention}}';
 {{#each services}}
 {{#each operations}}
 export type {{{../name}}}{{capitalize name}}Input = {{>parametersType}};
+
 export type {{{../name}}}{{capitalize name}}Output = {{>result}};
+
 {{/each}}
 {{/each}}

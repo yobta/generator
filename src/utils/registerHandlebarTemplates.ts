@@ -18,10 +18,7 @@ export interface Templates {
             index: TemplateDelegate;
         };
         client: TemplateDelegate;
-        hooks: {
-            resolver: TemplateDelegate;
-            index: TemplateDelegate;
-        };
+        hooks: TemplateDelegate;
         model: TemplateDelegate;
         schema: TemplateDelegate;
     };
@@ -48,10 +45,7 @@ export const registerHandlebarTemplates = (root: { useUnionTypes: boolean }): Te
                 index: handlebars.template(precompiledTemplates.templateServerIndex),
             },
             client: handlebars.template(precompiledTemplates.templateExportClient),
-            hooks: {
-                resolver: handlebars.template(precompiledTemplates.templateHookResolver),
-                index: handlebars.template(precompiledTemplates.templateHookIndex),
-            },
+            hooks: handlebars.template(precompiledTemplates.templateExportHooks),
             model: handlebars.template(precompiledTemplates.templateExportModel),
             schema: handlebars.template(precompiledTemplates.templateExportSchema),
         },

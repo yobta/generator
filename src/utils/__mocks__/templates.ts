@@ -13,10 +13,7 @@ export const templates: Templates = {
             index: () => 'serverIndex',
         },
         client: () => 'client',
-        hooks: {
-            resolver: () => 'hookResolver',
-            index: () => 'hookIndex',
-        },
+        hooks: () => 'hooks',
         model: () => 'model',
         schema: () => 'schema',
     },

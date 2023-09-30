@@ -4,9 +4,11 @@ import type { Templates } from './registerHandlebarTemplates';
 
 import { relative, resolve } from 'path';
 
-import { writeFile, rmdir } from './fileSystem.js';
+import { writeFile } from './fileSystem.js';
 import { formatCode as f } from './formatCode.js';
 import { formatIndentation as i } from './formatIndentation.js';
+import { Operation } from '../client/interfaces/Operation';
+import { EndpointConfig } from '../factories';
 
 /**
  * Generate Services using the Handlebar template and write to disk.
@@ -17,6 +19,16 @@ import { formatIndentation as i } from './formatIndentation.js';
  * @param indent Indentation options (4, 2 or tab)
  * @param allowImportingTsExtensions Generate .ts extentions on imports enstead .js
  */
+
+type HttpMethods = EndpointConfig['method'][];
+
+const makeOperationsGetter =
+    (filterMethods?: HttpMethods) =>
+    ({ operations }: Service): Operation[] => {
+        if (!filterMethods) return operations;
+        return operations.filter(operation => filterMethods.includes(operation.method as HttpMethods[number]));
+    };
+
 export const writeClientHooks = async (
     services: Service[],
     factories: string,
@@ -25,28 +37,17 @@ export const writeClientHooks = async (
     indent: Indent,
     allowImportingTsExtensions: boolean
 ): Promise<number> => {
-    const writedFiles = [];
-    let totalHooks = 0;
-    for (const service of services) {
-        const getOperations = service.operations.filter(operation => operation.method === 'GET');
-        totalHooks += getOperations.length;
-        if (!getOperations.length) continue;
-        const file = resolve(outputPath, `${service.name}.ts`);
-        const templateResult = templates.exports.hooks.resolver({
-            service: { ...service, operations: getOperations },
-            factories: relative(outputPath, factories),
-            allowImportingTsExtensions,
-        });
-        await writeFile(file, i(f(templateResult), indent));
-        writedFiles.push({ fileName: service.name });
+    const getOperations = makeOperationsGetter(['GET']);
+    const file = resolve(outputPath, `hooks.ts`);
+    const allOperations = services.map(getOperations).flat();
+    if (!allOperations.length) {
+        return 0;
     }
-    if (writedFiles.length) {
-        const file = resolve(outputPath, 'index.ts');
-        const templateResult = templates.exports.hooks.index({ writedFiles, allowImportingTsExtensions });
-        await writeFile(file, i(f(templateResult), indent));
-    }
-    if (!totalHooks) {
-        await rmdir(outputPath);
-    }
-    return totalHooks;
+    const templateResult = templates.exports.hooks({
+        services: services.map(service => ({ ...service, operations: getOperations(service) })),
+        factories: relative(outputPath, factories),
+        allowImportingTsExtensions,
+    });
+    await writeFile(file, i(f(templateResult), indent));
+    return allOperations.length;
 };
