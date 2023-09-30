@@ -12,6 +12,9 @@ export const templates: Templates = {
             item: () => 'model',
             index: () => 'modelIndex',
         },
-        schema: () => 'schema',
+        schema: {
+            item: () => 'schema',
+            index: () => 'schemaIndex',
+        },
     },
 };

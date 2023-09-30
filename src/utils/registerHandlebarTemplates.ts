@@ -17,7 +17,10 @@ export interface Templates {
             item: TemplateDelegate;
             index: TemplateDelegate;
         };
-        schema: TemplateDelegate;
+        schema: {
+            item: TemplateDelegate;
+            index: TemplateDelegate;
+        };
     };
 }
 
@@ -41,7 +44,10 @@ export const registerHandlebarTemplates = (root: { useUnionTypes: boolean }): Te
                 item: handlebars.template(precompiledTemplates.templateExportModel),
                 index: handlebars.template(precompiledTemplates.templateExportModelIndex),
             },
-            schema: handlebars.template(precompiledTemplates.templateExportSchema),
+            schema: {
+                item: handlebars.template(precompiledTemplates.templateExportSchema),
+                index: handlebars.template(precompiledTemplates.templateExportSchemaIndex),
+            },
         },
     };
 

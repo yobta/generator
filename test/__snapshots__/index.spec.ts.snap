@@ -769,54 +769,7 @@ exports[`v2 should generate: test/generated/v2/index.ts 1`] = `
 
 export * from './models/index'
 
-export { $_default } from './schemas/$_default';
-export { $ArrayWithArray } from './schemas/$ArrayWithArray';
-export { $ArrayWithBooleans } from './schemas/$ArrayWithBooleans';
-export { $ArrayWithNumbers } from './schemas/$ArrayWithNumbers';
-export { $ArrayWithProperties } from './schemas/$ArrayWithProperties';
-export { $ArrayWithReferences } from './schemas/$ArrayWithReferences';
-export { $ArrayWithStrings } from './schemas/$ArrayWithStrings';
-export { $CommentWithBackticks } from './schemas/$CommentWithBackticks';
-export { $CommentWithBreaks } from './schemas/$CommentWithBreaks';
-export { $CommentWithExpressionPlaceholders } from './schemas/$CommentWithExpressionPlaceholders';
-export { $CommentWithQuotes } from './schemas/$CommentWithQuotes';
-export { $CommentWithReservedCharacters } from './schemas/$CommentWithReservedCharacters';
-export { $CommentWithSlashes } from './schemas/$CommentWithSlashes';
-export { $Date } from './schemas/$Date';
-export { $DictionaryWithArray } from './schemas/$DictionaryWithArray';
-export { $DictionaryWithDictionary } from './schemas/$DictionaryWithDictionary';
-export { $DictionaryWithProperties } from './schemas/$DictionaryWithProperties';
-export { $DictionaryWithReference } from './schemas/$DictionaryWithReference';
-export { $DictionaryWithString } from './schemas/$DictionaryWithString';
-export { $EnumFromDescription } from './schemas/$EnumFromDescription';
-export { $EnumWithExtensions } from './schemas/$EnumWithExtensions';
-export { $EnumWithNumbers } from './schemas/$EnumWithNumbers';
-export { $EnumWithStrings } from './schemas/$EnumWithStrings';
-export { $ModelThatExtends } from './schemas/$ModelThatExtends';
-export { $ModelThatExtendsExtends } from './schemas/$ModelThatExtendsExtends';
-export { $ModelWithArray } from './schemas/$ModelWithArray';
-export { $ModelWithBoolean } from './schemas/$ModelWithBoolean';
-export { $ModelWithCircularReference } from './schemas/$ModelWithCircularReference';
-export { $ModelWithDictionary } from './schemas/$ModelWithDictionary';
-export { $ModelWithDuplicateImports } from './schemas/$ModelWithDuplicateImports';
-export { $ModelWithDuplicateProperties } from './schemas/$ModelWithDuplicateProperties';
-export { $ModelWithEnum } from './schemas/$ModelWithEnum';
-export { $ModelWithEnumFromDescription } from './schemas/$ModelWithEnumFromDescription';
-export { $ModelWithInteger } from './schemas/$ModelWithInteger';
-export { $ModelWithNestedEnums } from './schemas/$ModelWithNestedEnums';
-export { $ModelWithNestedProperties } from './schemas/$ModelWithNestedProperties';
-export { $ModelWithNullableString } from './schemas/$ModelWithNullableString';
-export { $ModelWithOrderedProperties } from './schemas/$ModelWithOrderedProperties';
-export { $ModelWithPattern } from './schemas/$ModelWithPattern';
-export { $ModelWithProperties } from './schemas/$ModelWithProperties';
-export { $ModelWithReference } from './schemas/$ModelWithReference';
-export { $ModelWithString } from './schemas/$ModelWithString';
-export { $SimpleBoolean } from './schemas/$SimpleBoolean';
-export { $SimpleFile } from './schemas/$SimpleFile';
-export { $SimpleInteger } from './schemas/$SimpleInteger';
-export { $SimpleReference } from './schemas/$SimpleReference';
-export { $SimpleString } from './schemas/$SimpleString';
-export { $SimpleStringWithPattern } from './schemas/$SimpleStringWithPattern';
+export * from './schemas/index';
 
 export * from './data-types';
 export * from './hooks';
@@ -2870,6 +2823,65 @@ export const $SimpleStringWithPattern = {
     maxLength: 64,
     pattern: '^[a-zA-Z0-9_]*$',
 } as const;
+
+"
+`;
+
+exports[`v2 should generate: test/generated/v2/schemas/index.ts 1`] = `
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
+/* tslint:disable */
+/* eslint-disable */
+
+export * from './CommentWithBreaks'
+export * from './CommentWithBackticks'
+export * from './CommentWithSlashes'
+export * from './CommentWithExpressionPlaceholders'
+export * from './CommentWithQuotes'
+export * from './CommentWithReservedCharacters'
+export * from './SimpleInteger'
+export * from './SimpleBoolean'
+export * from './SimpleString'
+export * from './SimpleFile'
+export * from './SimpleReference'
+export * from './SimpleStringWithPattern'
+export * from './EnumWithStrings'
+export * from './EnumWithNumbers'
+export * from './EnumFromDescription'
+export * from './EnumWithExtensions'
+export * from './ArrayWithNumbers'
+export * from './ArrayWithBooleans'
+export * from './ArrayWithStrings'
+export * from './ArrayWithReferences'
+export * from './ArrayWithArray'
+export * from './ArrayWithProperties'
+export * from './DictionaryWithString'
+export * from './DictionaryWithReference'
+export * from './DictionaryWithArray'
+export * from './DictionaryWithDictionary'
+export * from './DictionaryWithProperties'
+export * from './Date'
+export * from './ModelWithInteger'
+export * from './ModelWithBoolean'
+export * from './ModelWithString'
+export * from './ModelWithNullableString'
+export * from './ModelWithEnum'
+export * from './ModelWithEnumFromDescription'
+export * from './ModelWithNestedEnums'
+export * from './ModelWithReference'
+export * from './ModelWithArray'
+export * from './ModelWithDictionary'
+export * from './ModelWithCircularReference'
+export * from './ModelWithProperties'
+export * from './ModelWithNestedProperties'
+export * from './ModelWithDuplicateProperties'
+export * from './ModelWithOrderedProperties'
+export * from './ModelWithDuplicateImports'
+export * from './ModelThatExtends'
+export * from './ModelThatExtendsExtends'
+export * from './_default'
+export * from './ModelWithPattern'
+
 
 "
 `;

@@ -3,17 +3,15 @@
 {{#if models}}
 export * from './models/index{{>tsExtention}}'
 {{/if}}
+
 {{#if @root.exportSchemas}}
 {{#if models}}
+export * from './schemas/index{{>tsExtention}}';
+{{/if}}
+{{/if}}
 
-{{#each models}}
-export { ${{{name}}} } from './schemas/${{{name}}}{{>tsExtention}}';
-{{/each}}
-{{/if}}
-{{/if}}
 {{#if @root.exportServices}}
 {{#if services}}
-
 export * from './data-types{{>tsExtention}}';
 {{#if totalHooks}}
 export * from './hooks{{>tsExtention}}';
