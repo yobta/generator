@@ -41,7 +41,6 @@ export const writeClient = async (
     allowImportingTsExtensions: boolean
 ): Promise<void> => {
     const outputPath = resolve(process.cwd(), output);
-    const outputPathServer = resolve(outputPath, 'server');
     const outputPathModels = resolve(outputPath, 'models');
     const outputPathSchemas = resolve(outputPath, 'schemas');
     const absoluteFactoriesFile = resolve(process.cwd(), factories);
@@ -59,13 +58,11 @@ export const writeClient = async (
 
     let totalHooks = 0;
     if (exportServices) {
-        await rmdir(outputPathServer);
-        await mkdir(outputPathServer);
         await writeClientServers(
             client.services,
             absoluteFactoriesFile,
             templates,
-            outputPathServer,
+            outputPath,
             indent,
             allowImportingTsExtensions
         );
@@ -89,22 +86,24 @@ export const writeClient = async (
         );
     }
 
-    if (exportSchemas) {
-        await rmdir(outputPathSchemas);
+    await rmdir(outputPathSchemas);
+    if (exportSchemas && client.models.length) {
         await mkdir(outputPathSchemas);
         await writeClientSchemas(client.models, templates, outputPathSchemas, useUnionTypes, indent);
     }
 
     await rmdir(outputPathModels);
-    await mkdir(outputPathModels);
-    await writeClientModels(
-        client.models,
-        templates,
-        outputPathModels,
-        useUnionTypes,
-        indent,
-        allowImportingTsExtensions
-    );
+    if (client.models.length) {
+        await mkdir(outputPathModels);
+        await writeClientModels(
+            client.models,
+            templates,
+            outputPathModels,
+            useUnionTypes,
+            indent,
+            allowImportingTsExtensions
+        );
+    }
 
     await mkdir(outputPath);
     await writeClientIndex(

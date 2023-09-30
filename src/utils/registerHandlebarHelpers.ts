@@ -8,6 +8,7 @@ import { EOL } from 'os';
 import { unique } from './unique.js';
 import { countOperationNames } from './countOperationNames.js';
 import { Service } from '../client/interfaces/Service';
+import { capitalize } from './capitalize.js';
 
 export const registerHandlebarHelpers = (root: { useUnionTypes: boolean }): void => {
     Handlebars.registerHelper('ifdef', function (this: unknown, ...args): string {
@@ -102,15 +103,19 @@ export const registerHandlebarHelpers = (root: { useUnionTypes: boolean }): void
         return camelCase(value);
     });
 
-    Handlebars.registerHelper('capitalize', (value: string): string => {
-        return value.charAt(0).toUpperCase() + value.slice(1);
-    });
+    Handlebars.registerHelper('capitalize', (value: string) => capitalize(value));
 
     Handlebars.registerHelper(
         'operationName',
-        (operation: Service['operations'][number], service: Service, services: Service[]): string => {
+        (
+            operation: Service['operations'][number],
+            service: Service,
+            services: Service[],
+            capitalizeName?: boolean
+        ): string => {
             const { name } = operation;
-            return countOperationNames(name, services) > 1 ? `${name}${service.name}` : name;
+            const nextName = countOperationNames(name, services) > 1 ? `${name}${service.name}` : name;
+            return capitalizeName ? capitalize(nextName) : nextName;
         }
     );
 };

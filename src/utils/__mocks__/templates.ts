@@ -5,10 +5,7 @@ export const templates: Templates = {
     exports: {
         routes: () => 'routes',
         'data-types': () => 'dataTypes',
-        server: {
-            resolver: () => 'sererResolver',
-            index: () => 'serverIndex',
-        },
+        server: () => 'server',
         client: () => 'client',
         hooks: () => 'hooks',
         model: () => 'model',
