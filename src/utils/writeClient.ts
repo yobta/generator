@@ -52,8 +52,9 @@ export const writeClient = async (args: WriteClientArgs): Promise<void> => {
     await writeClientRoutes(partContext);
 
     let totalHooks = 0;
+    let totalServer = 0;
     if (exportServices) {
-        await writeClientServers(partContext);
+        totalServer = await writeClientServers(partContext);
         await writeClientClients(partContext);
         totalHooks = await writeClientHooks(partContext);
     }
@@ -71,5 +72,5 @@ export const writeClient = async (args: WriteClientArgs): Promise<void> => {
     }
 
     await mkdir(outputPath);
-    await writeClientIndex({ ...partContext, totalHooks });
+    await writeClientIndex({ ...partContext, totalHooks, totalServer });
 };

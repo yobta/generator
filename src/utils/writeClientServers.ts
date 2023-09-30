@@ -26,12 +26,12 @@ export const writeClientServers = async ({
     indent,
     allowImportingTsExtensions,
     allowedServerMethods = ['GET'],
-}: WriteClientPartContext): Promise<void> => {
+}: WriteClientPartContext): Promise<number> => {
     const getOperations = makeOperationsGetter(allowedServerMethods);
     const file = resolve(outputPath, `server.ts`);
     const allOperations = client.services.map(getOperations).flat();
     if (!allOperations.length) {
-        return;
+        return 0;
     }
     const templateResult = templates.exports.server({
         services: client.services.map(service => ({ ...service, operations: getOperations(service) })),
@@ -39,4 +39,5 @@ export const writeClientServers = async ({
         allowImportingTsExtensions,
     });
     await writeFile(file, i(f(templateResult), indent));
+    return allOperations.length;
 };

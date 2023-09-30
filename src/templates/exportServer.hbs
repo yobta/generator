@@ -19,7 +19,7 @@ import { createServerResolver } from '{{{factories}}}';
 	 * @returns {{{type}}} {{#if description}}{{{escapeComment description}}}{{/if}}
 {{/each}}
 */
-export const server{{{operationName . ../. @root.services true}}} = createServerResolver<Types.{{{../name}}}{{{capitalize name}}}Input, Types.{{{../name}}}{{{capitalize name}}}Output>({
+export const server{{{operationNameCapitalized . ../. @root.services true}}} = createServerResolver<Types.{{{../name}}}{{{capitalize name}}}Input, Types.{{{../name}}}{{{capitalize name}}}Output>({
 	route: '{{{path}}}',
 	method: '{{{method}}}'{{#if parametersBody}}{{#if parametersBody.mediaType}},
 	mediaType: '{{{parametersBody.mediaType}}}'{{/if}}{{/if}},

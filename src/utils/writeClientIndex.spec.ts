@@ -34,6 +34,7 @@ describe('writeClientIndex', () => {
             exportServices: true,
             postfixModels: '',
             totalHooks: 1,
+            totalServer: 1,
         });
 
         expect(writeFile).toBeCalledWith('/index.ts', 'index');

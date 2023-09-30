@@ -70,6 +70,7 @@ export const precompiledTemplates = templatesData.reduce((acc, { name, filePath 
                     camelCase: true,
                     capitalize: true,
                     operationName: true,
+                    operationNameCapitalized: true,
                 },
             })} })()`
         ),

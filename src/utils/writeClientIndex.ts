@@ -19,6 +19,7 @@ import { WriteClientPartContext } from './types.js';
  * @param {string} args.postfixModels Model name postfix
  * @param {boolean} args.allowImportingTsExtensions Generate .ts extentions on imports enstead .js
  * @param {number} args.totalHooks How many hooks had already generated
+ * @param {number} args.totalServer How many server resolvers had already generated
  */
 export const writeClientIndex = async ({
     client,
@@ -30,7 +31,8 @@ export const writeClientIndex = async ({
     postfixModels,
     allowImportingTsExtensions,
     totalHooks,
-}: WriteClientPartContext & { totalHooks: number }): Promise<void> => {
+    totalServer,
+}: WriteClientPartContext & { totalHooks: number; totalServer: number }): Promise<void> => {
     const templateResult = templates.index({
         exportServices,
         exportSchemas,
@@ -42,6 +44,7 @@ export const writeClientIndex = async ({
         services: sortServicesByName(client.services),
         allowImportingTsExtensions,
         totalHooks,
+        totalServer,
     });
 
     await writeFile(resolve(outputPath, 'index.ts'), templateResult);
