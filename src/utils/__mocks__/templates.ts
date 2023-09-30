@@ -7,10 +7,7 @@ export const templates: Templates = {
             route: () => 'route',
             index: () => 'routesIndex',
         },
-        'data-types': {
-            types: () => 'factoriesTypes',
-            index: () => 'factoriesIndex',
-        },
+        'data-types': () => 'dataTypes',
         server: {
             resolver: () => 'sererResolver',
             index: () => 'serverIndex',

@@ -3,7 +3,7 @@ import type { Templates } from './registerHandlebarTemplates';
 
 import { resolve } from 'path';
 
-import { rmdir, writeFile } from './fileSystem.js';
+import { writeFile } from './fileSystem.js';
 import { formatCode as f } from './formatCode.js';
 import { formatIndentation as i } from './formatIndentation.js';
 import { Service } from '../client/interfaces/Service.js';
@@ -24,28 +24,9 @@ export const writeClientDataTypes = async (
     allowImportingTsExtensions: boolean
 ): Promise<void> => {
     if (!services.length) {
-        await rmdir(outputPath);
         return;
     }
-    const extension = 'ts';
-    const resolvers = [
-        {
-            name: 'types',
-            template: templates.exports['data-types'].types,
-            context: { services, allowImportingTsExtensions },
-        },
-    ];
-    const index = [
-        {
-            name: 'index',
-            template: templates.exports['data-types'].index,
-            context: { resolvers, extension, allowImportingTsExtensions },
-        },
-    ];
-
-    for (const file of [...resolvers, ...index]) {
-        const fileServer = resolve(outputPath, `${file.name}.${extension}`);
-        const templateResult = file.template(file.context);
-        await writeFile(fileServer, i(f(templateResult), indent));
-    }
+    const fileServer = resolve(outputPath, `data-types.ts`);
+    const templateResult = templates.exports['data-types']({ services, allowImportingTsExtensions });
+    await writeFile(fileServer, i(f(templateResult), indent));
 };

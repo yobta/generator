@@ -24,7 +24,7 @@ export { ${{{name}}} } from './schemas/${{{name}}}{{>tsExtention}}';
 {{#if @root.exportServices}}
 {{#if services}}
 
-export * from './data-types';
+export * from './data-types{{>tsExtention}}';
 {{#if totalHooks}}export * from './hooks';{{/if}}
 export * as routes from './routes';
 export * as server from './server';

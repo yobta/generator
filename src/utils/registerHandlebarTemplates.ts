@@ -12,10 +12,7 @@ export interface Templates {
             route: TemplateDelegate;
             index: TemplateDelegate;
         };
-        'data-types': {
-            types: TemplateDelegate;
-            index: TemplateDelegate;
-        };
+        'data-types': TemplateDelegate;
         server: {
             resolver: TemplateDelegate;
             index: TemplateDelegate;
@@ -45,10 +42,7 @@ export const registerHandlebarTemplates = (root: { useUnionTypes: boolean }): Te
                 route: handlebars.template(precompiledTemplates.templateRoute),
                 index: handlebars.template(precompiledTemplates.templateRoutesIndex),
             },
-            'data-types': {
-                types: handlebars.template(precompiledTemplates.templateDataTypes),
-                index: handlebars.template(precompiledTemplates.templateDataTypesIndex),
-            },
+            'data-types': handlebars.template(precompiledTemplates.templateDataTypes),
             server: {
                 resolver: handlebars.template(precompiledTemplates.templateServerResolver),
                 index: handlebars.template(precompiledTemplates.templateServerIndex),

@@ -19,6 +19,6 @@ describe('writeClientFactories', () => {
         ];
         await writeClientDataTypes(services, templates, '/', Indent.SPACE_4, false);
 
-        expect(writeFile).toBeCalledWith('/index.ts', `factoriesIndex${EOL}`);
+        expect(writeFile).toBeCalledWith('/data-types.ts', `dataTypes${EOL}`);
     });
 });

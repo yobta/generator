@@ -46,7 +46,6 @@ export const writeClient = async (
     const outputPathHook = resolve(outputPath, 'hooks');
     const outputPathModels = resolve(outputPath, 'models');
     const outputPathSchemas = resolve(outputPath, 'schemas');
-    const outputPathFactories = resolve(outputPath, 'data-types');
     const absoluteFactoriesFile = resolve(process.cwd(), factories);
 
     if (!isSubDirectory(process.cwd(), output)) {
@@ -56,9 +55,7 @@ export const writeClient = async (
     await rmdir(outputPath);
     await mkdir(outputPath);
 
-    await rmdir(outputPathFactories);
-    await mkdir(outputPathFactories);
-    await writeClientDataTypes(client.services, templates, outputPathFactories, indent, allowImportingTsExtensions);
+    await writeClientDataTypes(client.services, templates, outputPath, indent, allowImportingTsExtensions);
 
     await rmdir(outputPathRoutes);
     await mkdir(outputPathRoutes);
