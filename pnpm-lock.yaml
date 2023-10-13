@@ -45,7 +45,6 @@ specifiers:
   query-string: ^8.1.0
   react: ^18
   rimraf: 5.0.1
-  swr: ^2.2.0
   ts-jest: 29.1.1
   ts-node: 10.9.1
   typescript: 5.1.6
@@ -97,7 +96,6 @@ devDependencies:
   prettier: 2.8.8
   react: 18.2.0
   rimraf: 5.0.1
-  swr: 2.2.4_react@18.2.0
   ts-jest: 29.1.1_dwmfexmip6ve2mnfcwr3hkdoay
   ts-node: 10.9.1_u2oy6dma5jygnk3njs66bvca7y
   typescript: 5.1.6
@@ -2683,10 +2681,6 @@ packages:
     engines: {node: '>=4'}
     dependencies:
       escape-string-regexp: 1.0.5
-    dev: true
-
-  /client-only/0.0.1:
-    resolution: {integrity: sha512-IV3Ou0jSMzZrd3pZ48nLkT9DA7Ag1pnPzaiQhpW7c3RbcqqzvzzVu+L8gfqMp/8IM2MQtSiqaCxrrcfu8I8rMA==}
     dev: true
 
   /cliui/8.0.1:
@@ -5659,16 +5653,6 @@ packages:
     engines: {node: '>= 0.4'}
     dev: true
 
-  /swr/2.2.4_react@18.2.0:
-    resolution: {integrity: sha512-njiZ/4RiIhoOlAaLYDqwz5qH/KZXVilRLvomrx83HjzCWTfa+InyfAjv05PSFxnmLzZkNO9ZfvgoqzAaEI4sGQ==}
-    peerDependencies:
-      react: ^16.11.0 || ^17.0.0 || ^18.0.0
-    dependencies:
-      client-only: 0.0.1
-      react: 18.2.0
-      use-sync-external-store: 1.2.0_react@18.2.0
-    dev: true
-
   /test-exclude/6.0.0:
     resolution: {integrity: sha512-cAGWPIyOHU6zlmg88jwm7VRyXnMN7iV68OGAbYDk/Mh/xC/pzVPlQtY6ngoIH/5/tciuhGfvESU8GrHrcxD56w==}
     engines: {node: '>=8'}
@@ -5944,14 +5928,6 @@ packages:
     resolution: {integrity: sha512-7rKUyy33Q1yc98pQ1DAmLtwX109F7TIfWlW1Ydo8Wl1ii1SeHieeh0HHfPeL2fMXK6z0s8ecKs9frCuLJvndBg==}
     dependencies:
       punycode: 2.3.0
-    dev: true
-
-  /use-sync-external-store/1.2.0_react@18.2.0:
-    resolution: {integrity: sha512-eEgnFxGQ1Ife9bzYs6VLi8/4X6CObHMw9Qr9tPY43iKwsPw8xE8+EFsf/2cFZ5S3esXgpWgtSCtLNS41F+sKPA==}
-    peerDependencies:
-      react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    dependencies:
-      react: 18.2.0
     dev: true
 
   /utils-merge/1.0.1:
