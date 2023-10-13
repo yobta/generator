@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
-import type { EndpointConfig, RequestInput, EndpointOptions, MaybeNull } from '../factories';
+import type { EndpointConfig, RequestInput, EndpointOptions } from '../factories';
 
 import qs from 'query-string';
 
@@ -115,7 +115,7 @@ const getHeaders = (config: EndpointConfig, input: RequestInput = {}, options?: 
 
 export const createRequestParams = <Input extends RequestInput>(
     config: EndpointConfig,
-    input: MaybeNull<Input>,
+    input: Input,
     options?: EndpointOptions
 ): [RequestInfo, RequestInit] => {
     const url = getUrl(config, input);

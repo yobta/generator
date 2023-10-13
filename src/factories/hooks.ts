@@ -3,12 +3,7 @@
 import { EndpointConfig, RequestInput, EndpointOptions } from './commons';
 
 export interface QueryHookFactory {
-    <
-        Input extends MaybeNull<RequestInput>,
-        Output extends unknown, // eslint-disable-line @typescript-eslint/no-unused-vars
-        HookOptions = unknown,
-        HookResult = unknown
-    >(
+    <Input extends RequestInput, Output, HookOptions = unknown, HookResult extends Output = Output>(
         config: EndpointConfig
     ): (input: Input, hookOptions?: HookOptions, fetchOptions?: EndpointOptions) => HookResult;
 }
