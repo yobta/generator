@@ -24,7 +24,8 @@ export type Options = {
     postfixModels?: string;
     allowImportingTsExtensions?: boolean;
     write?: boolean;
-    allowedHooksMethods?: string;
+    allowedQueryHooksMethods?: string;
+    allowedMutationHooksMethods?: string;
     allowedServerMethods?: string;
 };
 
@@ -42,7 +43,8 @@ export type Options = {
  * @param postfixModels Model name postfix
  * @param allowImportingTsExtensions (Generate .ts extentions on imports enstead .js)
  * @param write Write the files to disk (true or false)
- * @param allowedHooksMethods Http methods for which hooks will be generated, default GET
+ * @param allowedQueryHooksMethods Http methods for which hooks will be generated, default GET
+ * @param allowedMutationHooksMethods Http methods for which mutations hooks will be generated, default POST
  * @param allowedServerMethods Http methods for which server resolvers will be generated, default GET
  */
 export const generate = async ({
@@ -56,7 +58,8 @@ export const generate = async ({
     postfixModels = '',
     allowImportingTsExtensions = false,
     write = true,
-    allowedHooksMethods,
+    allowedQueryHooksMethods,
+    allowedMutationHooksMethods,
     allowedServerMethods,
 }: Options): Promise<void> => {
     if (!factoriesRaw) {
@@ -82,7 +85,8 @@ export const generate = async ({
         indent,
         postfixModels,
         allowImportingTsExtensions,
-        allowedHooksMethods: allowedHooksMethods?.split(',') as HttpMethods,
+        allowedQueryHooksMethods: allowedQueryHooksMethods?.split(',') as HttpMethods,
+        allowedMutationHooksMethods: allowedMutationHooksMethods?.split(',') as HttpMethods,
         allowedServerMethods: allowedServerMethods?.split(',') as HttpMethods,
     };
 

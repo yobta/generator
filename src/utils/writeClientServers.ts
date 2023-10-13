@@ -27,7 +27,7 @@ export const writeClientServers = async ({
     allowImportingTsExtensions,
     allowedServerMethods = ['GET'],
 }: WriteClientPartContext): Promise<number> => {
-    const getOperations = makeOperationsGetter(allowedServerMethods);
+    const getOperations = makeOperationsGetter({ methods: allowedServerMethods });
     const file = resolve(outputPath, `server.ts`);
     const allOperations = client.services.map(getOperations).flat();
     if (!allOperations.length) {

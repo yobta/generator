@@ -23,8 +23,12 @@ const params = program
     .option('--postfixModels <value>', 'Model name postfix')
     .option('--allowImportingTsExtensions', 'Generate .ts extentions on imports enstead .js', false)
     .option(
-        '--allowedHooksMethods <value>',
+        '--allowedQueryHooksMethods <value>',
         'Http methods for which hooks will be generated (example: GET,HEAD), default GET'
+    )
+    .option(
+        '--allowedMutationHooksMethods <value>',
+        `Http methods for which mutation hooks will be generated (example: POST,PUT), default POST, souldn't intersect with allowedQueryHooksMethods`
     )
     .option(
         '--allowedServerMethods <value>',
@@ -46,7 +50,8 @@ if (OpenAPI) {
         indent: params.indent,
         postfixModels: params.postfixModels,
         allowImportingTsExtensions: params.allowImportingTsExtensions,
-        allowedHooksMethods: params.allowedHooksMethods,
+        allowedQueryHooksMethods: params.allowedQueryHooksMethods,
+        allowedMutationHooksMethods: params.allowedMutationHooksMethods,
         allowedServerMethods: params.allowedServerMethods,
     })
         .then(() => {

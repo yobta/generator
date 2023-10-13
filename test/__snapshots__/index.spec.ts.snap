@@ -643,7 +643,7 @@ exports[`v2 should generate: test/generated/v2/hooks.ts 1`] = `
 /* eslint-disable */
 
 import * as Types from './data-types';
-import { createQueryHook } from '../../../factories-module';
+import { createQueryHook, createMutationHook } from '../../../factories-module';
 
 /**
  * @throws ApiError
@@ -664,6 +664,38 @@ export const useGetCallWithoutParametersAndResponse = createQueryHook<Types.Simp
 /**
  * @throws ApiError
  */
+export const usePostCallWithoutParametersAndResponseMutation = createMutationHook<Types.SimplePostCallWithoutParametersAndResponseInput, Types.SimplePostCallWithoutParametersAndResponseOutput>({
+    route: '/api/v{api-version}/simple',
+    method: 'POST',
+});
+
+/**
+ * @throws ApiError
+ */
+export const useCallWithDescriptionsMutation = createMutationHook<Types.DescriptionsCallWithDescriptionsInput, Types.DescriptionsCallWithDescriptionsOutput>({
+    route: '/api/v{api-version}/descriptions/',
+    method: 'POST',
+});
+
+/**
+ * @throws ApiError
+ */
+export const useCallWithParametersMutation = createMutationHook<Types.ParametersCallWithParametersInput, Types.ParametersCallWithParametersOutput>({
+    route: '/api/v{api-version}/parameters/{parameterPath}',
+    method: 'POST',
+});
+
+/**
+ * @throws ApiError
+ */
+export const useCallWithWeirdParameterNamesMutation = createMutationHook<Types.ParametersCallWithWeirdParameterNamesInput, Types.ParametersCallWithWeirdParameterNamesOutput>({
+    route: '/api/v{api-version}/parameters/{parameter.path.1}/{parameter-path-2}/{PARAMETER-PATH-3}',
+    method: 'POST',
+});
+
+/**
+ * @throws ApiError
+ */
 export const useCallWithDefaultParameters = createQueryHook<Types.DefaultsCallWithDefaultParametersInput, Types.DefaultsCallWithDefaultParametersOutput>({
     route: '/api/v{api-version}/defaults',
     method: 'GET',
@@ -672,9 +704,25 @@ export const useCallWithDefaultParameters = createQueryHook<Types.DefaultsCallWi
 /**
  * @throws ApiError
  */
+export const useCallWithDefaultOptionalParametersMutation = createMutationHook<Types.DefaultsCallWithDefaultOptionalParametersInput, Types.DefaultsCallWithDefaultOptionalParametersOutput>({
+    route: '/api/v{api-version}/defaults',
+    method: 'POST',
+});
+
+/**
+ * @throws ApiError
+ */
 export const useDuplicateName = createQueryHook<Types.DuplicateDuplicateNameInput, Types.DuplicateDuplicateNameOutput>({
     route: '/api/v{api-version}/duplicate',
     method: 'GET',
+});
+
+/**
+ * @throws ApiError
+ */
+export const useDuplicateName1Mutation = createMutationHook<Types.DuplicateDuplicateName1Input, Types.DuplicateDuplicateName1Output>({
+    route: '/api/v{api-version}/duplicate',
+    method: 'POST',
 });
 
 /**
@@ -736,6 +784,14 @@ export const useCallWithResponse = createQueryHook<Types.ResponseCallWithRespons
 /**
  * @throws ApiError
  */
+export const useCallWithDuplicateResponsesMutation = createMutationHook<Types.ResponseCallWithDuplicateResponsesInput, Types.ResponseCallWithDuplicateResponsesOutput>({
+    route: '/api/v{api-version}/response',
+    method: 'POST',
+});
+
+/**
+ * @throws ApiError
+ */
 export const useCollectionFormat = createQueryHook<Types.CollectionFormatCollectionFormatInput, Types.CollectionFormatCollectionFormatOutput>({
     route: '/api/v{api-version}/collectionFormat',
     method: 'GET',
@@ -755,6 +811,22 @@ export const useTypes = createQueryHook<Types.TypesTypesInput, Types.TypesTypesO
 export const useComplexTypes = createQueryHook<Types.ComplexComplexTypesInput, Types.ComplexComplexTypesOutput>({
     route: '/api/v{api-version}/complex',
     method: 'GET',
+});
+
+/**
+ * @throws ApiError
+ */
+export const useCallWithResultFromHeaderMutation = createMutationHook<Types.HeaderCallWithResultFromHeaderInput, Types.HeaderCallWithResultFromHeaderOutput>({
+    route: '/api/v{api-version}/header',
+    method: 'POST',
+});
+
+/**
+ * @throws ApiError
+ */
+export const useTestErrorCodeMutation = createMutationHook<Types.ErrorTestErrorCodeInput, Types.ErrorTestErrorCodeOutput>({
+    route: '/api/v{api-version}/error',
+    method: 'POST',
 });
 
 

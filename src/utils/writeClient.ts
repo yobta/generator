@@ -26,7 +26,8 @@ import { writeClientHooks } from './writeClientHooks.js';
  * @param args.indent Indentation options (4, 2 or tab)
  * @param args.postfixModels Model name postfix
  * @param args.allowImportingTsExtensions Generate .ts extentions on imports enstead .js
- * @param {string[]} args.allowedHooksMethods Http methods for which hooks will be generated
+ * @param {string[]} args.allowedQueryHooksMethods Http methods for which hooks will be generated
+ * @param {string[]} args.allowedMutationHooksMethods Http methods for which mutation hooks will be generated
  * @param {string[]} args.allowedServerMethods Http methods for which server resolvers will be generated
  */
 export const writeClient = async (args: WriteClientArgs): Promise<void> => {

@@ -26,9 +26,15 @@ export const createClientResolver: ClientResolverFactory = config => async (inpu
 
 export const createQueryHook: QueryHookFactory = config => (requestInput, swrOptions, fetchOptions) => {
     const [url, init] = createRequestParams(config, requestInput, fetchOptions);
-    return { url, init, swrOptions } as any;
+    return { url, init, swrOptions };
 };
 
+
+export const createMutationHook: MutationHookFactory = config => (requestInput, hookOptions, fetchOptions) => {
+    const [url, init] = createRequestParams(config, requestInput, fetchOptions);
+    const mutate = () => Promise.resolve({ data: {} } as any);
+    return [mutate];
+};
 ```
 
 Some project file:
