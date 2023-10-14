@@ -22,5 +22,5 @@
 
     "include": ["./src/**/*.ts", "./types/**/*.d.ts"],
 
-    "exclude": ["dist", "node_modules", "**/__mocks__"]
+    "exclude": ["dist", "node_modules", "**/__mocks__", "**/*ignore*"]
 }

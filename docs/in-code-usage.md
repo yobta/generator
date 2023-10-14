@@ -24,10 +24,11 @@ export const createClientResolver: ClientResolverFactory = config => async (inpu
     return response.json();
 };
 
-export const createSwrHook: HookFactory = (config) => (input, swrConfig, fetchConfig) => {
-  const [url, init] = createRequestParams(config, input, fetchConfig)
-  return useSWR([url, init], swrConfig);
-}
+export const createQueryHook: QueryHookFactory = config => (requestInput, swrOptions, fetchOptions) => {
+    const [url, init] = createRequestParams(config, requestInput, fetchOptions);
+    return { url, init, swrOptions } as any;
+};
+
 ```
 
 Some project file:

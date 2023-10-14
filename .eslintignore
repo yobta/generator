@@ -8,3 +8,4 @@ __mocks__
 coverage
 jest.config.ts
 tmp
+**/*ignore*

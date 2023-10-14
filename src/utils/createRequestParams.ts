@@ -115,7 +115,7 @@ const getHeaders = (config: EndpointConfig, input: RequestInput = {}, options?: 
 
 export const createRequestParams = <Input extends RequestInput>(
     config: EndpointConfig,
-    input?: Input,
+    input: Input,
     options?: EndpointOptions
 ): [RequestInfo, RequestInit] => {
     const url = getUrl(config, input);
