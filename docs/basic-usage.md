@@ -15,7 +15,8 @@ $ generate-yobta --help
     --indent <value>          Indentation options [4, 2, tab] (default: "4")
     --postfixModels           Model name postfix
     --allowImportingTsExtensions  Generate .ts extentions on imports enstead .js (default: false)
-    --allowedHooksMethods <value> Http methods for which hooks will be generated (example: GET,HEAD), default GET
+    --allowedQueryHooksMethods <value> Http methods for which hooks will be generated (example: GET,HEAD), default GET
+    --allowedMutationHooksMethods <value> Http methods for which mutation hooks will be generated (example: POST,PUT), default POST
     --allowedServerMethods <value> Http methods for which server resolvers will be generated (example: GET,HEAD), default GET
     -h, --help                display help for command
 

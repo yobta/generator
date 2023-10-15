@@ -1,7 +1,7 @@
 {{>header}}
 
 import * as Types from './data-types{{>tsExtention}}';
-import { createQueryHook } from '{{{factories}}}';
+import { createQueryHook, createMutationHook } from '{{{factories}}}';
 
 {{#each services}}
 {{#each operations}}
@@ -17,11 +17,20 @@ import { createQueryHook } from '{{{factories}}}';
 {{/if}}
 	* @throws ApiError
 */
+{{#if query}}
 export const use{{{operationNameCapitalized . ../. @root.services true}}} = createQueryHook<Types.{{{../name}}}{{{capitalize name}}}Input, Types.{{{../name}}}{{{capitalize name}}}Output>({
 	route: '{{{path}}}',
 	method: '{{{method}}}'{{#if parametersBody}}{{#if parametersBody.mediaType}},
 	mediaType: '{{{parametersBody.mediaType}}}'{{/if}}{{/if}},
 });
+{{/if}}
+{{#if mutation}}
+export const use{{{operationNameCapitalized . ../. @root.services true}}}Mutation = createMutationHook<Types.{{{../name}}}{{{capitalize name}}}Input, Types.{{{../name}}}{{{capitalize name}}}Output>({
+	route: '{{{path}}}',
+	method: '{{{method}}}'{{#if parametersBody}}{{#if parametersBody.mediaType}},
+	mediaType: '{{{parametersBody.mediaType}}}'{{/if}}{{/if}},
+});
+{{/if}}
 
 {{/each}}
 {{/each}}

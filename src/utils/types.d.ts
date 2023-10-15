@@ -20,7 +20,8 @@ export type WriteClientArgs = {
     indent: Indent;
     postfixModels?: string;
     allowImportingTsExtensions?: boolean;
-    allowedHooksMethods?: HttpMethods;
+    allowedQueryHooksMethods?: HttpMethods;
+    allowedMutationHooksMethods?: HttpMethods;
     allowedServerMethods?: HttpMethods;
 };
 

@@ -1,5 +1,5 @@
-export { ClientResolverFactory } from './client';
-export { ServerResolverFactory } from './server';
-export { QueryHookFactory } from './hooks';
+export * from './client';
+export * from './server';
+export * from './hooks';
 
-export { RequestInput, EndpointConfig, EndpointOptions } from './commons';
+export * from './commons';
