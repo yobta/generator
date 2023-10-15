@@ -10,10 +10,9 @@ export interface QueryHookFactory {
     ) => Output;
 }
 
-type MutationTrigger<MutationResult> = (...args: unknown[]) => Promise<MutationResult>;
-
 export interface MutationHookFactory {
-    <Input extends RequestInput, Output, HookOptions = {}, MutationResult extends Output = Output>(
-        config: EndpointConfig
-    ): (input: Input, hookOptions?: HookOptions, fetchOptions?: EndpointOptions) => [MutationTrigger<MutationResult>];
+    <Input extends RequestInput, Output>(config: EndpointConfig): () => [
+        (input: Input, fetchOptions?: EndpointOptions) => Promise<Output>,
+        ...unknown[]
+    ];
 }
