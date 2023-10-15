@@ -16,4 +16,4 @@ export type RequestInput =
               | EmptyParams
           );
 
-export type MaybeNull<I> = I extends EmptyParams ? (EmptyParams extends I ? null : I) : I;
+export type Nullable<I> = I extends EmptyParams ? (EmptyParams extends I ? null : I) : I;
