@@ -37,3 +37,9 @@ i:
 	rm -rf node_modules
 	pnpm i
 
+publish: dist bump
+	pnpm publish --access public
+
+bump:
+	npm version patch
+	git add .
