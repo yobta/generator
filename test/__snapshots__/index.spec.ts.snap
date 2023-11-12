@@ -642,6 +642,8 @@ exports[`v2 should generate: test/generated/v2/hooks.ts 1`] = `
 /* tslint:disable */
 /* eslint-disable */
 
+"use client";
+
 import * as Types from './data-types';
 import { createQueryHook, createMutationHook } from '../../../factories-module';
 
