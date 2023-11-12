@@ -1,6 +1,6 @@
 {
     "name": "@yobta/generator",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "description": "Library that generates Typescript clients based on the OpenAPI specification.",
     "author": "Ferdi Koomen, Pavel Brylev",
     "homepage": "https://github.com/yobta/generator",
