@@ -2,19 +2,7 @@
 
 {{#each services}}
 {{#each operations}}
-/**
-{{#if deprecated}}
-	* @deprecated
-{{/if}}
-{{#if summary}}
-	* {{{escapeComment summary}}}
-{{/if}}
-{{#if description}}
-	* {{{escapeComment description}}}
-{{/if}}
-	* @throws ApiError
-*/
+{{#if deprecated}}// @deprecated{{/if}}
 export const {{{operationName . ../. @root.services}}}Route = '{{path}}';
-
 {{/each}}
 {{/each}}
