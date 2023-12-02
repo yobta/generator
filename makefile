@@ -10,6 +10,9 @@ test: build test-unit
 test-unit:
 	pnpm run test:unit
 
+snapshots:
+	pnpm run test:snapshots
+
 typecheck:
 	pnpm run typecheck
 

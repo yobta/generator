@@ -848,7 +848,6 @@ export * from './schemas/index';
 export * from './data-types';
 export * from './hooks';
 export * from './routes';
-export * from './server';
 export * from './client';
 
 "
@@ -1771,166 +1770,70 @@ exports[`v2 should generate: test/generated/v2/routes.ts 1`] = `
 /* tslint:disable */
 /* eslint-disable */
 
-/**
- * @throws ApiError
- */
+
 export const serviceWithEmptyTagRoute = '/api/v{api-version}/no-tag';
 
-/**
- * @throws ApiError
- */
 export const getCallWithoutParametersAndResponseRoute = '/api/v{api-version}/simple';
 
-/**
- * @throws ApiError
- */
 export const putCallWithoutParametersAndResponseRoute = '/api/v{api-version}/simple';
 
-/**
- * @throws ApiError
- */
 export const postCallWithoutParametersAndResponseRoute = '/api/v{api-version}/simple';
 
-/**
- * @throws ApiError
- */
 export const deleteCallWithoutParametersAndResponseRoute = '/api/v{api-version}/simple';
 
-/**
- * @throws ApiError
- */
 export const optionsCallWithoutParametersAndResponseRoute = '/api/v{api-version}/simple';
 
-/**
- * @throws ApiError
- */
 export const headCallWithoutParametersAndResponseRoute = '/api/v{api-version}/simple';
 
-/**
- * @throws ApiError
- */
 export const patchCallWithoutParametersAndResponseRoute = '/api/v{api-version}/simple';
 
-/**
- * @throws ApiError
- */
 export const callWithDescriptionsRoute = '/api/v{api-version}/descriptions/';
 
-/**
- * @throws ApiError
- */
 export const callWithParametersRoute = '/api/v{api-version}/parameters/{parameterPath}';
 
-/**
- * @throws ApiError
- */
 export const callWithWeirdParameterNamesRoute = '/api/v{api-version}/parameters/{parameter.path.1}/{parameter-path-2}/{PARAMETER-PATH-3}';
 
-/**
- * @throws ApiError
- */
 export const callWithDefaultParametersRoute = '/api/v{api-version}/defaults';
 
-/**
- * @throws ApiError
- */
 export const callWithDefaultOptionalParametersRoute = '/api/v{api-version}/defaults';
 
-/**
- * @throws ApiError
- */
 export const callToTestOrderOfParamsRoute = '/api/v{api-version}/defaults';
 
-/**
- * @throws ApiError
- */
 export const duplicateNameRoute = '/api/v{api-version}/duplicate';
 
-/**
- * @throws ApiError
- */
 export const duplicateName1Route = '/api/v{api-version}/duplicate';
 
-/**
- * @throws ApiError
- */
 export const duplicateName2Route = '/api/v{api-version}/duplicate';
 
-/**
- * @throws ApiError
- */
 export const duplicateName3Route = '/api/v{api-version}/duplicate';
 
-/**
- * @throws ApiError
- */
 export const callWithNoContentResponseRoute = '/api/v{api-version}/no-content';
 
-/**
- * @throws ApiError
- */
 export const dummyAMultipleTags1Route = '/api/v{api-version}/multiple-tags/a';
 
-/**
- * @throws ApiError
- */
 export const dummyBMultipleTags1Route = '/api/v{api-version}/multiple-tags/b';
 
-/**
- * @throws ApiError
- */
 export const dummyAMultipleTags2Route = '/api/v{api-version}/multiple-tags/a';
 
-/**
- * @throws ApiError
- */
 export const dummyBMultipleTags2Route = '/api/v{api-version}/multiple-tags/b';
 
-/**
- * @throws ApiError
- */
 export const dummyBMultipleTags3Route = '/api/v{api-version}/multiple-tags/b';
 
-/**
- * @throws ApiError
- */
 export const callWithResponseRoute = '/api/v{api-version}/response';
 
-/**
- * @throws ApiError
- */
 export const callWithDuplicateResponsesRoute = '/api/v{api-version}/response';
 
-/**
- * @throws ApiError
- */
 export const callWithResponsesRoute = '/api/v{api-version}/response';
 
-/**
- * @throws ApiError
- */
 export const collectionFormatRoute = '/api/v{api-version}/collectionFormat';
 
-/**
- * @throws ApiError
- */
 export const typesRoute = '/api/v{api-version}/types';
 
-/**
- * @throws ApiError
- */
 export const complexTypesRoute = '/api/v{api-version}/complex';
 
-/**
- * @throws ApiError
- */
 export const callWithResultFromHeaderRoute = '/api/v{api-version}/header';
 
-/**
- * @throws ApiError
- */
 export const testErrorCodeRoute = '/api/v{api-version}/error';
-
 
 "
 `;

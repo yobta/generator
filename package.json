@@ -38,7 +38,7 @@
         "typecheck": "tsc --noEmit",
         "run": "node ./test/index.mjs",
         "test:unit": "jest --coverage --selectProjects UNIT",
-        "test:update": "jest --selectProjects UNIT --updateSnapshot",
+        "test:snapshots": "jest --selectProjects UNIT --updateSnapshot",
         "eslint": "eslint .",
         "eslint:fix": "eslint . --fix"
     },
