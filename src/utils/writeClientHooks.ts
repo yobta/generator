@@ -28,7 +28,7 @@ export const writeClientHooks = async ({
     indent,
     allowImportingTsExtensions,
     allowedQueryHooksMethods = ['GET'],
-    allowedMutationHooksMethods = ['POST'],
+    allowedMutationHooksMethods = ['POST', 'PUT', 'PATCH', 'DELETE'],
 }: WriteClientPartContext): Promise<number> => {
     const intersectedMethods = intersection(allowedQueryHooksMethods, allowedMutationHooksMethods);
     if (intersectedMethods.length) {

@@ -666,9 +666,33 @@ export const useGetCallWithoutParametersAndResponse = createQueryHook<Types.Simp
 /**
  * @throws ApiError
  */
+export const usePutCallWithoutParametersAndResponseMutation = createMutationHook<Types.SimplePutCallWithoutParametersAndResponseInput, Types.SimplePutCallWithoutParametersAndResponseOutput>({
+    route: '/api/v{api-version}/simple',
+    method: 'PUT',
+});
+
+/**
+ * @throws ApiError
+ */
 export const usePostCallWithoutParametersAndResponseMutation = createMutationHook<Types.SimplePostCallWithoutParametersAndResponseInput, Types.SimplePostCallWithoutParametersAndResponseOutput>({
     route: '/api/v{api-version}/simple',
     method: 'POST',
+});
+
+/**
+ * @throws ApiError
+ */
+export const useDeleteCallWithoutParametersAndResponseMutation = createMutationHook<Types.SimpleDeleteCallWithoutParametersAndResponseInput, Types.SimpleDeleteCallWithoutParametersAndResponseOutput>({
+    route: '/api/v{api-version}/simple',
+    method: 'DELETE',
+});
+
+/**
+ * @throws ApiError
+ */
+export const usePatchCallWithoutParametersAndResponseMutation = createMutationHook<Types.SimplePatchCallWithoutParametersAndResponseInput, Types.SimplePatchCallWithoutParametersAndResponseOutput>({
+    route: '/api/v{api-version}/simple',
+    method: 'PATCH',
 });
 
 /**
@@ -714,6 +738,14 @@ export const useCallWithDefaultOptionalParametersMutation = createMutationHook<T
 /**
  * @throws ApiError
  */
+export const useCallToTestOrderOfParamsMutation = createMutationHook<Types.DefaultsCallToTestOrderOfParamsInput, Types.DefaultsCallToTestOrderOfParamsOutput>({
+    route: '/api/v{api-version}/defaults',
+    method: 'PUT',
+});
+
+/**
+ * @throws ApiError
+ */
 export const useDuplicateName = createQueryHook<Types.DuplicateDuplicateNameInput, Types.DuplicateDuplicateNameOutput>({
     route: '/api/v{api-version}/duplicate',
     method: 'GET',
@@ -725,6 +757,22 @@ export const useDuplicateName = createQueryHook<Types.DuplicateDuplicateNameInpu
 export const useDuplicateName1Mutation = createMutationHook<Types.DuplicateDuplicateName1Input, Types.DuplicateDuplicateName1Output>({
     route: '/api/v{api-version}/duplicate',
     method: 'POST',
+});
+
+/**
+ * @throws ApiError
+ */
+export const useDuplicateName2Mutation = createMutationHook<Types.DuplicateDuplicateName2Input, Types.DuplicateDuplicateName2Output>({
+    route: '/api/v{api-version}/duplicate',
+    method: 'PUT',
+});
+
+/**
+ * @throws ApiError
+ */
+export const useDuplicateName3Mutation = createMutationHook<Types.DuplicateDuplicateName3Input, Types.DuplicateDuplicateName3Output>({
+    route: '/api/v{api-version}/duplicate',
+    method: 'DELETE',
 });
 
 /**
@@ -789,6 +837,14 @@ export const useCallWithResponse = createQueryHook<Types.ResponseCallWithRespons
 export const useCallWithDuplicateResponsesMutation = createMutationHook<Types.ResponseCallWithDuplicateResponsesInput, Types.ResponseCallWithDuplicateResponsesOutput>({
     route: '/api/v{api-version}/response',
     method: 'POST',
+});
+
+/**
+ * @throws ApiError
+ */
+export const useCallWithResponsesMutation = createMutationHook<Types.ResponseCallWithResponsesInput, Types.ResponseCallWithResponsesOutput>({
+    route: '/api/v{api-version}/response',
+    method: 'PUT',
 });
 
 /**
