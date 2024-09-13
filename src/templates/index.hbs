@@ -13,11 +13,11 @@ export * from './schemas/index{{>tsExtention}}';
 {{#if @root.exportServices}}
 {{#if services}}
 export * from './data-types{{>tsExtention}}';
+export * from './routes{{>tsExtention}}';
+export * from './client{{>tsExtention}}';
 {{#if totalHooks}}
 export * from './hooks{{>tsExtention}}';
 {{/if}}
-export * from './routes{{>tsExtention}}';
-export * from './client{{>tsExtention}}';
 {{/if}}
 {{/if}}
 

@@ -902,9 +902,9 @@ export * from './models/index'
 export * from './schemas/index';
 
 export * from './data-types';
-export * from './hooks';
 export * from './routes';
 export * from './client';
+export * from './hooks';
 
 "
 `;
