@@ -1,9 +1,9 @@
-import { MakeIntelliSense } from './MakeIntelliSense';
+import { Pretty } from './pretty';
 import { EndpointConfig, RequestInput, EndpointOptions, Nullable } from './commons';
 
 export interface ServerResolverFactory {
     <Input extends RequestInput, Output>(config: EndpointConfig): (
-        input: Nullable<MakeIntelliSense<Input>>,
+        input: Nullable<Pretty<Input>>,
         options?: EndpointOptions
-    ) => Promise<MakeIntelliSense<Output>>;
+    ) => Promise<Pretty<Output>>;
 }
