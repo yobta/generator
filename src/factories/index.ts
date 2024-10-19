@@ -1,5 +1,6 @@
-export * from './client';
-export * from './server';
-export * from './hooks';
+export type * from './client';
+export type * from './server';
+export type * from './hooks';
+export type * from './pretty';
 
-export * from './commons';
+export type * from './commons';

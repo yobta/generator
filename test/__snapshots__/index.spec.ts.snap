@@ -8,7 +8,7 @@ exports[`v2 should generate: test/generated/v2/client.ts 1`] = `
 "use client";
 
 import * as Types from './data-types';
-import { createClientResolver } from '../../../factories-module';
+import { createClientResolver } from '../../../factories-module/client';
 
 /**
  */
@@ -645,7 +645,7 @@ exports[`v2 should generate: test/generated/v2/hooks.ts 1`] = `
 "use client";
 
 import * as Types from './data-types';
-import { createQueryHook, createMutationHook } from '../../../factories-module';
+import { createQueryHook, createMutationHook } from '../../../factories-module/client';
 
 /**
  * @throws ApiError
@@ -2926,7 +2926,7 @@ exports[`v2 should generate: test/generated/v2/server.ts 1`] = `
 /* eslint-disable */
 
 import * as Types from './data-types';
-import { createServerResolver } from '../../../factories-module';
+import { createServerResolver } from '../../../factories-module/server';
 
 /**
  */
@@ -3049,7 +3049,7 @@ exports[`v3 should generate: test/generated/v3/server.ts 1`] = `
 /* eslint-disable */
 
 import * as Types from './data-types';
-import { createServerResolver } from '../../../factories-module';
+import { createServerResolver } from '../../../factories-module/server';
 
 /**
  */

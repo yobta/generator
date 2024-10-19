@@ -1,6 +1,6 @@
 # Basic usage
 
-```
+```md
 $ generate-yobta --help
 
   Usage: generate-yobta [options]
@@ -21,7 +21,7 @@ $ generate-yobta --help
     -h, --help                                  display help for command
 
   Examples
-    $ generate-yobta --input ./spec.json --output ./generated --factories some/dir/factories-file.ts
+    $ generate-yobta --input ./spec.json --output ./generated --factories some/dir
 ```
 
 ## Example
@@ -31,15 +31,15 @@ $ generate-yobta --help
 ```json
 {
     "scripts": {
-        "generate": "generate-yobta --input ./spec.json --output ./generated --factories some/dir/factories-file.ts"
+        "generate": "generate-yobta --input ./spec.json --output ./generated --factories some/dir"
     }
 }
 ```
 
 **NPX**
 
-```
-npx @yobta/generator --input ./spec.json --output ./generated --factories some/dir/factories-file.ts
+```sh
+npx @yobta/generator --input ./spec.json --output ./generated --factories some/dir
 ```
 
 **Node.js**

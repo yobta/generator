@@ -1,19 +1,19 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import { MakeIntelliSense } from './MakeIntelliSense';
+import { Pretty } from './pretty';
 import { EndpointConfig, RequestInput, EndpointOptions } from './commons';
 
 export interface QueryHookFactory {
     <Input extends RequestInput, Output>(config: EndpointConfig): (
-        input: MakeIntelliSense<Input>,
+        input: Pretty<Input>,
         hookOptions?: unknown,
         fetchOptions?: EndpointOptions
-    ) => MakeIntelliSense<Output>;
+    ) => Pretty<Output>;
 }
 
 export interface MutationHookFactory {
     <Input extends RequestInput, Output>(config: EndpointConfig): () => [
-        (input: MakeIntelliSense<Input>, fetchOptions?: EndpointOptions) => Promise<MakeIntelliSense<Output>>,
+        (input: Pretty<Input>, fetchOptions?: EndpointOptions) => Promise<Pretty<Output>>,
         ...unknown[]
     ];
 }
